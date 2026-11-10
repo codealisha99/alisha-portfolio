@@ -1,0 +1,83 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Gossipsub 1.4 — Alisha Karma</title>
+  <meta name="description" content="Large-message handling for libp2p&#39;s gossip protocol: a specification and a working prototype.">
+  <link rel="icon" href="../../assets/icon.svg">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400..800&family=Gloock&family=JetBrains+Mono:wght@400..800&family=Shantell+Sans:wght,BNCE,INFM@300..800,-100..100,0..100&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../../styles.css">
+  <link rel="stylesheet" href="../../project.css">
+  <script>
+    (() => { let t = null; try { t = JSON.parse(localStorage.getItem("desk:theme")); } catch {}
+      document.documentElement.dataset.theme = t || (matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light"); })();
+  </script>
+</head>
+<body class="pp">
+<header class="pp-bar">
+  <a class="logo" href="../../">alisha<span>’s board</span></a>
+  <nav aria-label="Site">
+    <a href="../../#projects">← the board</a>
+    <a href="../../projects/">all projects</a>
+  </nav>
+  <button type="button" class="switch" role="switch" aria-checked="false" data-toggle="theme"><span class="track" aria-hidden="true"></span>dark</button>
+</header>
+<main>
+<article class="sheet-page" aria-labelledby="pp-title">
+  <span class="pin" aria-hidden="true"></span>
+  <p class="label-maker pp-tag">~/projects/gossipsub</p>
+  <div class="pp-head">
+    <h1 id="pp-title">Gossipsub 1.4</h1>
+    <p class="pp-tagline">Large-message handling for libp2p&#39;s gossip protocol: a specification and a working prototype.</p>
+    <div class="pp-actions">
+      
+      <a class="btn" href="https://github.com/codealisha99/Gossipsub" target="_blank" rel="noopener">View the code <span aria-hidden="true">↗</span></a>
+    </div>
+  </div>
+  <p class="pp-status"><span class="is-local">runs locally</span><span>Python</span><span>github.com/codealisha99/Gossipsub</span></p>
+
+  <figure class="pp-tape" aria-label="Launch video">
+    <div class="frame">
+      <video preload="none" playsinline muted poster="../../assets/projects/gossipsub/shot-3.jpg" aria-label="Recorded from the Streamlit demo running locally: a 5 MB message is split into 80 segments, shuffled, reassembled and verified, then sent between a real sender and receiver over TCP. Both runs end in PASS.">
+        <source src="../../assets/projects/gossipsub/demo.webm" type='video/webm; codecs="vp9"'>
+      </video>
+      <button type="button" class="play" aria-label="Play the launch video: Recorded from the Streamlit demo running locally: a 5 MB message is split into 80 segments, shuffled, reassembled and verified, then sent between a real sender and receiver over TCP. Both runs end in PASS."><span aria-hidden="true">▶</span></button>
+    </div>
+    <figcaption>Recorded from the Streamlit demo running locally: a 5 MB message is split into 80 segments, shuffled, reassembled and verified, then sent between a real sender and receiver over TCP. Both runs end in PASS.</figcaption>
+    <p class="fallback" hidden>Your browser can’t play this recording. <a href="https://github.com/codealisha99/Gossipsub" target="_blank" rel="noopener">See the code on GitHub ↗</a></p>
+  </figure>
+
+  <div class="pp-body">
+    <div>
+      <section class="pp-prose" aria-labelledby="pp-what"><h2 id="pp-what">What it is</h2><p>Gossipsub is optimised for small messages, but decentralised systems increasingly need to move 5–100 MB payloads such as model updates and state snapshots. Gossipsub 1.4 adds a segmentation layer on top of the existing mesh.</p><p>This repository holds an RFC-style specification and a Python prototype, submitted for C4GT&#39;s DMP 2026. It stays backward-compatible with Gossipsub 1.1 peers.</p></section>
+      <section aria-labelledby="pp-how"><h2 id="pp-how">How it works</h2><ol class="pp-steps"><li><span><b>Segment</b>: the publisher splits a large message into fixed-size chunks (64 KB by default).</span></li><li><span><b>Envelope</b>: each chunk travels in a GossipSegment with a shared message ID and a per-chunk SHA-256 checksum.</span></li><li><span><b>Propagate</b>: segments move independently through the mesh, tolerating reordering and partial loss.</span></li><li><span><b>Reassemble</b>: receivers buffer, verify and reassemble before delivery, so there&#39;s no head-of-line blocking.</span></li></ol></section>
+    </div>
+    <aside class="pp-aside">
+      <section aria-labelledby="pp-stack"><h2 id="pp-stack">Built with</h2><ul class="pp-stack"><li>Python</li><li>libp2p</li><li>Streamlit</li><li>SHA-256</li><li>RFC-style spec</li></ul></section>
+      <section class="pp-run" aria-labelledby="pp-run"><h2 id="pp-run">Run it yourself</h2><pre tabindex="0" aria-label="Commands to run Gossipsub 1.4"><code>python demo.py                              # 5 MB payload end to end
+python -m unittest tests/test_interop.py -v
+streamlit run app.py                        # interactive demo</code></pre>
+        <p class="pp-note">From the project README. Media captured from the demo running locally; the project is not deployed.</p></section>
+    </aside>
+  </div>
+
+  <section class="pp-shots" aria-labelledby="pp-shots">
+    <h2 id="pp-shots">Screens</h2>
+    <figure class="pp-shot"><button type="button" aria-label="Enlarge: The Gossipsub 1.4 demo before a run: payload, chunk size, expected segments and a Run Quick Demo button"><img src="../../assets/projects/gossipsub/shot-1.jpg" data-full="../../assets/projects/gossipsub/shot-1.jpg" alt="The Gossipsub 1.4 demo before a run: payload, chunk size, expected segments and a Run Quick Demo button" loading="lazy" width="1280" height="800"></button><figcaption>The Gossipsub 1.4 demo before a run: payload, chunk size, expected segments and a Run Quick Demo button</figcaption></figure>
+    <figure class="pp-shot"><button type="button" aria-label="Enlarge: Live Network run in progress: the sender log lists shuffled segments with checksums, and the receiver log acknowledges each one"><img src="../../assets/projects/gossipsub/shot-2.jpg" data-full="../../assets/projects/gossipsub/shot-2.jpg" alt="Live Network run in progress: the sender log lists shuffled segments with checksums, and the receiver log acknowledges each one" loading="lazy" width="1280" height="800"></button><figcaption>Live Network run in progress: the sender log lists shuffled segments with checksums, and the receiver log acknowledges each one</figcaption></figure>
+    <figure class="pp-shot"><button type="button" aria-label="Enlarge: Finished run: segmenting, shuffling, reassembly and verification steps, an 80-chunk segment map, and Interoperability status: PASS with 80 of 80 checksums"><img src="../../assets/projects/gossipsub/shot-3.jpg" data-full="../../assets/projects/gossipsub/shot-3.jpg" alt="Finished run: segmenting, shuffling, reassembly and verification steps, an 80-chunk segment map, and Interoperability status: PASS with 80 of 80 checksums" loading="lazy" width="1280" height="800"></button><figcaption>Finished run: segmenting, shuffling, reassembly and verification steps, an 80-chunk segment map, and Interoperability status: PASS with 80 of 80 checksums</figcaption></figure>
+  </section>
+</article>
+<nav class="pp-more" aria-label="More projects">
+  <a href="../ai-inference-layer/"><small>← previous</small><b>Inference</b></a>
+  <a href="../schemaguard/"><small>next →</small><b>SchemaGuard</b></a>
+</nav>
+<p class="pp-foot">© 2026 Alisha Karma · <a href="../../#hi">say hi</a></p>
+</main>
+<dialog class="lightbox" aria-label="Screenshot"><form method="dialog" class="close"><button aria-label="Close">×</button></form><img alt=""><p></p></dialog>
+<script src="../../project.js"></script>
+</body>
+</html>

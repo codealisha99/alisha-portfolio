@@ -24,4 +24,14 @@ All copy lives in `index.html`. Each object on the board has its position inline
 
 Type: Gloock (display), Bricolage Grotesque (body), Shantell Sans (handwriting), JetBrains Mono (labels, data, code). Motion uses `--ease-out` and `--dur*` in `styles.css`, and is off under `prefers-reduced-motion`.
 
+## Project pages
+
+Each featured project has its own page at `/projects/<slug>/` with a launch video, screens and notes, plus an index at `/projects/`.
+
+- Copy lives in `scripts/build-projects.mjs` (taken from each project's README).
+- Media lives in `assets/projects/<slug>/` with a `media.json` (video file and caption, screenshots with alt text, optional caveat note).
+- After editing either, run `node scripts/build-projects.mjs` and commit the generated `projects/` folder. There's no build step on deploy.
+- The build refuses to write a page that is missing its video, has fewer than 2 screenshots, or has a screenshot without real alt text.
+- All footage is recorded from the real running apps: the live sites, or a local run for zentro, sherlock and gossipsub. Re-record when a product changes.
+
 Visitor stickies, the whiteboard drawing and dragged positions are stored in each visitor's own `localStorage`. Nothing is sent anywhere.

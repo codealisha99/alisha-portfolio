@@ -1,0 +1,21 @@
+{
+  "video": {
+    "file": "demo.webm",
+    "poster": "shot-1.jpg",
+    "caption": "Recorded on the live site: a sample with trailing commas is repaired and passes schema validation, then a schema-mismatch sample is caught and fails validation."
+  },
+  "shots": [
+    {
+      "file": "shot-1.jpg",
+      "alt": "SchemaGuard landing page: Turn messy LLM output into validated JSON, with a repair note showing a trailing comma removed"
+    },
+    {
+      "file": "shot-2.jpg",
+      "alt": "The validation workspace after repairing trailing commas: raw output on the left, the repaired JSON that matches the schema on the right"
+    },
+    {
+      "file": "shot-3.jpg",
+      "alt": "A schema-mismatch sample: the JSON is syntactically fine, but SchemaGuard reports Validation failed because the fields don’t match the schema"
+    }
+  ]
+}

@@ -1,0 +1,85 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>OrbitLedger — Alisha Karma</title>
+  <meta name="description" content="A crypto paper-trading workspace for BTC, ETH and SOL: real market data, virtual money.">
+  <link rel="icon" href="../../assets/icon.svg">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400..800&family=Gloock&family=JetBrains+Mono:wght@400..800&family=Shantell+Sans:wght,BNCE,INFM@300..800,-100..100,0..100&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../../styles.css">
+  <link rel="stylesheet" href="../../project.css">
+  <script>
+    (() => { let t = null; try { t = JSON.parse(localStorage.getItem("desk:theme")); } catch {}
+      document.documentElement.dataset.theme = t || (matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light"); })();
+  </script>
+</head>
+<body class="pp">
+<header class="pp-bar">
+  <a class="logo" href="../../">alisha<span>’s board</span></a>
+  <nav aria-label="Site">
+    <a href="../../#projects">← the board</a>
+    <a href="../../projects/">all projects</a>
+  </nav>
+  <button type="button" class="switch" role="switch" aria-checked="false" data-toggle="theme"><span class="track" aria-hidden="true"></span>dark</button>
+</header>
+<main>
+<article class="sheet-page" aria-labelledby="pp-title">
+  <span class="pin" aria-hidden="true"></span>
+  <p class="label-maker pp-tag">~/projects/orbit-ledger</p>
+  <div class="pp-head">
+    <h1 id="pp-title">OrbitLedger</h1>
+    <p class="pp-tagline">A crypto paper-trading workspace for BTC, ETH and SOL: real market data, virtual money.</p>
+    <div class="pp-actions">
+      <a class="btn primary" href="https://orbit-ledger-web.vercel.app" target="_blank" rel="noopener">Open the live site <span aria-hidden="true">↗</span></a>
+      <a class="btn" href="https://github.com/codealisha99/orbit-ledger" target="_blank" rel="noopener">View the code <span aria-hidden="true">↗</span></a>
+    </div>
+  </div>
+  <p class="pp-status"><span class="is-live">● live</span><span>TypeScript</span><span>github.com/codealisha99/orbit-ledger</span></p>
+
+  <figure class="pp-tape" aria-label="Launch video">
+    <div class="frame">
+      <video preload="none" playsinline muted poster="../../assets/projects/orbit-ledger/shot-1.jpg" aria-label="Recorded on the live site: the interactive trade card switches between long and short and steps through 1×, 5× and 10× leverage. The card is the landing page’s illustration with an example price path; the full workspace needs a paper account.">
+        <source src="../../assets/projects/orbit-ledger/demo.webm" type='video/webm; codecs="vp9"'>
+      </video>
+      <button type="button" class="play" aria-label="Play the launch video: Recorded on the live site: the interactive trade card switches between long and short and steps through 1×, 5× and 10× leverage. The card is the landing page’s illustration with an example price path; the full workspace needs a paper account."><span aria-hidden="true">▶</span></button>
+    </div>
+    <figcaption>Recorded on the live site: the interactive trade card switches between long and short and steps through 1×, 5× and 10× leverage. The card is the landing page’s illustration with an example price path; the full workspace needs a paper account.</figcaption>
+    <p class="fallback" hidden>Your browser can’t play this recording. <a href="https://orbit-ledger-web.vercel.app" target="_blank" rel="noopener">Try the live site ↗</a></p>
+  </figure>
+
+  <div class="pp-body">
+    <div>
+      <section class="pp-prose" aria-labelledby="pp-what"><h2 id="pp-what">What it is</h2><p>OrbitLedger lets you practise trading with virtual USD collateral. Execution quotes are simulated from Binance public trades, so prices move like the real market, but no real assets are ever bought or sold.</p><p>Leveraged positions are simulated linear perpetuals with no expiry and a fixed, educational funding rule of 1 basis point every 8 hours. The dashboard reconciles available cash, reserved collateral and signed P&amp;L so every number can be traced.</p></section>
+      <section aria-labelledby="pp-how"><h2 id="pp-how">How it works</h2><ol class="pp-steps"><li><span><b>Price poller</b>: streams Binance aggregate trades and publishes simulated quotes.</span></li><li><span><b>Backend</b>: Express on Bun with Prisma/PostgreSQL, a five-second risk cycle and a durable event outbox.</span></li><li><span><b>WebSocket service</b>: public market feeds plus private, versioned account events that reconcile after reconnects.</span></li><li><span><b>Frontend</b>: Next.js 15 and React 19 with lightweight-charts and a single managed real-time transport.</span></li></ol></section>
+    </div>
+    <aside class="pp-aside">
+      <section aria-labelledby="pp-stack"><h2 id="pp-stack">Built with</h2><ul class="pp-stack"><li>TypeScript</li><li>Bun</li><li>Next.js 15</li><li>React 19</li><li>Express</li><li>Prisma</li><li>PostgreSQL</li><li>Redis</li><li>WebSockets</li></ul></section>
+      <section class="pp-run" aria-labelledby="pp-run"><h2 id="pp-run">Run it yourself</h2><pre tabindex="0" aria-label="Commands to run OrbitLedger"><code>cp .env.example .env
+bun install
+docker compose up -d   # PostgreSQL + Redis
+bun run prisma generate
+bun run prisma migrate deploy
+bun run dev</code></pre>
+        <p class="pp-note">From the project README. </p></section>
+    </aside>
+  </div>
+
+  <section class="pp-shots" aria-labelledby="pp-shots">
+    <h2 id="pp-shots">Screens</h2>
+    <figure class="pp-shot"><button type="button" aria-label="Enlarge: OrbitLedger landing page: Make your next move a better one, beside a BTC/USDT paper-trading card with a price chart and leverage controls"><img src="../../assets/projects/orbit-ledger/shot-1.jpg" data-full="../../assets/projects/orbit-ledger/shot-1.jpg" alt="OrbitLedger landing page: Make your next move a better one, beside a BTC/USDT paper-trading card with a price chart and leverage controls" loading="lazy" width="1280" height="800"></button><figcaption>OrbitLedger landing page: Make your next move a better one, beside a BTC/USDT paper-trading card with a price chart and leverage controls</figcaption></figure>
+    <figure class="pp-shot"><button type="button" aria-label="Enlarge: How it works: three steps (find your moment, know what’s at stake, keep the whole story), with live BTC, ETH and SOL tickers above"><img src="../../assets/projects/orbit-ledger/shot-2.jpg" data-full="../../assets/projects/orbit-ledger/shot-2.jpg" alt="How it works: three steps (find your moment, know what’s at stake, keep the whole story), with live BTC, ETH and SOL tickers above" loading="lazy" width="1280" height="800"></button><figcaption>How it works: three steps (find your moment, know what’s at stake, keep the whole story), with live BTC, ETH and SOL tickers above</figcaption></figure>
+  </section>
+</article>
+<nav class="pp-more" aria-label="More projects">
+  <a href="../modellab/"><small>← previous</small><b>ModelLab</b></a>
+  <a href="../zentro/"><small>next →</small><b>Zentro</b></a>
+</nav>
+<p class="pp-foot">© 2026 Alisha Karma · <a href="../../#hi">say hi</a></p>
+</main>
+<dialog class="lightbox" aria-label="Screenshot"><form method="dialog" class="close"><button aria-label="Close">×</button></form><img alt=""><p></p></dialog>
+<script src="../../project.js"></script>
+</body>
+</html>

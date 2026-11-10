@@ -1,0 +1,83 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Zentro — Alisha Karma</title>
+  <meta name="description" content="Peer-to-peer video calls in the browser. Share a link; no accounts, no downloads.">
+  <link rel="icon" href="../../assets/icon.svg">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400..800&family=Gloock&family=JetBrains+Mono:wght@400..800&family=Shantell+Sans:wght,BNCE,INFM@300..800,-100..100,0..100&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../../styles.css">
+  <link rel="stylesheet" href="../../project.css">
+  <script>
+    (() => { let t = null; try { t = JSON.parse(localStorage.getItem("desk:theme")); } catch {}
+      document.documentElement.dataset.theme = t || (matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light"); })();
+  </script>
+</head>
+<body class="pp">
+<header class="pp-bar">
+  <a class="logo" href="../../">alisha<span>’s board</span></a>
+  <nav aria-label="Site">
+    <a href="../../#projects">← the board</a>
+    <a href="../../projects/">all projects</a>
+  </nav>
+  <button type="button" class="switch" role="switch" aria-checked="false" data-toggle="theme"><span class="track" aria-hidden="true"></span>dark</button>
+</header>
+<main>
+<article class="sheet-page" aria-labelledby="pp-title">
+  <span class="pin" aria-hidden="true"></span>
+  <p class="label-maker pp-tag">~/projects/zentro</p>
+  <div class="pp-head">
+    <h1 id="pp-title">Zentro</h1>
+    <p class="pp-tagline">Peer-to-peer video calls in the browser. Share a link; no accounts, no downloads.</p>
+    <div class="pp-actions">
+      
+      <a class="btn" href="https://github.com/codealisha99/zentro" target="_blank" rel="noopener">View the code <span aria-hidden="true">↗</span></a>
+    </div>
+  </div>
+  <p class="pp-status"><span class="is-local">runs locally</span><span>TypeScript</span><span>github.com/codealisha99/zentro</span></p>
+
+  <figure class="pp-tape" aria-label="Launch video">
+    <div class="frame">
+      <video preload="none" playsinline muted poster="../../assets/projects/zentro/shot-1.jpg" aria-label="Recorded from Zentro running locally: Alex starts a call, Sam opens the same link and joins, both video tiles go live, and they chat. The cameras are Chrome’s built-in test feed, because this was recorded headless.">
+        <source src="../../assets/projects/zentro/demo.webm" type='video/webm; codecs="vp9"'>
+      </video>
+      <button type="button" class="play" aria-label="Play the launch video: Recorded from Zentro running locally: Alex starts a call, Sam opens the same link and joins, both video tiles go live, and they chat. The cameras are Chrome’s built-in test feed, because this was recorded headless."><span aria-hidden="true">▶</span></button>
+    </div>
+    <figcaption>Recorded from Zentro running locally: Alex starts a call, Sam opens the same link and joins, both video tiles go live, and they chat. The cameras are Chrome’s built-in test feed, because this was recorded headless.</figcaption>
+    <p class="fallback" hidden>Your browser can’t play this recording. <a href="https://github.com/codealisha99/zentro" target="_blank" rel="noopener">See the code on GitHub ↗</a></p>
+  </figure>
+
+  <div class="pp-body">
+    <div>
+      <section class="pp-prose" aria-labelledby="pp-what"><h2 id="pp-what">What it is</h2><p>Zentro connects two people directly. Video and audio travel between the participants over WebRTC, so the media never touches a server.</p><p>The only server is a small signaling service that introduces the two browsers and then steps out of the way. It keeps no history.</p></section>
+      <section aria-labelledby="pp-how"><h2 id="pp-how">How it works</h2><ol class="pp-steps"><li><span><b>Lobby</b>: you create a room and share its link.</span></li><li><span><b>Signaling</b>: a Node WebSocket server pairs two clients per room and relays the SDP offer/answer and ICE candidates.</span></li><li><span><b>Call</b>: once connected, all media flows peer-to-peer, with a video grid, controls, chat and a participant list.</span></li><li><span><b>Transcript (optional)</b>: local audio recording can be transcribed with Groq&#39;s Whisper model.</span></li></ol></section>
+    </div>
+    <aside class="pp-aside">
+      <section aria-labelledby="pp-stack"><h2 id="pp-stack">Built with</h2><ul class="pp-stack"><li>TypeScript</li><li>Next.js</li><li>WebRTC</li><li>WebSockets</li><li>Node</li><li>pnpm + Turborepo</li></ul></section>
+      <section class="pp-run" aria-labelledby="pp-run"><h2 id="pp-run">Run it yourself</h2><pre tabindex="0" aria-label="Commands to run Zentro"><code>pnpm install
+pnpm --filter @webrtc-conf/signaling dev   # signaling on :8080
+pnpm --filter @webrtc-conf/web dev</code></pre>
+        <p class="pp-note">From the project README. Media captured from the app running locally; camera feeds are Chrome’s synthetic test pattern.</p></section>
+    </aside>
+  </div>
+
+  <section class="pp-shots" aria-labelledby="pp-shots">
+    <h2 id="pp-shots">Screens</h2>
+    <figure class="pp-shot"><button type="button" aria-label="Enlarge: Zentro landing page: The call is the whole product, with a Start a call button and a field to join with a code"><img src="../../assets/projects/zentro/shot-1.jpg" data-full="../../assets/projects/zentro/shot-1.jpg" alt="Zentro landing page: The call is the whole product, with a Start a call button and a field to join with a code" loading="lazy" width="1280" height="800"></button><figcaption>Zentro landing page: The call is the whole product, with a Start a call button and a field to join with a code</figcaption></figure>
+    <figure class="pp-shot"><button type="button" aria-label="Enlarge: The lobby before joining: a live camera preview, mic and camera toggles, the name Alex, and Enter meeting with a copyable invite link"><img src="../../assets/projects/zentro/shot-2.jpg" data-full="../../assets/projects/zentro/shot-2.jpg" alt="The lobby before joining: a live camera preview, mic and camera toggles, the name Alex, and Enter meeting with a copyable invite link" loading="lazy" width="1280" height="800"></button><figcaption>The lobby before joining: a live camera preview, mic and camera toggles, the name Alex, and Enter meeting with a copyable invite link</figcaption></figure>
+    <figure class="pp-shot"><button type="button" aria-label="Enlarge: A call with two people connected: Sam in the main tile, Alex in picture-in-picture, and the call controls along the bottom"><img src="../../assets/projects/zentro/shot-3.jpg" data-full="../../assets/projects/zentro/shot-3.jpg" alt="A call with two people connected: Sam in the main tile, Alex in picture-in-picture, and the call controls along the bottom" loading="lazy" width="1280" height="800"></button><figcaption>A call with two people connected: Sam in the main tile, Alex in picture-in-picture, and the call controls along the bottom</figcaption></figure>
+  </section>
+</article>
+<nav class="pp-more" aria-label="More projects">
+  <a href="../orbit-ledger/"><small>← previous</small><b>OrbitLedger</b></a>
+  <a href="../sherlock/"><small>next →</small><b>Sherlock</b></a>
+</nav>
+<p class="pp-foot">© 2026 Alisha Karma · <a href="../../#hi">say hi</a></p>
+</main>
+<dialog class="lightbox" aria-label="Screenshot"><form method="dialog" class="close"><button aria-label="Close">×</button></form><img alt=""><p></p></dialog>
+<script src="../../project.js"></script>
+</body>
+</html>

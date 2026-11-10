@@ -1,0 +1,22 @@
+{
+  "video": {
+    "file": "demo.webm",
+    "poster": "shot-2.jpg",
+    "caption": "Recorded on the live site: open the playground, try each engine, then classify “I love how simple and fast this is.” The real API answers HTTP 201 with the label positive and a score of 0.7311 in about 26 ms."
+  },
+  "shots": [
+    {
+      "file": "shot-1.jpg",
+      "alt": "Inference landing page: One registry. Three ways to infer, with the register, infer and inspect endpoints"
+    },
+    {
+      "file": "shot-2.jpg",
+      "alt": "The playground after a real run: the classify engine labels the input positive with a score of 0.7311, and the full JSON response is shown"
+    },
+    {
+      "file": "shot-3.jpg",
+      "alt": "The interactive API reference, where every endpoint can be tried against the same server"
+    }
+  ],
+  "note": "The recording made one real playground run, which the site saves to its public inference history."
+}

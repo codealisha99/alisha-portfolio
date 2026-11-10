@@ -1,0 +1,83 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>SchemaGuard — Alisha Karma</title>
+  <meta name="description" content="Turn messy LLM output into validated JSON, and see every repair it made.">
+  <link rel="icon" href="../../assets/icon.svg">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400..800&family=Gloock&family=JetBrains+Mono:wght@400..800&family=Shantell+Sans:wght,BNCE,INFM@300..800,-100..100,0..100&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../../styles.css">
+  <link rel="stylesheet" href="../../project.css">
+  <script>
+    (() => { let t = null; try { t = JSON.parse(localStorage.getItem("desk:theme")); } catch {}
+      document.documentElement.dataset.theme = t || (matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light"); })();
+  </script>
+</head>
+<body class="pp">
+<header class="pp-bar">
+  <a class="logo" href="../../">alisha<span>’s board</span></a>
+  <nav aria-label="Site">
+    <a href="../../#projects">← the board</a>
+    <a href="../../projects/">all projects</a>
+  </nav>
+  <button type="button" class="switch" role="switch" aria-checked="false" data-toggle="theme"><span class="track" aria-hidden="true"></span>dark</button>
+</header>
+<main>
+<article class="sheet-page" aria-labelledby="pp-title">
+  <span class="pin" aria-hidden="true"></span>
+  <p class="label-maker pp-tag">~/projects/schemaguard</p>
+  <div class="pp-head">
+    <h1 id="pp-title">SchemaGuard</h1>
+    <p class="pp-tagline">Turn messy LLM output into validated JSON, and see every repair it made.</p>
+    <div class="pp-actions">
+      <a class="btn primary" href="https://schemaguard-theta.vercel.app" target="_blank" rel="noopener">Open the live site <span aria-hidden="true">↗</span></a>
+      <a class="btn" href="https://github.com/codealisha99/schemaguard" target="_blank" rel="noopener">View the code <span aria-hidden="true">↗</span></a>
+    </div>
+  </div>
+  <p class="pp-status"><span class="is-live">● live</span><span>Python</span><span>github.com/codealisha99/schemaguard</span></p>
+
+  <figure class="pp-tape" aria-label="Launch video">
+    <div class="frame">
+      <video preload="none" playsinline muted poster="../../assets/projects/schemaguard/shot-1.jpg" aria-label="Recorded on the live site: a sample with trailing commas is repaired and passes schema validation, then a schema-mismatch sample is caught and fails validation.">
+        <source src="../../assets/projects/schemaguard/demo.webm" type='video/webm; codecs="vp9"'>
+      </video>
+      <button type="button" class="play" aria-label="Play the launch video: Recorded on the live site: a sample with trailing commas is repaired and passes schema validation, then a schema-mismatch sample is caught and fails validation."><span aria-hidden="true">▶</span></button>
+    </div>
+    <figcaption>Recorded on the live site: a sample with trailing commas is repaired and passes schema validation, then a schema-mismatch sample is caught and fails validation.</figcaption>
+    <p class="fallback" hidden>Your browser can’t play this recording. <a href="https://schemaguard-theta.vercel.app" target="_blank" rel="noopener">Try the live site ↗</a></p>
+  </figure>
+
+  <div class="pp-body">
+    <div>
+      <section class="pp-prose" aria-labelledby="pp-what"><h2 id="pp-what">What it is</h2><p>Language models often return almost-JSON: trailing commas, single quotes, missing brackets. SchemaGuard repairs common syntax errors, validates the result against strict schemas, and shows exactly what it changed.</p><p>The playground needs no model calls, API keys, signup or database.</p></section>
+      <section aria-labelledby="pp-how"><h2 id="pp-how">How it works</h2><ol class="pp-steps"><li><span><b>Paste</b>: drop in raw model output.</span></li><li><span><b>Repair</b>: common JSON syntax errors are fixed, and each fix is recorded.</span></li><li><span><b>Validate</b>: the repaired JSON is checked against one of three strict schemas.</span></li><li><span><b>Inspect</b>: review the repair notes, or use the same pipeline through the API.</span></li></ol></section>
+    </div>
+    <aside class="pp-aside">
+      <section aria-labelledby="pp-stack"><h2 id="pp-stack">Built with</h2><ul class="pp-stack"><li>Python</li><li>FastAPI</li><li>Vanilla HTML/CSS/JS</li><li>JSON Schema</li><li>pytest</li></ul></section>
+      <section class="pp-run" aria-labelledby="pp-run"><h2 id="pp-run">Run it yourself</h2><pre tabindex="0" aria-label="Commands to run SchemaGuard"><code>python3 -m venv .venv &amp;&amp; source .venv/bin/activate
+python -m pip install -r requirements-dev.txt
+python -m app.run   # http://localhost:8006/playground</code></pre>
+        <p class="pp-note">From the project README. </p></section>
+    </aside>
+  </div>
+
+  <section class="pp-shots" aria-labelledby="pp-shots">
+    <h2 id="pp-shots">Screens</h2>
+    <figure class="pp-shot"><button type="button" aria-label="Enlarge: SchemaGuard landing page: Turn messy LLM output into validated JSON, with a repair note showing a trailing comma removed"><img src="../../assets/projects/schemaguard/shot-1.jpg" data-full="../../assets/projects/schemaguard/shot-1.jpg" alt="SchemaGuard landing page: Turn messy LLM output into validated JSON, with a repair note showing a trailing comma removed" loading="lazy" width="1280" height="800"></button><figcaption>SchemaGuard landing page: Turn messy LLM output into validated JSON, with a repair note showing a trailing comma removed</figcaption></figure>
+    <figure class="pp-shot"><button type="button" aria-label="Enlarge: The validation workspace after repairing trailing commas: raw output on the left, the repaired JSON that matches the schema on the right"><img src="../../assets/projects/schemaguard/shot-2.jpg" data-full="../../assets/projects/schemaguard/shot-2.jpg" alt="The validation workspace after repairing trailing commas: raw output on the left, the repaired JSON that matches the schema on the right" loading="lazy" width="1280" height="800"></button><figcaption>The validation workspace after repairing trailing commas: raw output on the left, the repaired JSON that matches the schema on the right</figcaption></figure>
+    <figure class="pp-shot"><button type="button" aria-label="Enlarge: A schema-mismatch sample: the JSON is syntactically fine, but SchemaGuard reports Validation failed because the fields don’t match the schema"><img src="../../assets/projects/schemaguard/shot-3.jpg" data-full="../../assets/projects/schemaguard/shot-3.jpg" alt="A schema-mismatch sample: the JSON is syntactically fine, but SchemaGuard reports Validation failed because the fields don’t match the schema" loading="lazy" width="1280" height="800"></button><figcaption>A schema-mismatch sample: the JSON is syntactically fine, but SchemaGuard reports Validation failed because the fields don’t match the schema</figcaption></figure>
+  </section>
+</article>
+<nav class="pp-more" aria-label="More projects">
+  <a href="../gossipsub/"><small>← previous</small><b>Gossipsub 1.4</b></a>
+  <a href="../modellab/"><small>next →</small><b>ModelLab</b></a>
+</nav>
+<p class="pp-foot">© 2026 Alisha Karma · <a href="../../#hi">say hi</a></p>
+</main>
+<dialog class="lightbox" aria-label="Screenshot"><form method="dialog" class="close"><button aria-label="Close">×</button></form><img alt=""><p></p></dialog>
+<script src="../../project.js"></script>
+</body>
+</html>

@@ -1,0 +1,17 @@
+{
+  "video": {
+    "file": "demo.webm",
+    "poster": "shot-1.jpg",
+    "caption": "Recorded on the live site: the interactive trade card switches between long and short and steps through 1×, 5× and 10× leverage. The card is the landing page’s illustration with an example price path; the full workspace needs a paper account."
+  },
+  "shots": [
+    {
+      "file": "shot-1.jpg",
+      "alt": "OrbitLedger landing page: Make your next move a better one, beside a BTC/USDT paper-trading card with a price chart and leverage controls"
+    },
+    {
+      "file": "shot-2.jpg",
+      "alt": "How it works: three steps (find your moment, know what’s at stake, keep the whole story), with live BTC, ETH and SOL tickers above"
+    }
+  ]
+}

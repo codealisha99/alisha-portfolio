@@ -1,0 +1,21 @@
+{
+  "video": {
+    "file": "demo.webm",
+    "poster": "shot-3.jpg",
+    "caption": "Recorded on the live site: start a token stream, drop the connection mid-stream, resume it, and ModelLab verifies that all 240 tokens arrived with contiguous IDs and a matching SHA-256."
+  },
+  "shots": [
+    {
+      "file": "shot-1.jpg",
+      "alt": "ModelLab landing page: A small lab for the whole experiment, with a diagram of how stream replay works"
+    },
+    {
+      "file": "shot-2.jpg",
+      "alt": "A simulated token stream running in the playground: the output panel filling with tokens and counters for event ID and resumes"
+    },
+    {
+      "file": "shot-3.jpg",
+      "alt": "After dropping and resuming the stream: Verified across 1 resume, 240 tokens, contiguous IDs, SHA-256 matches the server"
+    }
+  ]
+}

@@ -3,6 +3,7 @@
   --wall: #12302a;
   --peg: #1e4a3e;   /* the original cutting-mat green, now as the pegboard */
   --peg-edge: #193f35;
+  --peg-slots: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='50' height='84'%3E%3Cg fill='%23000' fill-opacity='.55'%3E%3Crect x='22' y='8' width='6' height='22' rx='3'/%3E%3Crect x='-3' y='50' width='6' height='22' rx='3'/%3E%3Crect x='47' y='50' width='6' height='22' rx='3'/%3E%3C/g%3E%3Cg fill='%23fff' fill-opacity='.1'%3E%3Crect x='22' y='30' width='6' height='1.5' rx='.75'/%3E%3Crect x='-3' y='72' width='6' height='1.5' rx='.75'/%3E%3Crect x='47' y='72' width='6' height='1.5' rx='.75'/%3E%3C/g%3E%3C/svg%3E");
   --paper: #f5efe3;
   --paper-2: #ebe3d2;
   --ink: #1d1b2f;
@@ -135,7 +136,7 @@ a { color: inherit; }
   position: relative; width: 3300px; height: 2400px;
   transform-origin: 0 0;
   background-color: var(--peg);
-  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='50' height='84'%3E%3Cg fill='%23000' fill-opacity='.55'%3E%3Crect x='22' y='8' width='6' height='22' rx='3'/%3E%3Crect x='-3' y='50' width='6' height='22' rx='3'/%3E%3Crect x='47' y='50' width='6' height='22' rx='3'/%3E%3C/g%3E%3Cg fill='%23fff' fill-opacity='.1'%3E%3Crect x='22' y='30' width='6' height='1.5' rx='.75'/%3E%3Crect x='-3' y='72' width='6' height='1.5' rx='.75'/%3E%3Crect x='47' y='72' width='6' height='1.5' rx='.75'/%3E%3C/g%3E%3C/svg%3E");
+  background-image: var(--peg-slots);
   background-size: 50px 84px;
   background-position: 14px 10px;
   border-radius: 28px;
@@ -672,8 +673,10 @@ a { color: inherit; }
   .swatches label { padding: 8px; margin: -8px -4px; }
   :is(.repo, .c-card) > a { display: block; height: auto; padding: 14px 0; margin: -14px 0; } /* taller tap area, same layout */
   .c-links :is(a, button) { min-height: 44px; min-width: 44px; display: inline-flex; align-items: center; justify-content: center; }
-  :is(.marker, .eraser, .tv-play, .sticky .del, .more-repos, .addr, .c-more, .ruler a, .live) { position: relative; }
-  :is(.marker, .eraser, .tv-play, .sticky .del, .more-repos, .addr, .c-more, .ruler a, .live)::after {
+  :is(.marker, .eraser, .tv-play, .sticky .del, .more-repos, .addr, .c-more, .ruler a, .live, .code) { position: relative; }
+  :is(.marker, .eraser, .tv-play, .sticky .del, .more-repos, .addr, .c-more, .ruler a, .live, .code)::after {
     content: ""; position: absolute; inset: -14px -4px;
   }
 }
+.repo .meta .code, .c-meta .code { margin-left: 6px; font-weight: 700; text-decoration-color: var(--tomato); }
+.repo .meta .live + .code { margin-left: 6px; }

@@ -1,0 +1,18 @@
+{
+  "video": {
+    "file": "demo.webm",
+    "poster": "shot-1.jpg",
+    "caption": "Recorded on the live site: pick a category and a study time, type a topic, then open the one-time setup for your own OpenAI key. The brief, voice and grading steps run on that key, so they aren’t shown here."
+  },
+  "shots": [
+    {
+      "file": "shot-1.jpg",
+      "alt": "TalkSense landing page: Learn anything in 15 minutes. Then say it out loud, with a topic typed in, category chips and 15, 20 or 30 minute options"
+    },
+    {
+      "file": "shot-2.jpg",
+      "alt": "The one-time setup dialog asking for your own OpenAI key, which stays in your browser and is forwarded per request"
+    }
+  ],
+  "note": "The AI steps need the visitor’s own OpenAI key, so the footage stops at the key dialog."
+}

@@ -1,0 +1,49 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Projects — Alisha Karma</title>
+  <meta name="description" content="Everything Alisha Karma has built and shipped, each with its own page, screens and launch video.">
+  <link rel="icon" href="../assets/icon.svg">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400..800&family=Gloock&family=JetBrains+Mono:wght@400..800&family=Shantell+Sans:wght,BNCE,INFM@300..800,-100..100,0..100&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../styles.css">
+  <link rel="stylesheet" href="../project.css">
+  <script>
+    (() => { let t = null; try { t = JSON.parse(localStorage.getItem("desk:theme")); } catch {}
+      document.documentElement.dataset.theme = t || (matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light"); })();
+  </script>
+</head>
+<body class="pp">
+<header class="pp-bar">
+  <a class="logo" href="../">alisha<span>’s board</span></a>
+  <nav aria-label="Site">
+    <a href="../#projects">← the board</a>
+    <a href="../projects/">all projects</a>
+  </nav>
+  <button type="button" class="switch" role="switch" aria-checked="false" data-toggle="theme"><span class="track" aria-hidden="true"></span>dark</button>
+</header>
+<main>
+<article class="sheet-page" aria-labelledby="pp-title">
+  <span class="pin" aria-hidden="true"></span>
+  <p class="label-maker pp-tag">~/projects</p>
+  <h1 id="pp-title" class="pp-h1">Projects</h1>
+  <p class="pp-tagline">8 things I’ve built, 5 of them live right now. Each one has a launch video, screens and notes on how it works.</p>
+  <div class="pp-index">
+    <a class="pp-card" href="orbit-ledger/"><img src="../assets/projects/orbit-ledger/shot-1.jpg" alt="" loading="lazy" width="1280" height="800"><b>OrbitLedger</b><p>A crypto paper-trading workspace for BTC, ETH and SOL: real market data, virtual money.</p><p class="pp-status"><span class="is-live">● live</span><span>TypeScript</span><span>github.com/codealisha99/orbit-ledger</span></p></a>
+    <a class="pp-card" href="zentro/"><img src="../assets/projects/zentro/shot-1.jpg" alt="" loading="lazy" width="1280" height="800"><b>Zentro</b><p>Peer-to-peer video calls in the browser. Share a link; no accounts, no downloads.</p><p class="pp-status"><span class="is-local">runs locally</span><span>TypeScript</span><span>github.com/codealisha99/zentro</span></p></a>
+    <a class="pp-card" href="sherlock/"><img src="../assets/projects/sherlock/shot-1.jpg" alt="" loading="lazy" width="1280" height="800"><b>Sherlock</b><p>See where a codebase is weak before you read a line of it.</p><p class="pp-status"><span class="is-local">runs locally</span><span>Python</span><span>github.com/codealisha99/sherlock</span></p></a>
+    <a class="pp-card" href="talksense/"><img src="../assets/projects/talksense/shot-1.jpg" alt="" loading="lazy" width="1280" height="800"><b>TalkSense</b><p>Learn anything in 20 minutes, then prove it out loud.</p><p class="pp-status"><span class="is-live">● live</span><span>TypeScript</span><span>github.com/codealisha99/talksense</span></p></a>
+    <a class="pp-card" href="ai-inference-layer/"><img src="../assets/projects/ai-inference-layer/shot-1.jpg" alt="" loading="lazy" width="1280" height="800"><b>Inference</b><p>One model registry and inference API, implemented four times behind a single HTTP contract.</p><p class="pp-status"><span class="is-live">● live</span><span>Python</span><span>github.com/codealisha99/ai-inference-layer</span></p></a>
+    <a class="pp-card" href="gossipsub/"><img src="../assets/projects/gossipsub/shot-1.jpg" alt="" loading="lazy" width="1280" height="800"><b>Gossipsub 1.4</b><p>Large-message handling for libp2p&#39;s gossip protocol: a specification and a working prototype.</p><p class="pp-status"><span class="is-local">runs locally</span><span>Python</span><span>github.com/codealisha99/Gossipsub</span></p></a>
+    <a class="pp-card" href="schemaguard/"><img src="../assets/projects/schemaguard/shot-1.jpg" alt="" loading="lazy" width="1280" height="800"><b>SchemaGuard</b><p>Turn messy LLM output into validated JSON, and see every repair it made.</p><p class="pp-status"><span class="is-live">● live</span><span>Python</span><span>github.com/codealisha99/schemaguard</span></p></a>
+    <a class="pp-card" href="modellab/"><img src="../assets/projects/modellab/shot-1.jpg" alt="" loading="lazy" width="1280" height="800"><b>ModelLab</b><p>A small developer lab for simulated training, ranked memory and resumable token streams.</p><p class="pp-status"><span class="is-live">● live</span><span>Python</span><span>github.com/codealisha99/modellab</span></p></a>
+  </div>
+</article>
+<p class="pp-foot"><a href="../">← back to the board</a> · <a href="https://github.com/codealisha99?tab=repositories" target="_blank" rel="noopener">all 89 repos on GitHub ↗</a></p>
+</main>
+<script src="../project.js"></script>
+</body>
+</html>

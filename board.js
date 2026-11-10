@@ -372,7 +372,7 @@ $("#notepad").addEventListener("submit", (e) => {
   video.addEventListener("play", () => setPlaying(true));
   video.addEventListener("pause", () => setPlaying(false));
   // the tape is WebM; browsers that can't play it get a link to the live site instead of a dead button
-  const cannotPlay = !video.canPlayType('video/webm; codecs="vp8"');
+  const cannotPlay = !video.canPlayType('video/webm; codecs="vp9"');
   const offerLive = () => {
     text.replaceChildren("can’t play this tape here", document.createElement("br"));
     const a = document.createElement("a");

@@ -1,0 +1,22 @@
+{
+  "video": {
+    "file": "demo.webm",
+    "poster": "shot-1.jpg",
+    "caption": "Recorded from Zentro running locally: Alex starts a call, Sam opens the same link and joins, both video tiles go live, and they chat. The cameras are Chrome’s built-in test feed, because this was recorded headless."
+  },
+  "shots": [
+    {
+      "file": "shot-1.jpg",
+      "alt": "Zentro landing page: The call is the whole product, with a Start a call button and a field to join with a code"
+    },
+    {
+      "file": "shot-2.jpg",
+      "alt": "The lobby before joining: a live camera preview, mic and camera toggles, the name Alex, and Enter meeting with a copyable invite link"
+    },
+    {
+      "file": "shot-3.jpg",
+      "alt": "A call with two people connected: Sam in the main tile, Alex in picture-in-picture, and the call controls along the bottom"
+    }
+  ],
+  "note": "Media captured from the app running locally; camera feeds are Chrome’s synthetic test pattern."
+}

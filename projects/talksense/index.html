@@ -1,0 +1,83 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>TalkSense — Alisha Karma</title>
+  <meta name="description" content="Learn anything in 20 minutes, then prove it out loud.">
+  <link rel="icon" href="../../assets/icon.svg">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400..800&family=Gloock&family=JetBrains+Mono:wght@400..800&family=Shantell+Sans:wght,BNCE,INFM@300..800,-100..100,0..100&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../../styles.css">
+  <link rel="stylesheet" href="../../project.css">
+  <script>
+    (() => { let t = null; try { t = JSON.parse(localStorage.getItem("desk:theme")); } catch {}
+      document.documentElement.dataset.theme = t || (matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light"); })();
+  </script>
+</head>
+<body class="pp">
+<header class="pp-bar">
+  <a class="logo" href="../../">alisha<span>’s board</span></a>
+  <nav aria-label="Site">
+    <a href="../../#projects">← the board</a>
+    <a href="../../projects/">all projects</a>
+  </nav>
+  <button type="button" class="switch" role="switch" aria-checked="false" data-toggle="theme"><span class="track" aria-hidden="true"></span>dark</button>
+</header>
+<main>
+<article class="sheet-page" aria-labelledby="pp-title">
+  <span class="pin" aria-hidden="true"></span>
+  <p class="label-maker pp-tag">~/projects/talksense</p>
+  <div class="pp-head">
+    <h1 id="pp-title">TalkSense</h1>
+    <p class="pp-tagline">Learn anything in 20 minutes, then prove it out loud.</p>
+    <div class="pp-actions">
+      <a class="btn primary" href="https://web-production-c32cc2.up.railway.app" target="_blank" rel="noopener">Open the live site <span aria-hidden="true">↗</span></a>
+      <a class="btn" href="https://github.com/codealisha99/talksense" target="_blank" rel="noopener">View the code <span aria-hidden="true">↗</span></a>
+    </div>
+  </div>
+  <p class="pp-status"><span class="is-live">● live</span><span>TypeScript</span><span>github.com/codealisha99/talksense</span></p>
+
+  <figure class="pp-tape" aria-label="Launch video">
+    <div class="frame">
+      <video preload="none" playsinline muted poster="../../assets/projects/talksense/shot-1.jpg" aria-label="Recorded on the live site: pick a category and a study time, type a topic, then open the one-time setup for your own OpenAI key. The brief, voice and grading steps run on that key, so they aren’t shown here.">
+        <source src="../../assets/projects/talksense/demo.webm" type='video/webm; codecs="vp9"'>
+      </video>
+      <button type="button" class="play" aria-label="Play the launch video: Recorded on the live site: pick a category and a study time, type a topic, then open the one-time setup for your own OpenAI key. The brief, voice and grading steps run on that key, so they aren’t shown here."><span aria-hidden="true">▶</span></button>
+    </div>
+    <figcaption>Recorded on the live site: pick a category and a study time, type a topic, then open the one-time setup for your own OpenAI key. The brief, voice and grading steps run on that key, so they aren’t shown here.</figcaption>
+    <p class="fallback" hidden>Your browser can’t play this recording. <a href="https://web-production-c32cc2.up.railway.app" target="_blank" rel="noopener">Try the live site ↗</a></p>
+  </figure>
+
+  <div class="pp-body">
+    <div>
+      <section class="pp-prose" aria-labelledby="pp-what"><h2 id="pp-what">What it is</h2><p>Pick a topic and a study time. TalkSense gives you a brief of three to five things you should be able to explain, then times your study session.</p><p>When the timer ends, you explain the topic out loud. Your voice is transcribed and graded against a fixed four-part rubric, and you can share a public result page.</p></section>
+      <section aria-labelledby="pp-how"><h2 id="pp-how">How it works</h2><ol class="pp-steps"><li><span><b>Brief</b>: 3–5 concrete objectives, key terms and places to start.</span></li><li><span><b>Study</b>: a dial timer for 15, 20 or 30 minutes.</span></li><li><span><b>Explain</b>: speech is transcribed with OpenAI using your own key, which stays in your browser.</span></li><li><span><b>Grade</b>: coverage 35%, accuracy 30%, depth 20%, clarity 15%. The total is computed on the server, so shared scores can&#39;t be forged.</span></li></ol></section>
+    </div>
+    <aside class="pp-aside">
+      <section aria-labelledby="pp-stack"><h2 id="pp-stack">Built with</h2><ul class="pp-stack"><li>TypeScript</li><li>React</li><li>Vite</li><li>motion</li><li>Hono</li><li>Zod</li><li>Neon Postgres</li><li>OpenAI</li></ul></section>
+      <section class="pp-run" aria-labelledby="pp-run"><h2 id="pp-run">Run it yourself</h2><pre tabindex="0" aria-label="Commands to run TalkSense"><code>npm install
+echo &quot;DATABASE_URL=postgres://…&quot; &gt; .env
+npm run dev:api   # API on :3000
+npm run dev       # app on :5173</code></pre>
+        <p class="pp-note">From the project README. The AI steps need the visitor’s own OpenAI key, so the footage stops at the key dialog.</p></section>
+    </aside>
+  </div>
+
+  <section class="pp-shots" aria-labelledby="pp-shots">
+    <h2 id="pp-shots">Screens</h2>
+    <figure class="pp-shot"><button type="button" aria-label="Enlarge: TalkSense landing page: Learn anything in 15 minutes. Then say it out loud, with a topic typed in, category chips and 15, 20 or 30 minute options"><img src="../../assets/projects/talksense/shot-1.jpg" data-full="../../assets/projects/talksense/shot-1.jpg" alt="TalkSense landing page: Learn anything in 15 minutes. Then say it out loud, with a topic typed in, category chips and 15, 20 or 30 minute options" loading="lazy" width="1280" height="800"></button><figcaption>TalkSense landing page: Learn anything in 15 minutes. Then say it out loud, with a topic typed in, category chips and 15, 20 or 30 minute options</figcaption></figure>
+    <figure class="pp-shot"><button type="button" aria-label="Enlarge: The one-time setup dialog asking for your own OpenAI key, which stays in your browser and is forwarded per request"><img src="../../assets/projects/talksense/shot-2.jpg" data-full="../../assets/projects/talksense/shot-2.jpg" alt="The one-time setup dialog asking for your own OpenAI key, which stays in your browser and is forwarded per request" loading="lazy" width="1280" height="800"></button><figcaption>The one-time setup dialog asking for your own OpenAI key, which stays in your browser and is forwarded per request</figcaption></figure>
+  </section>
+</article>
+<nav class="pp-more" aria-label="More projects">
+  <a href="../sherlock/"><small>← previous</small><b>Sherlock</b></a>
+  <a href="../ai-inference-layer/"><small>next →</small><b>Inference</b></a>
+</nav>
+<p class="pp-foot">© 2026 Alisha Karma · <a href="../../#hi">say hi</a></p>
+</main>
+<dialog class="lightbox" aria-label="Screenshot"><form method="dialog" class="close"><button aria-label="Close">×</button></form><img alt=""><p></p></dialog>
+<script src="../../project.js"></script>
+</body>
+</html>

@@ -1,0 +1,84 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Inference — Alisha Karma</title>
+  <meta name="description" content="One model registry and inference API, implemented four times behind a single HTTP contract.">
+  <link rel="icon" href="../../assets/icon.svg">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400..800&family=Gloock&family=JetBrains+Mono:wght@400..800&family=Shantell+Sans:wght,BNCE,INFM@300..800,-100..100,0..100&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../../styles.css">
+  <link rel="stylesheet" href="../../project.css">
+  <script>
+    (() => { let t = null; try { t = JSON.parse(localStorage.getItem("desk:theme")); } catch {}
+      document.documentElement.dataset.theme = t || (matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light"); })();
+  </script>
+</head>
+<body class="pp">
+<header class="pp-bar">
+  <a class="logo" href="../../">alisha<span>’s board</span></a>
+  <nav aria-label="Site">
+    <a href="../../#projects">← the board</a>
+    <a href="../../projects/">all projects</a>
+  </nav>
+  <button type="button" class="switch" role="switch" aria-checked="false" data-toggle="theme"><span class="track" aria-hidden="true"></span>dark</button>
+</header>
+<main>
+<article class="sheet-page" aria-labelledby="pp-title">
+  <span class="pin" aria-hidden="true"></span>
+  <p class="label-maker pp-tag">~/projects/ai-inference-layer</p>
+  <div class="pp-head">
+    <h1 id="pp-title">Inference</h1>
+    <p class="pp-tagline">One model registry and inference API, implemented four times behind a single HTTP contract.</p>
+    <div class="pp-actions">
+      <a class="btn primary" href="https://ai-inference-layer.vercel.app" target="_blank" rel="noopener">Open the live site <span aria-hidden="true">↗</span></a>
+      <a class="btn" href="https://github.com/codealisha99/ai-inference-layer" target="_blank" rel="noopener">View the code <span aria-hidden="true">↗</span></a>
+    </div>
+  </div>
+  <p class="pp-status"><span class="is-live">● live</span><span>Python</span><span>github.com/codealisha99/ai-inference-layer</span></p>
+
+  <figure class="pp-tape" aria-label="Launch video">
+    <div class="frame">
+      <video preload="none" playsinline muted poster="../../assets/projects/ai-inference-layer/shot-2.jpg" aria-label="Recorded on the live site: open the playground, try each engine, then classify “I love how simple and fast this is.” The real API answers HTTP 201 with the label positive and a score of 0.7311 in about 26 ms.">
+        <source src="../../assets/projects/ai-inference-layer/demo.webm" type='video/webm; codecs="vp9"'>
+      </video>
+      <button type="button" class="play" aria-label="Play the launch video: Recorded on the live site: open the playground, try each engine, then classify “I love how simple and fast this is.” The real API answers HTTP 201 with the label positive and a score of 0.7311 in about 26 ms."><span aria-hidden="true">▶</span></button>
+    </div>
+    <figcaption>Recorded on the live site: open the playground, try each engine, then classify “I love how simple and fast this is.” The real API answers HTTP 201 with the label positive and a score of 0.7311 in about 26 ms.</figcaption>
+    <p class="fallback" hidden>Your browser can’t play this recording. <a href="https://ai-inference-layer.vercel.app" target="_blank" rel="noopener">Try the live site ↗</a></p>
+  </figure>
+
+  <div class="pp-body">
+    <div>
+      <section class="pp-prose" aria-labelledby="pp-what"><h2 id="pp-what">What it is</h2><p>Register a model, run inputs against it, read the history back. The same API is implemented in Python, TypeScript, Go and Rust, and all four share one contract and one response envelope.</p><p>The web workbench, Inference, includes a playground. Its classification, generation and embedding engines are deterministic reference implementations for integration testing; they don&#39;t call a hosted language model. Alisha maintains the project.</p></section>
+      <section aria-labelledby="pp-how"><h2 id="pp-how">How it works</h2><ol class="pp-steps"><li><span><b>Register</b>: POST /models with a type: text-generation, text-classification or embedding.</span></li><li><span><b>Infer</b>: POST /models/{id}/infer runs an input against the model.</span></li><li><span><b>Inspect</b>: GET /models/{id}/inferences reads the history back, paginated.</span></li><li><span><b>Reference port</b>: Python/FastAPI adds batching, SSE streaming, Prometheus metrics and API-key auth.</span></li></ol></section>
+    </div>
+    <aside class="pp-aside">
+      <section aria-labelledby="pp-stack"><h2 id="pp-stack">Built with</h2><ul class="pp-stack"><li>Python</li><li>FastAPI</li><li>TypeScript</li><li>Fastify</li><li>Go</li><li>Rust</li><li>axum</li><li>PostgreSQL</li></ul></section>
+      <section class="pp-run" aria-labelledby="pp-run"><h2 id="pp-run">Run it yourself</h2><pre tabindex="0" aria-label="Commands to run Inference"><code>cd ai-inference-server-py
+uv sync --extra dev --locked
+uv run ais serve --db ./data/ai.db
+# in another terminal: uv run ais demo</code></pre>
+        <p class="pp-note">From the project README. The recording made one real playground run, which the site saves to its public inference history.</p></section>
+    </aside>
+  </div>
+
+  <section class="pp-shots" aria-labelledby="pp-shots">
+    <h2 id="pp-shots">Screens</h2>
+    <figure class="pp-shot"><button type="button" aria-label="Enlarge: Inference landing page: One registry. Three ways to infer, with the register, infer and inspect endpoints"><img src="../../assets/projects/ai-inference-layer/shot-1.jpg" data-full="../../assets/projects/ai-inference-layer/shot-1.jpg" alt="Inference landing page: One registry. Three ways to infer, with the register, infer and inspect endpoints" loading="lazy" width="1280" height="800"></button><figcaption>Inference landing page: One registry. Three ways to infer, with the register, infer and inspect endpoints</figcaption></figure>
+    <figure class="pp-shot"><button type="button" aria-label="Enlarge: The playground after a real run: the classify engine labels the input positive with a score of 0.7311, and the full JSON response is shown"><img src="../../assets/projects/ai-inference-layer/shot-2.jpg" data-full="../../assets/projects/ai-inference-layer/shot-2.jpg" alt="The playground after a real run: the classify engine labels the input positive with a score of 0.7311, and the full JSON response is shown" loading="lazy" width="1280" height="800"></button><figcaption>The playground after a real run: the classify engine labels the input positive with a score of 0.7311, and the full JSON response is shown</figcaption></figure>
+    <figure class="pp-shot"><button type="button" aria-label="Enlarge: The interactive API reference, where every endpoint can be tried against the same server"><img src="../../assets/projects/ai-inference-layer/shot-3.jpg" data-full="../../assets/projects/ai-inference-layer/shot-3.jpg" alt="The interactive API reference, where every endpoint can be tried against the same server" loading="lazy" width="1280" height="800"></button><figcaption>The interactive API reference, where every endpoint can be tried against the same server</figcaption></figure>
+  </section>
+</article>
+<nav class="pp-more" aria-label="More projects">
+  <a href="../talksense/"><small>← previous</small><b>TalkSense</b></a>
+  <a href="../gossipsub/"><small>next →</small><b>Gossipsub 1.4</b></a>
+</nav>
+<p class="pp-foot">© 2026 Alisha Karma · <a href="../../#hi">say hi</a></p>
+</main>
+<dialog class="lightbox" aria-label="Screenshot"><form method="dialog" class="close"><button aria-label="Close">×</button></form><img alt=""><p></p></dialog>
+<script src="../../project.js"></script>
+</body>
+</html>

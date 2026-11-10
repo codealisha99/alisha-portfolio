@@ -1,0 +1,22 @@
+{
+  "video": {
+    "file": "demo.webm",
+    "poster": "shot-2.jpg",
+    "caption": "Recorded from Sherlock running locally: sign in, open the analysis of Sherlock’s own repository, explore the code graph, then the findings list."
+  },
+  "shots": [
+    {
+      "file": "shot-1.jpg",
+      "alt": "Sherlock landing page: See where a codebase is weak before you read it, with a field to paste a GitHub repository and an example graph"
+    },
+    {
+      "file": "shot-2.jpg",
+      "alt": "Sherlock analysing its own repository: a score of 56 out of 100, severity counts, and an interactive graph of 1,500 code nodes coloured by findings"
+    },
+    {
+      "file": "shot-3.jpg",
+      "alt": "The findings list for the same repository: 183 findings with severity and category filters, led by a critical dependency vulnerability"
+    }
+  ],
+  "note": "Media captured from the app running locally, analysing its own repository. The views shown come from the model-free stage; the AI verification and agent briefing need a local Ollama model and are not shown."
+}
