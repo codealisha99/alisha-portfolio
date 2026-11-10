@@ -1,0 +1,82 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Gambit — Alisha Karma</title>
+  <meta name="description" content="Multiplayer chess with clocks the server keeps honest, plus offline play against Stockfish.">
+  <link rel="icon" href="../../assets/icon.svg">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400..800&family=Gloock&family=JetBrains+Mono:wght@400..800&family=Shantell+Sans:wght,BNCE,INFM@300..800,-100..100,0..100&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../../styles.css">
+  <link rel="stylesheet" href="../../project.css">
+  <script>
+    (() => { let t = null; try { t = JSON.parse(localStorage.getItem("desk:theme")); } catch {}
+      document.documentElement.dataset.theme = t || (matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light"); })();
+  </script>
+</head>
+<body class="pp">
+<header class="pp-bar">
+  <a class="logo" href="../../">alisha<span>’s board</span></a>
+  <nav aria-label="Site">
+    <a href="../../#projects">← the board</a>
+    <a href="../../projects/">all projects</a>
+  </nav>
+  <button type="button" class="switch" role="switch" aria-checked="false" data-toggle="theme"><span class="track" aria-hidden="true"></span>dark</button>
+</header>
+<main>
+<article class="sheet-page" aria-labelledby="pp-title">
+  <span class="pin" aria-hidden="true"></span>
+  <p class="label-maker pp-tag">~/projects/gambit</p>
+  <div class="pp-head">
+    <h1 id="pp-title">Gambit</h1>
+    <p class="pp-tagline">Multiplayer chess with clocks the server keeps honest, plus offline play against Stockfish.</p>
+    <div class="pp-actions">
+      <a class="btn primary" href="https://gambit-mocha.vercel.app" target="_blank" rel="noopener">Open the live site <span aria-hidden="true">↗</span></a>
+      <a class="btn" href="https://github.com/codealisha99/chessandwhatever" target="_blank" rel="noopener">View the code <span aria-hidden="true">↗</span></a>
+    </div>
+  </div>
+  <p class="pp-status"><span class="is-live">● live</span><span>TypeScript</span><span>github.com/codealisha99/chessandwhatever</span></p>
+
+  <figure class="pp-tape" aria-label="Launch video">
+    <div class="frame">
+      <video preload="none" playsinline muted poster="../../assets/projects/gambit/shot-1.jpg" aria-label="A practice game against Stockfish on the live site: four opening moves, with the engine replying each time.">
+        <source src="../../assets/projects/gambit/demo.webm" type='video/webm; codecs="vp9"'>
+      </video>
+      <button type="button" class="play" aria-label="Play the launch video: A practice game against Stockfish on the live site: four opening moves, with the engine replying each time."><span aria-hidden="true">▶</span></button>
+    </div>
+    <figcaption>A practice game against Stockfish on the live site: four opening moves, with the engine replying each time.</figcaption>
+    <p class="fallback" hidden>Your browser can’t play this recording. <a href="https://gambit-mocha.vercel.app" target="_blank" rel="noopener">Try the live site ↗</a></p>
+  </figure>
+
+  <div class="pp-body">
+    <div>
+      <section class="pp-prose" aria-labelledby="pp-what"><h2 id="pp-what">What it is</h2><p>Gambit is chess for two people with a link. Start a game, send the private invite, and play on clocks that the server owns, so nobody&#39;s browser can fudge the time.</p><p>Games can be watched by spectators, rematched and chatted in. When you&#39;re alone, play offline against Stockfish 19 or open the analysis board.</p></section>
+      <section aria-labelledby="pp-how"><h2 id="pp-how">How it works</h2><ol class="pp-steps"><li><span><b>Invite</b>: a private link drops your opponent straight into the game.</span></li><li><span><b>Play</b>: every move is validated on the server with chess.js, and the server-authoritative clocks are pushed over WebSockets.</span></li><li><span><b>Watch</b>: spectators follow live; rematches and chat keep the same room.</span></li><li><span><b>Practice</b>: Stockfish 19 runs in the browser for offline games and analysis.</span></li></ol></section>
+    </div>
+    <aside class="pp-aside">
+      <section aria-labelledby="pp-stack"><h2 id="pp-stack">Built with</h2><ul class="pp-stack"><li>TypeScript</li><li>React 19</li><li>Vite</li><li>Tailwind v4</li><li>Node</li><li>WebSockets</li><li>chess.js</li><li>Neon Postgres</li><li>Redis</li></ul></section>
+      <section class="pp-run" aria-labelledby="pp-run"><h2 id="pp-run">Run it yourself</h2><pre tabindex="0" aria-label="Commands to run Gambit"><code>npm run setup
+npm run dev</code></pre>
+        <p class="pp-note">From the project README. Recorded in offline practice mode. Online games need two players and a sign-in.</p></section>
+    </aside>
+  </div>
+
+  <section class="pp-shots" aria-labelledby="pp-shots">
+    <h2 id="pp-shots">Screens</h2>
+    <figure class="pp-shot"><button type="button" aria-label="Enlarge: A practice game against Stockfish at about 1100 strength, four moves in, with the move list and hint controls"><img src="../../assets/projects/gambit/shot-1.jpg" data-full="../../assets/projects/gambit/shot-1.jpg" alt="A practice game against Stockfish at about 1100 strength, four moves in, with the move list and hint controls" loading="lazy" width="1280" height="800"></button><figcaption>A practice game against Stockfish at about 1100 strength, four moves in, with the move list and hint controls</figcaption></figure>
+    <figure class="pp-shot"><button type="button" aria-label="Enlarge: The analysis board after 1.e4 e5 2.Nf3 Nc6, with the eval bar at +0.4 and a best-move arrow"><img src="../../assets/projects/gambit/shot-2.jpg" data-full="../../assets/projects/gambit/shot-2.jpg" alt="The analysis board after 1.e4 e5 2.Nf3 Nc6, with the eval bar at +0.4 and a best-move arrow" loading="lazy" width="1280" height="800"></button><figcaption>The analysis board after 1.e4 e5 2.Nf3 Nc6, with the eval bar at +0.4 and a best-move arrow</figcaption></figure>
+    <figure class="pp-shot"><button type="button" aria-label="Enlarge: The Gambit lobby: a grid of time controls from 1+0 bullet to 30+20 classical"><img src="../../assets/projects/gambit/shot-3.jpg" data-full="../../assets/projects/gambit/shot-3.jpg" alt="The Gambit lobby: a grid of time controls from 1+0 bullet to 30+20 classical" loading="lazy" width="1280" height="800"></button><figcaption>The Gambit lobby: a grid of time controls from 1+0 bullet to 30+20 classical</figcaption></figure>
+  </section>
+</article>
+<nav class="pp-more" aria-label="More projects">
+  <a href="../modellab/"><small>← previous</small><b>ModelLab</b></a>
+  <a href="../kiro/"><small>next →</small><b>Kiro</b></a>
+</nav>
+<p class="pp-foot">© 2026 Alisha Karma · <a href="../../#hi">say hi</a></p>
+</main>
+<dialog class="lightbox" aria-label="Screenshot"><form method="dialog" class="close"><button aria-label="Close">×</button></form><img alt=""><p></p></dialog>
+<script src="../../project.js"></script>
+</body>
+</html>

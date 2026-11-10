@@ -1,0 +1,22 @@
+{
+  "video": {
+    "file": "demo.webm",
+    "poster": "shot-1.jpg",
+    "caption": "A practice game against Stockfish on the live site: four opening moves, with the engine replying each time."
+  },
+  "shots": [
+    {
+      "file": "shot-1.jpg",
+      "alt": "A practice game against Stockfish at about 1100 strength, four moves in, with the move list and hint controls"
+    },
+    {
+      "file": "shot-2.jpg",
+      "alt": "The analysis board after 1.e4 e5 2.Nf3 Nc6, with the eval bar at +0.4 and a best-move arrow"
+    },
+    {
+      "file": "shot-3.jpg",
+      "alt": "The Gambit lobby: a grid of time controls from 1+0 bullet to 30+20 classical"
+    }
+  ],
+  "note": "Recorded in offline practice mode. Online games need two players and a sign-in."
+}

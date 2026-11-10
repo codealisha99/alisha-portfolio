@@ -28,7 +28,7 @@ const PROJECTS = [
     run: "cp .env.example .env\nbun install\ndocker compose up -d   # PostgreSQL + Redis\nbun run prisma generate\nbun run prisma migrate deploy\nbun run dev",
   },
   {
-    slug: "zentro", name: "Zentro", repo: "zentro", live: null,
+    slug: "zentro", name: "Zentro", repo: "zentro", live: "https://zentro-three-phi.vercel.app",
     tagline: "Peer-to-peer video calls in the browser. Share a link; no accounts, no downloads.",
     what: [
       "Zentro connects two people directly. Video and audio travel between the participants over WebRTC, so the media never touches a server.",
@@ -44,7 +44,7 @@ const PROJECTS = [
     run: "pnpm install\npnpm --filter @webrtc-conf/signaling dev   # signaling on :8080\npnpm --filter @webrtc-conf/web dev",
   },
   {
-    slug: "sherlock", name: "Sherlock", repo: "sherlock", live: null,
+    slug: "sherlock", name: "Sherlock", repo: "sherlock", live: "https://sherlock-blush.vercel.app",
     tagline: "See where a codebase is weak before you read a line of it.",
     what: [
       "Paste a GitHub repository. Sherlock maps the code into an interactive graph, marks security, quality and dependency findings on that map, and scores the repository out of 100.",
@@ -92,22 +92,6 @@ const PROJECTS = [
     run: "cd ai-inference-server-py\nuv sync --extra dev --locked\nuv run ais serve --db ./data/ai.db\n# in another terminal: uv run ais demo",
   },
   {
-    slug: "gossipsub", name: "Gossipsub 1.4", repo: "Gossipsub", live: null,
-    tagline: "Large-message handling for libp2p's gossip protocol: a specification and a working prototype.",
-    what: [
-      "Gossipsub is optimised for small messages, but decentralised systems increasingly need to move 5–100 MB payloads such as model updates and state snapshots. Gossipsub 1.4 adds a segmentation layer on top of the existing mesh.",
-      "This repository holds an RFC-style specification and a Python prototype, submitted for C4GT's DMP 2026. It stays backward-compatible with Gossipsub 1.1 peers.",
-    ],
-    how: [
-      ["Segment", "the publisher splits a large message into fixed-size chunks (64 KB by default)."],
-      ["Envelope", "each chunk travels in a GossipSegment with a shared message ID and a per-chunk SHA-256 checksum."],
-      ["Propagate", "segments move independently through the mesh, tolerating reordering and partial loss."],
-      ["Reassemble", "receivers buffer, verify and reassemble before delivery, so there's no head-of-line blocking."],
-    ],
-    stack: ["Python", "libp2p", "Streamlit", "SHA-256", "RFC-style spec"],
-    run: "python demo.py                              # 5 MB payload end to end\npython -m unittest tests/test_interop.py -v\nstreamlit run app.py                        # interactive demo",
-  },
-  {
     slug: "schemaguard", name: "SchemaGuard", repo: "schemaguard", live: "https://schemaguard-theta.vercel.app",
     tagline: "Turn messy LLM output into validated JSON, and see every repair it made.",
     what: [
@@ -138,6 +122,86 @@ const PROJECTS = [
     ],
     stack: ["Python", "FastAPI", "Vanilla HTML/CSS/JS", "SSE", "pytest"],
     run: "python3 -m venv .venv && source .venv/bin/activate\npython -m pip install -r requirements-dev.txt\nOTEL_SDK_DISABLED=true python -m app.run   # http://localhost:8005/playground",
+  },
+  {
+    slug: "gambit", name: "Gambit", repo: "chessandwhatever", live: "https://gambit-mocha.vercel.app",
+    tagline: "Multiplayer chess with clocks the server keeps honest, plus offline play against Stockfish.",
+    what: [
+      "Gambit is chess for two people with a link. Start a game, send the private invite, and play on clocks that the server owns, so nobody's browser can fudge the time.",
+      "Games can be watched by spectators, rematched and chatted in. When you're alone, play offline against Stockfish 19 or open the analysis board.",
+    ],
+    how: [
+      ["Invite", "a private link drops your opponent straight into the game."],
+      ["Play", "every move is validated on the server with chess.js, and the server-authoritative clocks are pushed over WebSockets."],
+      ["Watch", "spectators follow live; rematches and chat keep the same room."],
+      ["Practice", "Stockfish 19 runs in the browser for offline games and analysis."],
+    ],
+    stack: ["TypeScript", "React 19", "Vite", "Tailwind v4", "Node", "WebSockets", "chess.js", "Neon Postgres", "Redis"],
+    run: "npm run setup\nnpm run dev",
+  },
+  {
+    slug: "kiro", name: "Kiro", repo: "kiro", live: "https://kiro-orpin-iota.vercel.app",
+    tagline: "A company knowledge desk that only answers with what you're allowed to see.",
+    what: [
+      "Kiro searches a company's documents and answers questions about them, and every answer respects the asker's permissions. If you can't open the source, Kiro won't quote it.",
+      "It's built as separate services: a Next.js desk, a Spring Boot core, and a Python service for retrieval, with pgvector for search. The full company-intelligence specification is still being written.",
+    ],
+    how: [
+      ["Ingest", "documents are indexed with their access rules attached."],
+      ["Ask", "questions go through the Spring Boot core, which checks who is asking."],
+      ["Retrieve", "a FastAPI service searches PostgreSQL/pgvector, filtered to what the user may read."],
+      ["Answer", "the desk shows the answer with the sources it came from."],
+    ],
+    stack: ["Next.js", "Spring Boot", "Java 21", "FastAPI", "PostgreSQL", "pgvector", "Redis", "Docker"],
+    run: "pnpm install --frozen-lockfile\ncp .env.example .env\ndocker compose up -d --build",
+  },
+  {
+    slug: "t0code", name: "t0code", repo: "t0code", live: "https://t0code.vercel.app",
+    tagline: "A local workspace for coding agents: in the browser, the terminal or the desktop.",
+    what: [
+      "t0code runs coding agents on your own machine and gives them one workspace. A local server holds the sessions, projects and git state, and you drive it from whichever surface you like.",
+      "The same server backs a React web app, a terminal UI and an Electron desktop shell, so a session started in one can be picked up in another.",
+    ],
+    how: [
+      ["Server", "a local WebSocket server runs agent sessions, git, terminals and checkpoints, backed by SQLite."],
+      ["Web", "a React app for chat, the composer, diffs and settings."],
+      ["Terminal", "a full terminal UI for working without leaving the shell."],
+      ["Desktop", "an Electron shell that bundles the server and the web UI."],
+    ],
+    stack: ["TypeScript", "Bun", "Node", "React 19", "Vite", "Electron", "WebSockets", "SQLite", "Astro"],
+    run: "bun install\nbun dev",
+  },
+  {
+    slug: "thedaaakhouse", name: "thedaaakhouse", repo: "thedaaakhouse", live: "https://thedaaakhouse.vercel.app",
+    tagline: "A job-search operating system: track applications, tailor résumés, prepare for interviews.",
+    what: [
+      "One application connects its job description, the résumé version you sent, ATS checks, interview plans and company research, all in one workspace.",
+      "It's evidence-driven. Tailored résumés are extractive, so bullets are reordered and never rewritten. ATS scores show their method. Anything missing from your profile is reported, never invented.",
+    ],
+    how: [
+      ["Track", "a spreadsheet-style job tracker with status history."],
+      ["Analyze", "paste a job description or URL to pull out skills, keywords and requirements."],
+      ["Tailor", "résumé versions are reordered against the job, and an ATS checker scores them (50% keywords, 25% skills, 15% experience, 10% formatting)."],
+      ["Prepare", "interview questions come from the job description, with an arena for mock sessions and a learning hub."],
+    ],
+    stack: ["Next.js", "TypeScript", "FastAPI", "Python", "SQLite", "PostgreSQL", "pgvector", "JWT"],
+    run: "# backend (:8001)\npython3.12 -m venv backend/.venv && source backend/.venv/bin/activate\npip install -r backend/requirements.txt\nuvicorn app.main:app --reload --port 8001\n# frontend (:3000)\nnpm install --prefix frontend\nnpm run dev --prefix frontend",
+  },
+  {
+    slug: "slacki", name: "Slacki", repo: "slacki", live: "https://web-beta-eight-zgpm6cl36r.vercel.app",
+    tagline: "Your Slack, with intention: every action waits for a person to approve it.",
+    what: [
+      "Slacki is a Slack CLI and a workspace control plane. People and agents can read Slack context and prepare structured actions, but nothing changes in the workspace until a person approves it.",
+      "The hosted app connects a workspace with Slack OAuth and holds the approval queue. The open-source CLI works against the same flow from the terminal.",
+    ],
+    how: [
+      ["Connect", "sign in with Slack OAuth to link a workspace."],
+      ["Read", "the CLI and agents pull channels, threads and context."],
+      ["Prepare", "changes are written up as structured actions, not sent."],
+      ["Approve", "a person reviews each action before it runs."],
+    ],
+    stack: ["TypeScript", "Bun", "Next.js", "React", "PostgreSQL", "Slack API", "Vercel Functions"],
+    run: "git clone https://github.com/codealisha99/slacki.git\ncd slacki\nbun install --frozen-lockfile\nbun run src/index.ts --help",
   },
 ];
 
@@ -261,7 +325,7 @@ ${bar("../")}
   <span class="pin" aria-hidden="true"></span>
   <p class="label-maker pp-tag">~/projects</p>
   <h1 id="pp-title" class="pp-h1">Projects</h1>
-  <p class="pp-tagline">${PROJECTS.length} things I’ve built, ${PROJECTS.filter((p) => p.live).length} of them live right now. Each one has a launch video, screens and notes on how it works.</p>
+  <p class="pp-tagline">${PROJECTS.length} things I’ve built, ${PROJECTS.every((p) => p.live) ? "all of them" : PROJECTS.filter((p) => p.live).length + " of them"} live right now. Each one has a launch video, screens and notes on how it works.</p>
   <div class="pp-index">
     ${PROJECTS.map((p) => { const m = media(p); return `<a class="pp-card" href="${p.slug}/"><img src="../assets/projects/${p.slug}/${esc(m.shots[0].file)}" alt="" loading="lazy" width="1280" height="800"><b>${esc(p.name)}</b><p>${esc(p.tagline)}</p>${status(p)}</a>`; }).join("\n    ")}
   </div>

@@ -1,0 +1,82 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>t0code — Alisha Karma</title>
+  <meta name="description" content="A local workspace for coding agents: in the browser, the terminal or the desktop.">
+  <link rel="icon" href="../../assets/icon.svg">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400..800&family=Gloock&family=JetBrains+Mono:wght@400..800&family=Shantell+Sans:wght,BNCE,INFM@300..800,-100..100,0..100&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../../styles.css">
+  <link rel="stylesheet" href="../../project.css">
+  <script>
+    (() => { let t = null; try { t = JSON.parse(localStorage.getItem("desk:theme")); } catch {}
+      document.documentElement.dataset.theme = t || (matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light"); })();
+  </script>
+</head>
+<body class="pp">
+<header class="pp-bar">
+  <a class="logo" href="../../">alisha<span>’s board</span></a>
+  <nav aria-label="Site">
+    <a href="../../#projects">← the board</a>
+    <a href="../../projects/">all projects</a>
+  </nav>
+  <button type="button" class="switch" role="switch" aria-checked="false" data-toggle="theme"><span class="track" aria-hidden="true"></span>dark</button>
+</header>
+<main>
+<article class="sheet-page" aria-labelledby="pp-title">
+  <span class="pin" aria-hidden="true"></span>
+  <p class="label-maker pp-tag">~/projects/t0code</p>
+  <div class="pp-head">
+    <h1 id="pp-title">t0code</h1>
+    <p class="pp-tagline">A local workspace for coding agents: in the browser, the terminal or the desktop.</p>
+    <div class="pp-actions">
+      <a class="btn primary" href="https://t0code.vercel.app" target="_blank" rel="noopener">Open the live site <span aria-hidden="true">↗</span></a>
+      <a class="btn" href="https://github.com/codealisha99/t0code" target="_blank" rel="noopener">View the code <span aria-hidden="true">↗</span></a>
+    </div>
+  </div>
+  <p class="pp-status"><span class="is-live">● live</span><span>TypeScript</span><span>github.com/codealisha99/t0code</span></p>
+
+  <figure class="pp-tape" aria-label="Launch video">
+    <div class="frame">
+      <video preload="none" playsinline muted poster="../../assets/projects/t0code/shot-1.jpg" aria-label="The live t0code site: the landing page, its three features, then the download page for each platform.">
+        <source src="../../assets/projects/t0code/demo.webm" type='video/webm; codecs="vp9"'>
+      </video>
+      <button type="button" class="play" aria-label="Play the launch video: The live t0code site: the landing page, its three features, then the download page for each platform."><span aria-hidden="true">▶</span></button>
+    </div>
+    <figcaption>The live t0code site: the landing page, its three features, then the download page for each platform.</figcaption>
+    <p class="fallback" hidden>Your browser can’t play this recording. <a href="https://t0code.vercel.app" target="_blank" rel="noopener">Try the live site ↗</a></p>
+  </figure>
+
+  <div class="pp-body">
+    <div>
+      <section class="pp-prose" aria-labelledby="pp-what"><h2 id="pp-what">What it is</h2><p>t0code runs coding agents on your own machine and gives them one workspace. A local server holds the sessions, projects and git state, and you drive it from whichever surface you like.</p><p>The same server backs a React web app, a terminal UI and an Electron desktop shell, so a session started in one can be picked up in another.</p></section>
+      <section aria-labelledby="pp-how"><h2 id="pp-how">How it works</h2><ol class="pp-steps"><li><span><b>Server</b>: a local WebSocket server runs agent sessions, git, terminals and checkpoints, backed by SQLite.</span></li><li><span><b>Web</b>: a React app for chat, the composer, diffs and settings.</span></li><li><span><b>Terminal</b>: a full terminal UI for working without leaving the shell.</span></li><li><span><b>Desktop</b>: an Electron shell that bundles the server and the web UI.</span></li></ol></section>
+    </div>
+    <aside class="pp-aside">
+      <section aria-labelledby="pp-stack"><h2 id="pp-stack">Built with</h2><ul class="pp-stack"><li>TypeScript</li><li>Bun</li><li>Node</li><li>React 19</li><li>Vite</li><li>Electron</li><li>WebSockets</li><li>SQLite</li><li>Astro</li></ul></section>
+      <section class="pp-run" aria-labelledby="pp-run"><h2 id="pp-run">Run it yourself</h2><pre tabindex="0" aria-label="Commands to run t0code"><code>bun install
+bun dev</code></pre>
+        <p class="pp-note">From the project README. The download page listed no published build when this was recorded.</p></section>
+    </aside>
+  </div>
+
+  <section class="pp-shots" aria-labelledby="pp-shots">
+    <h2 id="pp-shots">Screens</h2>
+    <figure class="pp-shot"><button type="button" aria-label="Enlarge: t0code hero, “Keep the agent close to the code.”, with a Download for macOS button"><img src="../../assets/projects/t0code/shot-1.jpg" data-full="../../assets/projects/t0code/shot-1.jpg" alt="t0code hero, “Keep the agent close to the code.”, with a Download for macOS button" loading="lazy" width="1280" height="800"></button><figcaption>t0code hero, “Keep the agent close to the code.”, with a Download for macOS button</figcaption></figure>
+    <figure class="pp-shot"><button type="button" aria-label="Enlarge: The three t0code features, stay in your project, see what changed, choose your surface, and the footer"><img src="../../assets/projects/t0code/shot-2.jpg" data-full="../../assets/projects/t0code/shot-2.jpg" alt="The three t0code features, stay in your project, see what changed, choose your surface, and the footer" loading="lazy" width="1280" height="800"></button><figcaption>The three t0code features, stay in your project, see what changed, choose your surface, and the footer</figcaption></figure>
+    <figure class="pp-shot"><button type="button" aria-label="Enlarge: The t0code download page with macOS, Windows and Linux builds listed"><img src="../../assets/projects/t0code/shot-3.jpg" data-full="../../assets/projects/t0code/shot-3.jpg" alt="The t0code download page with macOS, Windows and Linux builds listed" loading="lazy" width="1280" height="800"></button><figcaption>The t0code download page with macOS, Windows and Linux builds listed</figcaption></figure>
+  </section>
+</article>
+<nav class="pp-more" aria-label="More projects">
+  <a href="../kiro/"><small>← previous</small><b>Kiro</b></a>
+  <a href="../thedaaakhouse/"><small>next →</small><b>thedaaakhouse</b></a>
+</nav>
+<p class="pp-foot">© 2026 Alisha Karma · <a href="../../#hi">say hi</a></p>
+</main>
+<dialog class="lightbox" aria-label="Screenshot"><form method="dialog" class="close"><button aria-label="Close">×</button></form><img alt=""><p></p></dialog>
+<script src="../../project.js"></script>
+</body>
+</html>

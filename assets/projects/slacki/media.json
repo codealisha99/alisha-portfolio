@@ -1,0 +1,18 @@
+{
+  "video": {
+    "file": "demo.webm",
+    "poster": "shot-1.jpg",
+    "caption": "The live Slacki landing page: the workspace preview, the approval note and the three features."
+  },
+  "shots": [
+    {
+      "file": "shot-1.jpg",
+      "alt": "Slacki hero, “Your Slack, with intention.”, with Continue with Slack and a workspace preview"
+    },
+    {
+      "file": "shot-2.jpg",
+      "alt": "The three Slacki features, connected to your workspace, actions with a pause button, built in the open"
+    }
+  ],
+  "note": "The workspace preview is the site’s own illustration; the real workspace needs a Slack sign-in."
+}

@@ -1,0 +1,18 @@
+{
+  "video": {
+    "file": "demo.webm",
+    "poster": "shot-1.jpg",
+    "caption": "The live sign-in screen, switching between logging in and creating an account."
+  },
+  "shots": [
+    {
+      "file": "shot-1.jpg",
+      "alt": "thedaaakhouse sign-in: “Log in to your workspace” with username and password fields"
+    },
+    {
+      "file": "shot-2.jpg",
+      "alt": "The same screen in register mode: “Create your local account”"
+    }
+  ],
+  "note": "Everything in the app sits behind sign-in, so the footage shows only the public login and register screens."
+}

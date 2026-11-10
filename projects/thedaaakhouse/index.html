@@ -1,0 +1,86 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>thedaaakhouse — Alisha Karma</title>
+  <meta name="description" content="A job-search operating system: track applications, tailor résumés, prepare for interviews.">
+  <link rel="icon" href="../../assets/icon.svg">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400..800&family=Gloock&family=JetBrains+Mono:wght@400..800&family=Shantell+Sans:wght,BNCE,INFM@300..800,-100..100,0..100&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../../styles.css">
+  <link rel="stylesheet" href="../../project.css">
+  <script>
+    (() => { let t = null; try { t = JSON.parse(localStorage.getItem("desk:theme")); } catch {}
+      document.documentElement.dataset.theme = t || (matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light"); })();
+  </script>
+</head>
+<body class="pp">
+<header class="pp-bar">
+  <a class="logo" href="../../">alisha<span>’s board</span></a>
+  <nav aria-label="Site">
+    <a href="../../#projects">← the board</a>
+    <a href="../../projects/">all projects</a>
+  </nav>
+  <button type="button" class="switch" role="switch" aria-checked="false" data-toggle="theme"><span class="track" aria-hidden="true"></span>dark</button>
+</header>
+<main>
+<article class="sheet-page" aria-labelledby="pp-title">
+  <span class="pin" aria-hidden="true"></span>
+  <p class="label-maker pp-tag">~/projects/thedaaakhouse</p>
+  <div class="pp-head">
+    <h1 id="pp-title">thedaaakhouse</h1>
+    <p class="pp-tagline">A job-search operating system: track applications, tailor résumés, prepare for interviews.</p>
+    <div class="pp-actions">
+      <a class="btn primary" href="https://thedaaakhouse.vercel.app" target="_blank" rel="noopener">Open the live site <span aria-hidden="true">↗</span></a>
+      <a class="btn" href="https://github.com/codealisha99/thedaaakhouse" target="_blank" rel="noopener">View the code <span aria-hidden="true">↗</span></a>
+    </div>
+  </div>
+  <p class="pp-status"><span class="is-live">● live</span><span>Next.js</span><span>github.com/codealisha99/thedaaakhouse</span></p>
+
+  <figure class="pp-tape" aria-label="Launch video">
+    <div class="frame">
+      <video preload="none" playsinline muted poster="../../assets/projects/thedaaakhouse/shot-1.jpg" aria-label="The live sign-in screen, switching between logging in and creating an account.">
+        <source src="../../assets/projects/thedaaakhouse/demo.webm" type='video/webm; codecs="vp9"'>
+      </video>
+      <button type="button" class="play" aria-label="Play the launch video: The live sign-in screen, switching between logging in and creating an account."><span aria-hidden="true">▶</span></button>
+    </div>
+    <figcaption>The live sign-in screen, switching between logging in and creating an account.</figcaption>
+    <p class="fallback" hidden>Your browser can’t play this recording. <a href="https://thedaaakhouse.vercel.app" target="_blank" rel="noopener">Try the live site ↗</a></p>
+  </figure>
+
+  <div class="pp-body">
+    <div>
+      <section class="pp-prose" aria-labelledby="pp-what"><h2 id="pp-what">What it is</h2><p>One application connects its job description, the résumé version you sent, ATS checks, interview plans and company research, all in one workspace.</p><p>It&#39;s evidence-driven. Tailored résumés are extractive, so bullets are reordered and never rewritten. ATS scores show their method. Anything missing from your profile is reported, never invented.</p></section>
+      <section aria-labelledby="pp-how"><h2 id="pp-how">How it works</h2><ol class="pp-steps"><li><span><b>Track</b>: a spreadsheet-style job tracker with status history.</span></li><li><span><b>Analyze</b>: paste a job description or URL to pull out skills, keywords and requirements.</span></li><li><span><b>Tailor</b>: résumé versions are reordered against the job, and an ATS checker scores them (50% keywords, 25% skills, 15% experience, 10% formatting).</span></li><li><span><b>Prepare</b>: interview questions come from the job description, with an arena for mock sessions and a learning hub.</span></li></ol></section>
+    </div>
+    <aside class="pp-aside">
+      <section aria-labelledby="pp-stack"><h2 id="pp-stack">Built with</h2><ul class="pp-stack"><li>Next.js</li><li>TypeScript</li><li>FastAPI</li><li>Python</li><li>SQLite</li><li>PostgreSQL</li><li>pgvector</li><li>JWT</li></ul></section>
+      <section class="pp-run" aria-labelledby="pp-run"><h2 id="pp-run">Run it yourself</h2><pre tabindex="0" aria-label="Commands to run thedaaakhouse"><code># backend (:8001)
+python3.12 -m venv backend/.venv &amp;&amp; source backend/.venv/bin/activate
+pip install -r backend/requirements.txt
+uvicorn app.main:app --reload --port 8001
+# frontend (:3000)
+npm install --prefix frontend
+npm run dev --prefix frontend</code></pre>
+        <p class="pp-note">From the project README. Everything in the app sits behind sign-in, so the footage shows only the public login and register screens.</p></section>
+    </aside>
+  </div>
+
+  <section class="pp-shots" aria-labelledby="pp-shots">
+    <h2 id="pp-shots">Screens</h2>
+    <figure class="pp-shot"><button type="button" aria-label="Enlarge: thedaaakhouse sign-in: “Log in to your workspace” with username and password fields"><img src="../../assets/projects/thedaaakhouse/shot-1.jpg" data-full="../../assets/projects/thedaaakhouse/shot-1.jpg" alt="thedaaakhouse sign-in: “Log in to your workspace” with username and password fields" loading="lazy" width="1280" height="800"></button><figcaption>thedaaakhouse sign-in: “Log in to your workspace” with username and password fields</figcaption></figure>
+    <figure class="pp-shot"><button type="button" aria-label="Enlarge: The same screen in register mode: “Create your local account”"><img src="../../assets/projects/thedaaakhouse/shot-2.jpg" data-full="../../assets/projects/thedaaakhouse/shot-2.jpg" alt="The same screen in register mode: “Create your local account”" loading="lazy" width="1280" height="800"></button><figcaption>The same screen in register mode: “Create your local account”</figcaption></figure>
+  </section>
+</article>
+<nav class="pp-more" aria-label="More projects">
+  <a href="../t0code/"><small>← previous</small><b>t0code</b></a>
+  <a href="../slacki/"><small>next →</small><b>Slacki</b></a>
+</nav>
+<p class="pp-foot">© 2026 Alisha Karma · <a href="../../#hi">say hi</a></p>
+</main>
+<dialog class="lightbox" aria-label="Screenshot"><form method="dialog" class="close"><button aria-label="Close">×</button></form><img alt=""><p></p></dialog>
+<script src="../../project.js"></script>
+</body>
+</html>

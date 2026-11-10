@@ -1,0 +1,83 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Slacki — Alisha Karma</title>
+  <meta name="description" content="Your Slack, with intention: every action waits for a person to approve it.">
+  <link rel="icon" href="../../assets/icon.svg">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400..800&family=Gloock&family=JetBrains+Mono:wght@400..800&family=Shantell+Sans:wght,BNCE,INFM@300..800,-100..100,0..100&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../../styles.css">
+  <link rel="stylesheet" href="../../project.css">
+  <script>
+    (() => { let t = null; try { t = JSON.parse(localStorage.getItem("desk:theme")); } catch {}
+      document.documentElement.dataset.theme = t || (matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light"); })();
+  </script>
+</head>
+<body class="pp">
+<header class="pp-bar">
+  <a class="logo" href="../../">alisha<span>’s board</span></a>
+  <nav aria-label="Site">
+    <a href="../../#projects">← the board</a>
+    <a href="../../projects/">all projects</a>
+  </nav>
+  <button type="button" class="switch" role="switch" aria-checked="false" data-toggle="theme"><span class="track" aria-hidden="true"></span>dark</button>
+</header>
+<main>
+<article class="sheet-page" aria-labelledby="pp-title">
+  <span class="pin" aria-hidden="true"></span>
+  <p class="label-maker pp-tag">~/projects/slacki</p>
+  <div class="pp-head">
+    <h1 id="pp-title">Slacki</h1>
+    <p class="pp-tagline">Your Slack, with intention: every action waits for a person to approve it.</p>
+    <div class="pp-actions">
+      <a class="btn primary" href="https://web-beta-eight-zgpm6cl36r.vercel.app" target="_blank" rel="noopener">Open the live site <span aria-hidden="true">↗</span></a>
+      <a class="btn" href="https://github.com/codealisha99/slacki" target="_blank" rel="noopener">View the code <span aria-hidden="true">↗</span></a>
+    </div>
+  </div>
+  <p class="pp-status"><span class="is-live">● live</span><span>TypeScript</span><span>github.com/codealisha99/slacki</span></p>
+
+  <figure class="pp-tape" aria-label="Launch video">
+    <div class="frame">
+      <video preload="none" playsinline muted poster="../../assets/projects/slacki/shot-1.jpg" aria-label="The live Slacki landing page: the workspace preview, the approval note and the three features.">
+        <source src="../../assets/projects/slacki/demo.webm" type='video/webm; codecs="vp9"'>
+      </video>
+      <button type="button" class="play" aria-label="Play the launch video: The live Slacki landing page: the workspace preview, the approval note and the three features."><span aria-hidden="true">▶</span></button>
+    </div>
+    <figcaption>The live Slacki landing page: the workspace preview, the approval note and the three features.</figcaption>
+    <p class="fallback" hidden>Your browser can’t play this recording. <a href="https://web-beta-eight-zgpm6cl36r.vercel.app" target="_blank" rel="noopener">Try the live site ↗</a></p>
+  </figure>
+
+  <div class="pp-body">
+    <div>
+      <section class="pp-prose" aria-labelledby="pp-what"><h2 id="pp-what">What it is</h2><p>Slacki is a Slack CLI and a workspace control plane. People and agents can read Slack context and prepare structured actions, but nothing changes in the workspace until a person approves it.</p><p>The hosted app connects a workspace with Slack OAuth and holds the approval queue. The open-source CLI works against the same flow from the terminal.</p></section>
+      <section aria-labelledby="pp-how"><h2 id="pp-how">How it works</h2><ol class="pp-steps"><li><span><b>Connect</b>: sign in with Slack OAuth to link a workspace.</span></li><li><span><b>Read</b>: the CLI and agents pull channels, threads and context.</span></li><li><span><b>Prepare</b>: changes are written up as structured actions, not sent.</span></li><li><span><b>Approve</b>: a person reviews each action before it runs.</span></li></ol></section>
+    </div>
+    <aside class="pp-aside">
+      <section aria-labelledby="pp-stack"><h2 id="pp-stack">Built with</h2><ul class="pp-stack"><li>TypeScript</li><li>Bun</li><li>Next.js</li><li>React</li><li>PostgreSQL</li><li>Slack API</li><li>Vercel Functions</li></ul></section>
+      <section class="pp-run" aria-labelledby="pp-run"><h2 id="pp-run">Run it yourself</h2><pre tabindex="0" aria-label="Commands to run Slacki"><code>git clone https://github.com/codealisha99/slacki.git
+cd slacki
+bun install --frozen-lockfile
+bun run src/index.ts --help</code></pre>
+        <p class="pp-note">From the project README. The workspace preview is the site’s own illustration; the real workspace needs a Slack sign-in.</p></section>
+    </aside>
+  </div>
+
+  <section class="pp-shots" aria-labelledby="pp-shots">
+    <h2 id="pp-shots">Screens</h2>
+    <figure class="pp-shot"><button type="button" aria-label="Enlarge: Slacki hero, “Your Slack, with intention.”, with Continue with Slack and a workspace preview"><img src="../../assets/projects/slacki/shot-1.jpg" data-full="../../assets/projects/slacki/shot-1.jpg" alt="Slacki hero, “Your Slack, with intention.”, with Continue with Slack and a workspace preview" loading="lazy" width="1280" height="800"></button><figcaption>Slacki hero, “Your Slack, with intention.”, with Continue with Slack and a workspace preview</figcaption></figure>
+    <figure class="pp-shot"><button type="button" aria-label="Enlarge: The three Slacki features, connected to your workspace, actions with a pause button, built in the open"><img src="../../assets/projects/slacki/shot-2.jpg" data-full="../../assets/projects/slacki/shot-2.jpg" alt="The three Slacki features, connected to your workspace, actions with a pause button, built in the open" loading="lazy" width="1280" height="800"></button><figcaption>The three Slacki features, connected to your workspace, actions with a pause button, built in the open</figcaption></figure>
+  </section>
+</article>
+<nav class="pp-more" aria-label="More projects">
+  <a href="../thedaaakhouse/"><small>← previous</small><b>thedaaakhouse</b></a>
+  <a href="../orbit-ledger/"><small>next →</small><b>OrbitLedger</b></a>
+</nav>
+<p class="pp-foot">© 2026 Alisha Karma · <a href="../../#hi">say hi</a></p>
+</main>
+<dialog class="lightbox" aria-label="Screenshot"><form method="dialog" class="close"><button aria-label="Close">×</button></form><img alt=""><p></p></dialog>
+<script src="../../project.js"></script>
+</body>
+</html>

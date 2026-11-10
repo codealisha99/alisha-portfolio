@@ -1,0 +1,83 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Kiro — Alisha Karma</title>
+  <meta name="description" content="A company knowledge desk that only answers with what you&#39;re allowed to see.">
+  <link rel="icon" href="../../assets/icon.svg">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400..800&family=Gloock&family=JetBrains+Mono:wght@400..800&family=Shantell+Sans:wght,BNCE,INFM@300..800,-100..100,0..100&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="../../styles.css">
+  <link rel="stylesheet" href="../../project.css">
+  <script>
+    (() => { let t = null; try { t = JSON.parse(localStorage.getItem("desk:theme")); } catch {}
+      document.documentElement.dataset.theme = t || (matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light"); })();
+  </script>
+</head>
+<body class="pp">
+<header class="pp-bar">
+  <a class="logo" href="../../">alisha<span>’s board</span></a>
+  <nav aria-label="Site">
+    <a href="../../#projects">← the board</a>
+    <a href="../../projects/">all projects</a>
+  </nav>
+  <button type="button" class="switch" role="switch" aria-checked="false" data-toggle="theme"><span class="track" aria-hidden="true"></span>dark</button>
+</header>
+<main>
+<article class="sheet-page" aria-labelledby="pp-title">
+  <span class="pin" aria-hidden="true"></span>
+  <p class="label-maker pp-tag">~/projects/kiro</p>
+  <div class="pp-head">
+    <h1 id="pp-title">Kiro</h1>
+    <p class="pp-tagline">A company knowledge desk that only answers with what you&#39;re allowed to see.</p>
+    <div class="pp-actions">
+      <a class="btn primary" href="https://kiro-orpin-iota.vercel.app" target="_blank" rel="noopener">Open the live site <span aria-hidden="true">↗</span></a>
+      <a class="btn" href="https://github.com/codealisha99/kiro" target="_blank" rel="noopener">View the code <span aria-hidden="true">↗</span></a>
+    </div>
+  </div>
+  <p class="pp-status"><span class="is-live">● live</span><span>Next.js</span><span>github.com/codealisha99/kiro</span></p>
+
+  <figure class="pp-tape" aria-label="Launch video">
+    <div class="frame">
+      <video preload="none" playsinline muted poster="../../assets/projects/kiro/shot-1.jpg" aria-label="The live landing page: switching the company view between CEO, employee and manager, then the cited-answer example.">
+        <source src="../../assets/projects/kiro/demo.webm" type='video/webm; codecs="vp9"'>
+      </video>
+      <button type="button" class="play" aria-label="Play the launch video: The live landing page: switching the company view between CEO, employee and manager, then the cited-answer example."><span aria-hidden="true">▶</span></button>
+    </div>
+    <figcaption>The live landing page: switching the company view between CEO, employee and manager, then the cited-answer example.</figcaption>
+    <p class="fallback" hidden>Your browser can’t play this recording. <a href="https://kiro-orpin-iota.vercel.app" target="_blank" rel="noopener">Try the live site ↗</a></p>
+  </figure>
+
+  <div class="pp-body">
+    <div>
+      <section class="pp-prose" aria-labelledby="pp-what"><h2 id="pp-what">What it is</h2><p>Kiro searches a company&#39;s documents and answers questions about them, and every answer respects the asker&#39;s permissions. If you can&#39;t open the source, Kiro won&#39;t quote it.</p><p>It&#39;s built as separate services: a Next.js desk, a Spring Boot core, and a Python service for retrieval, with pgvector for search. The full company-intelligence specification is still being written.</p></section>
+      <section aria-labelledby="pp-how"><h2 id="pp-how">How it works</h2><ol class="pp-steps"><li><span><b>Ingest</b>: documents are indexed with their access rules attached.</span></li><li><span><b>Ask</b>: questions go through the Spring Boot core, which checks who is asking.</span></li><li><span><b>Retrieve</b>: a FastAPI service searches PostgreSQL/pgvector, filtered to what the user may read.</span></li><li><span><b>Answer</b>: the desk shows the answer with the sources it came from.</span></li></ol></section>
+    </div>
+    <aside class="pp-aside">
+      <section aria-labelledby="pp-stack"><h2 id="pp-stack">Built with</h2><ul class="pp-stack"><li>Next.js</li><li>Spring Boot</li><li>Java 21</li><li>FastAPI</li><li>PostgreSQL</li><li>pgvector</li><li>Redis</li><li>Docker</li></ul></section>
+      <section class="pp-run" aria-labelledby="pp-run"><h2 id="pp-run">Run it yourself</h2><pre tabindex="0" aria-label="Commands to run Kiro"><code>pnpm install --frozen-lockfile
+cp .env.example .env
+docker compose up -d --build</code></pre>
+        <p class="pp-note">From the project README. Footage is from the public pages. The company data shown is the site’s own labelled sample, and the knowledge desk itself needs an account.</p></section>
+    </aside>
+  </div>
+
+  <section class="pp-shots" aria-labelledby="pp-shots">
+    <h2 id="pp-shots">Screens</h2>
+    <figure class="pp-shot"><button type="button" aria-label="Enlarge: Kiro landing hero, “Ask your company what’s happening.”, with the company panel on the manager view"><img src="../../assets/projects/kiro/shot-1.jpg" data-full="../../assets/projects/kiro/shot-1.jpg" alt="Kiro landing hero, “Ask your company what’s happening.”, with the company panel on the manager view" loading="lazy" width="1280" height="800"></button><figcaption>Kiro landing hero, “Ask your company what’s happening.”, with the company panel on the manager view</figcaption></figure>
+    <figure class="pp-shot"><button type="button" aria-label="Enlarge: “Every answer shows its work”: a sample question about onboarding a supplier, answered from a cited document"><img src="../../assets/projects/kiro/shot-2.jpg" data-full="../../assets/projects/kiro/shot-2.jpg" alt="“Every answer shows its work”: a sample question about onboarding a supplier, answered from a cited document" loading="lazy" width="1280" height="800"></button><figcaption>“Every answer shows its work”: a sample question about onboarding a supplier, answered from a cited document</figcaption></figure>
+    <figure class="pp-shot"><button type="button" aria-label="Enlarge: The Kiro design-system page: an app shell with the Goals page and a command palette open"><img src="../../assets/projects/kiro/shot-3.jpg" data-full="../../assets/projects/kiro/shot-3.jpg" alt="The Kiro design-system page: an app shell with the Goals page and a command palette open" loading="lazy" width="1280" height="800"></button><figcaption>The Kiro design-system page: an app shell with the Goals page and a command palette open</figcaption></figure>
+  </section>
+</article>
+<nav class="pp-more" aria-label="More projects">
+  <a href="../gambit/"><small>← previous</small><b>Gambit</b></a>
+  <a href="../t0code/"><small>next →</small><b>t0code</b></a>
+</nav>
+<p class="pp-foot">© 2026 Alisha Karma · <a href="../../#hi">say hi</a></p>
+</main>
+<dialog class="lightbox" aria-label="Screenshot"><form method="dialog" class="close"><button aria-label="Close">×</button></form><img alt=""><p></p></dialog>
+<script src="../../project.js"></script>
+</body>
+</html>

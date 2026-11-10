@@ -1,0 +1,22 @@
+{
+  "video": {
+    "file": "demo.webm",
+    "poster": "shot-1.jpg",
+    "caption": "The live t0code site: the landing page, its three features, then the download page for each platform."
+  },
+  "shots": [
+    {
+      "file": "shot-1.jpg",
+      "alt": "t0code hero, “Keep the agent close to the code.”, with a Download for macOS button"
+    },
+    {
+      "file": "shot-2.jpg",
+      "alt": "The three t0code features, stay in your project, see what changed, choose your surface, and the footer"
+    },
+    {
+      "file": "shot-3.jpg",
+      "alt": "The t0code download page with macOS, Windows and Linux builds listed"
+    }
+  ],
+  "note": "The download page listed no published build when this was recorded."
+}

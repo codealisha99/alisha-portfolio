@@ -1,0 +1,22 @@
+{
+  "video": {
+    "file": "demo.webm",
+    "poster": "shot-1.jpg",
+    "caption": "The live landing page: switching the company view between CEO, employee and manager, then the cited-answer example."
+  },
+  "shots": [
+    {
+      "file": "shot-1.jpg",
+      "alt": "Kiro landing hero, “Ask your company what’s happening.”, with the company panel on the manager view"
+    },
+    {
+      "file": "shot-2.jpg",
+      "alt": "“Every answer shows its work”: a sample question about onboarding a supplier, answered from a cited document"
+    },
+    {
+      "file": "shot-3.jpg",
+      "alt": "The Kiro design-system page: an app shell with the Goals page and a command palette open"
+    }
+  ],
+  "note": "Footage is from the public pages. The company data shown is the site’s own labelled sample, and the knowledge desk itself needs an account."
+}
