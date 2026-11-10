@@ -131,3 +131,4 @@
   .pp-more a:last-child { text-align: left; }
 }
 @media (pointer: coarse) { .pp-bar nav a { min-height: 44px; } }
+.pp-group { font: 700 13px var(--f-type); text-transform: uppercase; letter-spacing: .18em; color: var(--ink-soft); margin: 44px 0 0; }

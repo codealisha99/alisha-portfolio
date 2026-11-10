@@ -442,7 +442,7 @@ a { color: inherit; }
 }
 
 /* ---------- polaroids ---------- */
-.photos { height: 560px; }
+.photos { height: 740px; }
 .polaroid.me { left: var(--x); top: var(--y); rotate: var(--r); width: 224px; z-index: 4; }
 .polaroid.me img { object-position: 50% 30%; }
 .polaroid.me:hover { scale: 1.03; }

@@ -12,7 +12,7 @@ const GH = "https://github.com/codealisha99/";
 
 const PROJECTS = [
   {
-    slug: "orbit-ledger", name: "OrbitLedger", repo: "orbit-ledger", live: "https://orbit-ledger-web.vercel.app",
+    slug: "orbit-ledger", pick: true, name: "OrbitLedger", repo: "orbit-ledger", live: "https://orbit-ledger-web.vercel.app",
     tagline: "A crypto paper-trading workspace for BTC, ETH and SOL: real market data, virtual money.",
     what: [
       "OrbitLedger lets you practise trading with virtual USD collateral. Execution quotes are simulated from Binance public trades, so prices move like the real market, but no real assets are ever bought or sold.",
@@ -26,6 +26,70 @@ const PROJECTS = [
     ],
     stack: ["TypeScript", "Bun", "Next.js 15", "React 19", "Express", "Prisma", "PostgreSQL", "Redis", "WebSockets"],
     run: "cp .env.example .env\nbun install\ndocker compose up -d   # PostgreSQL + Redis\nbun run prisma generate\nbun run prisma migrate deploy\nbun run dev",
+  },
+  {
+    slug: "gambit", pick: true, name: "Gambit", repo: "chessandwhatever", live: "https://gambit-mocha.vercel.app",
+    tagline: "Multiplayer chess with clocks the server keeps honest, plus offline play against Stockfish.",
+    what: [
+      "Gambit is chess for two people with a link. Start a game, send the private invite, and play on clocks that the server owns, so nobody's browser can fudge the time.",
+      "Games can be watched by spectators, rematched and chatted in. When you're alone, play offline against Stockfish 19 or open the analysis board.",
+    ],
+    how: [
+      ["Invite", "a private link drops your opponent straight into the game."],
+      ["Play", "every move is validated on the server with chess.js, and the server-authoritative clocks are pushed over WebSockets."],
+      ["Watch", "spectators follow live; rematches and chat keep the same room."],
+      ["Practice", "Stockfish 19 runs in the browser for offline games and analysis."],
+    ],
+    stack: ["TypeScript", "React 19", "Vite", "Tailwind v4", "Node", "WebSockets", "chess.js", "Neon Postgres", "Redis"],
+    run: "npm run setup\nnpm run dev",
+  },
+  {
+    slug: "sherlock", pick: true, name: "Sherlock", repo: "sherlock", live: "https://sherlock-blush.vercel.app",
+    tagline: "See where a codebase is weak before you read a line of it.",
+    what: [
+      "Paste a GitHub repository. Sherlock maps the code into an interactive graph, marks security, quality and dependency findings on that map, and scores the repository out of 100.",
+      "For a deeper read, a pipeline of six specialised agents running on a local Ollama model writes a technical briefing that explains the codebase from first principles. That stage keeps source code on your machine.",
+    ],
+    how: [
+      ["Ingest", "clones the repository, indexes it with tree-sitter and scans it. This stage needs no language model."],
+      ["Graph", "files, classes and functions become an interactive map, coloured by what was found in them."],
+      ["Findings", "security, dependency (via osv.dev), maintainability, quality, secrets and testing issues, with severity and triage filters."],
+      ["Agent briefing", "Repository Mapper, Flow Tracer, Component Analyst, Data & Integration Analyst, Gap Analyst and Teacher build the full report on a local model."],
+    ],
+    stack: ["Python", "tree-sitter", "pydantic", "httpx", "osv.dev", "Ollama", "Vanilla JS"],
+    run: "python3 -m venv .venv && source .venv/bin/activate\npip install -r requirements.txt\npython -m app.main --serve          # web UI on :8080\n# optional, for the agent briefing:\nollama pull qwen3-coder:30b-16k && ollama serve",
+  },
+  {
+    slug: "talksense", pick: true, name: "TalkSense", repo: "talksense", live: "https://web-production-c32cc2.up.railway.app",
+    tagline: "Learn anything in 20 minutes, then prove it out loud.",
+    what: [
+      "Pick a topic and a study time. TalkSense gives you a brief of three to five things you should be able to explain, then times your study session.",
+      "When the timer ends, you explain the topic out loud. Your voice is transcribed and graded against a fixed four-part rubric, and you can share a public result page.",
+    ],
+    how: [
+      ["Brief", "3–5 concrete objectives, key terms and places to start."],
+      ["Study", "a dial timer for 15, 20 or 30 minutes."],
+      ["Explain", "speech is transcribed with OpenAI using your own key, which stays in your browser."],
+      ["Grade", "coverage 35%, accuracy 30%, depth 20%, clarity 15%. The total is computed on the server, so shared scores can't be forged."],
+    ],
+    stack: ["TypeScript", "React", "Vite", "motion", "Hono", "Zod", "Neon Postgres", "OpenAI"],
+    run: "npm install\necho \"DATABASE_URL=postgres://…\" > .env\nnpm run dev:api   # API on :3000\nnpm run dev       # app on :5173",
+  },
+  {
+    slug: "ai-inference-layer", pick: true, name: "Inference", repo: "ai-inference-layer", live: "https://ai-inference-layer.vercel.app",
+    tagline: "One model registry and inference API, implemented four times behind a single HTTP contract.",
+    what: [
+      "Register a model, run inputs against it, read the history back. The same API is implemented in Python, TypeScript, Go and Rust, and all four share one contract and one response envelope.",
+      "The web workbench, Inference, includes a playground. Its classification, generation and embedding engines are deterministic reference implementations for integration testing; they don't call a hosted language model. Alisha maintains the project.",
+    ],
+    how: [
+      ["Register", "POST /models with a type: text-generation, text-classification or embedding."],
+      ["Infer", "POST /models/{id}/infer runs an input against the model."],
+      ["Inspect", "GET /models/{id}/inferences reads the history back, paginated."],
+      ["Reference port", "Python/FastAPI adds batching, SSE streaming, Prometheus metrics and API-key auth."],
+    ],
+    stack: ["Python", "FastAPI", "TypeScript", "Fastify", "Go", "Rust", "axum", "PostgreSQL"],
+    run: "cd ai-inference-server-py\nuv sync --extra dev --locked\nuv run ais serve --db ./data/ai.db\n# in another terminal: uv run ais demo",
   },
   {
     slug: "zentro", name: "Zentro", repo: "zentro", live: "https://zentro-three-phi.vercel.app",
@@ -42,54 +106,6 @@ const PROJECTS = [
     ],
     stack: ["TypeScript", "Next.js", "WebRTC", "WebSockets", "Node", "pnpm + Turborepo"],
     run: "pnpm install\npnpm --filter @webrtc-conf/signaling dev   # signaling on :8080\npnpm --filter @webrtc-conf/web dev",
-  },
-  {
-    slug: "sherlock", name: "Sherlock", repo: "sherlock", live: "https://sherlock-blush.vercel.app",
-    tagline: "See where a codebase is weak before you read a line of it.",
-    what: [
-      "Paste a GitHub repository. Sherlock maps the code into an interactive graph, marks security, quality and dependency findings on that map, and scores the repository out of 100.",
-      "For a deeper read, a pipeline of six specialised agents running on a local Ollama model writes a technical briefing that explains the codebase from first principles. That stage keeps source code on your machine.",
-    ],
-    how: [
-      ["Ingest", "clones the repository, indexes it with tree-sitter and scans it. This stage needs no language model."],
-      ["Graph", "files, classes and functions become an interactive map, coloured by what was found in them."],
-      ["Findings", "security, dependency (via osv.dev), maintainability, quality, secrets and testing issues, with severity and triage filters."],
-      ["Agent briefing", "Repository Mapper, Flow Tracer, Component Analyst, Data & Integration Analyst, Gap Analyst and Teacher build the full report on a local model."],
-    ],
-    stack: ["Python", "tree-sitter", "pydantic", "httpx", "osv.dev", "Ollama", "Vanilla JS"],
-    run: "python3 -m venv .venv && source .venv/bin/activate\npip install -r requirements.txt\npython -m app.main --serve          # web UI on :8080\n# optional, for the agent briefing:\nollama pull qwen3-coder:30b-16k && ollama serve",
-  },
-  {
-    slug: "talksense", name: "TalkSense", repo: "talksense", live: "https://web-production-c32cc2.up.railway.app",
-    tagline: "Learn anything in 20 minutes, then prove it out loud.",
-    what: [
-      "Pick a topic and a study time. TalkSense gives you a brief of three to five things you should be able to explain, then times your study session.",
-      "When the timer ends, you explain the topic out loud. Your voice is transcribed and graded against a fixed four-part rubric, and you can share a public result page.",
-    ],
-    how: [
-      ["Brief", "3–5 concrete objectives, key terms and places to start."],
-      ["Study", "a dial timer for 15, 20 or 30 minutes."],
-      ["Explain", "speech is transcribed with OpenAI using your own key, which stays in your browser."],
-      ["Grade", "coverage 35%, accuracy 30%, depth 20%, clarity 15%. The total is computed on the server, so shared scores can't be forged."],
-    ],
-    stack: ["TypeScript", "React", "Vite", "motion", "Hono", "Zod", "Neon Postgres", "OpenAI"],
-    run: "npm install\necho \"DATABASE_URL=postgres://…\" > .env\nnpm run dev:api   # API on :3000\nnpm run dev       # app on :5173",
-  },
-  {
-    slug: "ai-inference-layer", name: "Inference", repo: "ai-inference-layer", live: "https://ai-inference-layer.vercel.app",
-    tagline: "One model registry and inference API, implemented four times behind a single HTTP contract.",
-    what: [
-      "Register a model, run inputs against it, read the history back. The same API is implemented in Python, TypeScript, Go and Rust, and all four share one contract and one response envelope.",
-      "The web workbench, Inference, includes a playground. Its classification, generation and embedding engines are deterministic reference implementations for integration testing; they don't call a hosted language model. Alisha maintains the project.",
-    ],
-    how: [
-      ["Register", "POST /models with a type: text-generation, text-classification or embedding."],
-      ["Infer", "POST /models/{id}/infer runs an input against the model."],
-      ["Inspect", "GET /models/{id}/inferences reads the history back, paginated."],
-      ["Reference port", "Python/FastAPI adds batching, SSE streaming, Prometheus metrics and API-key auth."],
-    ],
-    stack: ["Python", "FastAPI", "TypeScript", "Fastify", "Go", "Rust", "axum", "PostgreSQL"],
-    run: "cd ai-inference-server-py\nuv sync --extra dev --locked\nuv run ais serve --db ./data/ai.db\n# in another terminal: uv run ais demo",
   },
   {
     slug: "schemaguard", name: "SchemaGuard", repo: "schemaguard", live: "https://schemaguard-theta.vercel.app",
@@ -122,22 +138,6 @@ const PROJECTS = [
     ],
     stack: ["Python", "FastAPI", "Vanilla HTML/CSS/JS", "SSE", "pytest"],
     run: "python3 -m venv .venv && source .venv/bin/activate\npython -m pip install -r requirements-dev.txt\nOTEL_SDK_DISABLED=true python -m app.run   # http://localhost:8005/playground",
-  },
-  {
-    slug: "gambit", name: "Gambit", repo: "chessandwhatever", live: "https://gambit-mocha.vercel.app",
-    tagline: "Multiplayer chess with clocks the server keeps honest, plus offline play against Stockfish.",
-    what: [
-      "Gambit is chess for two people with a link. Start a game, send the private invite, and play on clocks that the server owns, so nobody's browser can fudge the time.",
-      "Games can be watched by spectators, rematched and chatted in. When you're alone, play offline against Stockfish 19 or open the analysis board.",
-    ],
-    how: [
-      ["Invite", "a private link drops your opponent straight into the game."],
-      ["Play", "every move is validated on the server with chess.js, and the server-authoritative clocks are pushed over WebSockets."],
-      ["Watch", "spectators follow live; rematches and chat keep the same room."],
-      ["Practice", "Stockfish 19 runs in the browser for offline games and analysis."],
-    ],
-    stack: ["TypeScript", "React 19", "Vite", "Tailwind v4", "Node", "WebSockets", "chess.js", "Neon Postgres", "Redis"],
-    run: "npm run setup\nnpm run dev",
   },
   {
     slug: "kiro", name: "Kiro", repo: "kiro", live: "https://kiro-orpin-iota.vercel.app",
@@ -316,6 +316,8 @@ ${bar("../../")}
 `;
 }
 
+const cards = (list) => list.map((p) => { const m = media(p); return `<a class="pp-card" href="${p.slug}/"><img src="../assets/projects/${p.slug}/${esc(m.shots[0].file)}" alt="" loading="lazy" width="1280" height="800"><b>${esc(p.name)}</b><p>${esc(p.tagline)}</p>${status(p)}</a>`; }).join("\n    ");
+
 function index() {
   return `${head("Projects — Alisha Karma", "Everything Alisha Karma has built and shipped, each with its own page, screens and launch video.", "../")}
 <body class="pp">
@@ -326,8 +328,13 @@ ${bar("../")}
   <p class="label-maker pp-tag">~/projects</p>
   <h1 id="pp-title" class="pp-h1">Projects</h1>
   <p class="pp-tagline">${PROJECTS.length} things I’ve built, ${PROJECTS.every((p) => p.live) ? "all of them" : PROJECTS.filter((p) => p.live).length + " of them"} live right now. Each one has a launch video, screens and notes on how it works.</p>
+  <h2 class="pp-group">Start with these five</h2>
   <div class="pp-index">
-    ${PROJECTS.map((p) => { const m = media(p); return `<a class="pp-card" href="${p.slug}/"><img src="../assets/projects/${p.slug}/${esc(m.shots[0].file)}" alt="" loading="lazy" width="1280" height="800"><b>${esc(p.name)}</b><p>${esc(p.tagline)}</p>${status(p)}</a>`; }).join("\n    ")}
+    ${cards(PROJECTS.filter((p) => p.pick))}
+  </div>
+  <h2 class="pp-group">Everything else</h2>
+  <div class="pp-index">
+    ${cards(PROJECTS.filter((p) => !p.pick))}
   </div>
 </article>
 <p class="pp-foot"><a href="../">← back to the board</a> · <a href="https://github.com/codealisha99?tab=repositories" target="_blank" rel="noopener">all 89 repos on GitHub ↗</a></p>
