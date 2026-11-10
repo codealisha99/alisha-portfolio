@@ -19,5 +19,7 @@ All copy lives in `index.html`. Each object on the board has its position inline
 | Video | set `data-youtube="VIDEO_ID"` on `#video` |
 | Photos | swap the `picsum.photos` URLs for your own images in `assets/` |
 | Résumé | the `<dialog id="resume">` doubles as the print/PDF version |
+| Coder mode | the `<main class="coder">` block in `index.html`, styled by `coder.css` (the `</> coder` switch in the top bar) |
+| Contribution graph | fetched live for `USER` in `board.js` from github-contributions-api.jogruber.de; fills every `[data-contrib]` |
 
 Visitor stickies, the whiteboard drawing and dragged positions are stored in each visitor's own `localStorage`. Nothing is sent anywhere.

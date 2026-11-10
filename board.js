@@ -7,6 +7,8 @@ const store = {
 };
 const vp = $(".viewport"), board = $(".board");
 const desk = matchMedia("(min-width: 821px)");
+const root = document.documentElement;
+const coder = () => root.dataset.mode === "coder";
 const INTERACTIVE = "a, button, input, textarea, label, select, canvas, iframe, dialog";
 
 /* ---------- view (pan + zoom) ---------- */
@@ -95,7 +97,7 @@ vp.addEventListener("wheel", (e) => {
 }, { passive: false });
 
 addEventListener("keydown", (e) => {
-  if (!desk.matches || e.target.closest("input, textarea, dialog")) return;
+  if (!desk.matches || coder() || e.target.closest("input, textarea, dialog")) return;
   const step = 120, moves = { ArrowLeft: [step, 0], ArrowRight: [-step, 0], ArrowUp: [0, step], ArrowDown: [0, -step] };
   if (moves[e.key]) { e.preventDefault(); board.classList.add("glide"); view.x += moves[e.key][0]; view.y += moves[e.key][1]; apply(); }
   if (e.key === "+" || e.key === "=") zoomAt(1.2);
@@ -114,6 +116,7 @@ vp.addEventListener("scroll", () => { vp.scrollLeft = vp.scrollTop = 0; }); // f
 
 /* ---------- top bar ---------- */
 $$(".tabs a, .ruler a, .logo").forEach((a) => a.addEventListener("click", (e) => {
+  if (coder()) { e.preventDefault(); scrollTo({ top: 0, behavior: "smooth" }); return; }
   if (!desk.matches) return; // mobile: normal anchor scroll
   const el = $(a.getAttribute("href"));
   if (!el) return;
@@ -135,6 +138,59 @@ $("[data-tidy]").addEventListener("click", () => {
     if (home) { const [x, y] = home.split(","); el.style.setProperty("--x", x); el.style.setProperty("--y", y); }
   });
 });
+
+/* ---------- switches: light/dark theme, desk/coder mode (initial values set in <head>) ---------- */
+const SWITCHES = { theme: ["light", "dark"], mode: ["desk", "coder"] };
+$$("[data-toggle]").forEach((b) => {
+  const key = b.dataset.toggle, [off, on] = SWITCHES[key];
+  const sync = () => b.setAttribute("aria-checked", root.dataset[key] === on);
+  sync();
+  b.addEventListener("click", () => {
+    root.dataset[key] = root.dataset[key] === on ? off : on;
+    store.set("desk:" + key, root.dataset[key]);
+    sync();
+    if (key === "mode") { scrollTo(0, 0); if (!coder()) start(); } // board was display:none, re-centre it
+  });
+});
+
+/* ---------- github contribution graph (fills every [data-contrib]) ---------- */
+(() => {
+  const USER = "codealisha99";
+  const boxes = $$("[data-contrib]");
+  const cell = (cls, title) => { const i = document.createElement("i"); i.className = cls; if (title) i.title = title; return i; };
+  const fail = () => boxes.forEach((b) => {
+    const p = document.createElement("p"); p.className = "contrib-msg";
+    p.innerHTML = `couldn’t load the graph — <a href="https://github.com/${USER}" target="_blank" rel="noopener">see it on GitHub →</a>`;
+    b.replaceChildren(p);
+  });
+  fetch(`https://github-contributions-api.jogruber.de/v4/${USER}?y=last`)
+    .then((r) => (r.ok ? r.json() : Promise.reject(new Error("HTTP " + r.status))))
+    .then(({ contributions: days }) => {
+      if (!Array.isArray(days) || !days.length) throw new Error("unexpected response shape");
+      const total = days.reduce((n, d) => n + (Number(d.count) || 0), 0);
+      const lead = new Date(days[0].date + "T00:00").getDay(); // grid rows are Sun..Sat
+      boxes.forEach((b) => {
+        const grid = document.createElement("div");
+        grid.className = "contrib-grid";
+        grid.append(
+          ...Array.from({ length: lead }, () => cell("pad")),
+          ...days.map((d) => cell("l" + Math.min(4, Math.max(0, d.level | 0)), `${d.count} contribution${d.count === 1 ? "" : "s"} on ${d.date}`)),
+        );
+        const foot = document.createElement("p");
+        foot.className = "contrib-foot";
+        const sum = document.createElement("a");
+        sum.href = `https://github.com/${USER}`; sum.target = "_blank"; sum.rel = "noopener";
+        sum.textContent = `${total.toLocaleString()} contributions in the last year`;
+        const key = document.createElement("span");
+        key.className = "contrib-key";
+        key.append("less", ...[0, 1, 2, 3, 4].map((l) => cell("l" + l)), "more");
+        foot.append(sum, key);
+        b.replaceChildren(grid, foot);
+        b.scrollLeft = b.scrollWidth; // narrow screens: show the most recent weeks first
+      });
+    })
+    .catch((e) => { console.warn("contribution graph failed", e); fail(); });
+})();
 
 /* ---------- visitor stickies ---------- */
 const NOTES = "desk:notes";
@@ -313,6 +369,7 @@ $$(".item[id]").forEach((el) => {
 });
 notes.forEach(renderNote);
 function start() {
+  if (coder()) return;
   if (!desk.matches) { board.style.transform = ""; return; }
   const target = location.hash && $(location.hash);
   centerOn(target || $("#intro"), false, innerWidth < 1200 ? 0.75 : 0.9);

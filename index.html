@@ -8,8 +8,18 @@
   <link rel="icon" href="assets/icon.svg">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400..800&family=Courier+Prime:ital,wght@0,400;0,700;1,400&family=Gloock&family=Shantell+Sans:ital,wght,BNCE,INFM@0,300..800,-100..100,0..100;1,300..800,-100..100,0..100&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400..800&family=Courier+Prime:ital,wght@0,400;0,700;1,400&family=Gloock&family=JetBrains+Mono:wght@400;600;800&family=Shantell+Sans:ital,wght,BNCE,INFM@0,300..800,-100..100,0..100;1,300..800,-100..100,0..100&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="coder.css">
+  <script>
+    // set theme + mode before first paint so there's no flash
+    (() => {
+      const get = (k) => { try { return JSON.parse(localStorage.getItem(k)); } catch { return null; } };
+      const root = document.documentElement;
+      root.dataset.theme = get("desk:theme") || (matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light");
+      root.dataset.mode = get("desk:mode") || "desk";
+    })();
+  </script>
 </head>
 <body>
 
@@ -33,6 +43,10 @@
     <button type="button" data-zoom="0" aria-label="Fit whole board">fit</button>
     <button type="button" data-zoom="1" aria-label="Zoom in">+</button>
     <button type="button" data-tidy title="Put everything back where I left it">tidy up</button>
+  </div>
+  <div class="switches">
+    <button type="button" class="switch" role="switch" aria-checked="false" data-toggle="theme"><span class="track" aria-hidden="true"></span>dark</button>
+    <button type="button" class="switch" role="switch" aria-checked="false" data-toggle="mode"><span class="track" aria-hidden="true"></span>&lt;/&gt; coder</button>
   </div>
 </header>
 
@@ -289,8 +303,15 @@
     </div>
   </section>
 
+  <!-- ============ CONTRIBUTIONS (calendar printout) ============ -->
+  <section class="item contrib-card" id="contrib" style="--x:1240px;--y:960px;--r:-0.8deg" aria-labelledby="contrib-h">
+    <span class="tape tc"></span>
+    <h2 id="contrib-h" class="hand">one square a day, a year of commits</h2>
+    <div class="contrib" data-contrib><p class="contrib-msg typed">loading from github…</p></div>
+  </section>
+
   <!-- desk junk -->
-  <span class="stain" style="--x:1690px;--y:930px" aria-hidden="true"></span>
+  <span class="stain" style="--x:2240px;--y:1960px" aria-hidden="true"></span>
   <span class="paperclip" style="--x:740px;--y:1060px" aria-hidden="true"></span>
 
   <!-- ============ FOOTER (ruler) ============ -->
@@ -300,6 +321,92 @@
   </footer>
 
 </div>
+</main>
+
+<!-- ============ CODER MODE: a plain, scrollable dev portfolio ============ -->
+<main class="coder" aria-label="Alisha Karma — developer portfolio">
+  <section class="c-hero">
+    <p class="c-prompt"><span class="c-user">alisha@karma</span>:<span class="c-path">~</span>$ whoami</p>
+    <h1>Alisha Karma</h1>
+    <p class="c-role">Full-stack &amp; AI engineer. I build AI agents and inference infra, peer-to-peer video, trading simulators, and the occasional chess thing.</p>
+    <ul class="c-links">
+      <li><a href="https://github.com/codealisha99" target="_blank" rel="noopener">github</a></li>
+      <li><a href="https://www.linkedin.com/in/alisha-karma-4b94b1298/" target="_blank" rel="noopener">linkedin</a></li>
+      <li><a href="https://x.com/KarmaAlisha" target="_blank" rel="noopener">x</a></li>
+      <li><a href="mailto:codealisha99@gmail.com">email</a></li>
+      <li><button type="button" data-open="resume">resume.pdf</button></li>
+    </ul>
+    <p class="c-prompt">$ <span class="c-cursor" aria-hidden="true"></span></p>
+  </section>
+
+  <section class="c-sec" aria-labelledby="c-about">
+    <h2 class="c-h" id="c-about"><span>01</span> about.ts</h2>
+    <pre class="c-code"><code><span class="k">const</span> alisha = {
+  role: <span class="s">"full-stack &amp; AI engineer"</span>,
+  location: <span class="s">"keeps changing ✈"</span>,
+  focus: [<span class="s">"agents"</span>, <span class="s">"inference infra"</span>, <span class="s">"p2p"</span>, <span class="s">"trading sims"</span>],
+  publicRepos: <span class="n">89</span>,
+  motto: <span class="s">"be as you wish to seem."</span>,
+  openToWork: <span class="n">true</span>, <span class="c">// say hi ↓</span>
+};</code></pre>
+  </section>
+
+  <section class="c-sec" aria-labelledby="c-contrib">
+    <h2 class="c-h" id="c-contrib"><span>02</span> git log --since="1 year ago"</h2>
+    <div class="contrib" data-contrib><p class="contrib-msg">loading from github…</p></div>
+  </section>
+
+  <section class="c-sec" aria-labelledby="c-projects">
+    <h2 class="c-h" id="c-projects"><span>03</span> ls ~/projects</h2>
+    <ul class="c-grid">
+      <li class="c-card"><a href="https://github.com/codealisha99/orbit-ledger" target="_blank" rel="noopener">orbit-ledger</a><p>Crypto paper-trading workspace for BTC, ETH &amp; SOL — virtual collateral, simulated perps, quotes from live Binance trades.</p><p class="c-meta"><span class="dot" style="--lc:#3178c6"></span>TypeScript · Bun · Postgres · Redis</p></li>
+      <li class="c-card"><a href="https://github.com/codealisha99/zentro" target="_blank" rel="noopener">zentro</a><p>Peer-to-peer video calls in the browser. Share a link, no accounts — media never touches a server.</p><p class="c-meta"><span class="dot" style="--lc:#3178c6"></span>TypeScript · WebRTC</p></li>
+      <li class="c-card"><a href="https://github.com/codealisha99/sherlock" target="_blank" rel="noopener">sherlock</a><p>Local multi-agent system that builds a structured mental model of an unfamiliar codebase.</p><p class="c-meta"><span class="dot" style="--lc:#3572a5"></span>Python</p></li>
+      <li class="c-card"><a href="https://github.com/codealisha99/talksense" target="_blank" rel="noopener">talksense</a><p>Learn anything in 20 minutes, then explain it out loud and get graded against a rubric.</p><p class="c-meta"><span class="dot" style="--lc:#3178c6"></span>TypeScript</p></li>
+      <li class="c-card"><a href="https://github.com/codealisha99/ai-inference-layer" target="_blank" rel="noopener">ai-inference-layer</a><p>An inference serving layer I maintain — the boring, important part between apps and models.</p><p class="c-meta"><span class="dot" style="--lc:#3572a5"></span>Python</p></li>
+      <li class="c-card"><a href="https://github.com/codealisha99/Gossipsub" target="_blank" rel="noopener">Gossipsub</a><p>Gossipsub 1.4 large-message handling for libp2p — a spec and a working prototype.</p><p class="c-meta"><span class="dot" style="--lc:#3572a5"></span>Python · libp2p</p></li>
+    </ul>
+    <a class="c-more" href="https://github.com/codealisha99?tab=repositories" target="_blank" rel="noopener">+83 more repos →</a>
+  </section>
+
+  <section class="c-sec" aria-labelledby="c-work">
+    <h2 class="c-h" id="c-work"><span>04</span> git log --oneline work</h2>
+    <ol class="c-log">
+      <li><code>a1f3c9e</code><div><p><b>Maintainer</b> · AI Inference Layer <time>2026</time></p><p>Maintain an open-source inference serving layer between applications and models.</p></div></li>
+      <li><code>7d02b41</code><div><p><b>Protocol work</b> · C4GT DMP 2026 · libp2p <time>2026</time></p><p>Gossipsub 1.4 large-message handling: RFC-style spec and Python prototype.</p></div></li>
+      <li><code>e5c88a0</code><div><p><b>Agent systems</b> · Sherlock · AgentRuntime · Meeseeks <time>2026</time></p><p>Local multi-agent codebase analysis; sandboxed, typed, policy-checked tool calls.</p></div></li>
+      <li><code>3b9f6d2</code><div><p><b>Product builds</b> · OrbitLedger · Zentro · TalkSense <time>2026</time></p><p>Paper trading, P2P video, learn-out-loud.</p></div></li>
+      <li><code>0000001</code><div><p><b>First commits</b> · smart-student · jsdiary · errika-todo <time>2024–25</time></p><p>Where it all started.</p></div></li>
+    </ol>
+  </section>
+
+  <section class="c-sec" aria-labelledby="c-stack">
+    <h2 class="c-h" id="c-stack"><span>05</span> cat stack.txt</h2>
+    <dl class="c-stack">
+      <dt>frontend</dt><dd>HTML · React · Next.js · TypeScript · JavaScript · Tailwind CSS</dd>
+      <dt>backend</dt><dd>Node.js · Express · REST APIs · auth · middlewares · FastAPI</dd>
+      <dt>databases</dt><dd>Postgres · SQL · Redis · MongoDB</dd>
+      <dt>languages</dt><dd>Java · Python · TypeScript · JavaScript · a little Go</dd>
+      <dt>tools</dt><dd>Git · GitHub · Docker · Postman</dd>
+      <dt>AI</dt><dd>machine learning · RAG · agents · neural nets from scratch</dd>
+    </dl>
+  </section>
+
+  <section class="c-sec" aria-labelledby="c-notes">
+    <h2 class="c-h" id="c-notes"><span>06</span> ls ~/notes</h2>
+    <ul class="c-notes">
+      <li><button type="button" data-open="post-3"><span>Teaching agents to read a codebase</span><time datetime="2026-11">2026-11</time></button></li>
+      <li><button type="button" data-open="post-1"><span>Video calls where nothing touches a server</span><time datetime="2026-10">2026-10</time></button></li>
+      <li><button type="button" data-open="post-2"><span>Paper trading, real market data</span><time datetime="2026-10">2026-10</time></button></li>
+      <li><button type="button" data-open="post-4"><span>Big messages in a gossip network</span><time datetime="2026-05">2026-05</time></button></li>
+    </ul>
+  </section>
+
+  <footer class="c-sec c-foot">
+    <h2 class="c-h"><span>07</span> say hi</h2>
+    <p class="c-prompt">$ echo "hi alisha" | mail <a href="mailto:codealisha99@gmail.com">codealisha99@gmail.com</a></p>
+    <p class="c-muted">© 2026 Alisha Karma · prefer paper? flip the coder switch off.</p>
+  </footer>
 </main>
 
 <!-- ============ DIALOGS ============ -->
