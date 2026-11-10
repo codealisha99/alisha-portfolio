@@ -1,0 +1,358 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Alisha — the desk</title>
+  <meta name="description" content="Alisha's desk: work, projects, notes, doodles and everything else pinned to one board.">
+  <link rel="icon" href="assets/icon.svg">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400..800&family=Courier+Prime:ital,wght@0,400;0,700;1,400&family=Gloock&family=Shantell+Sans:ital,wght,BNCE,INFM@0,300..800,-100..100,0..100;1,300..800,-100..100,0..100&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<header class="topbar">
+  <a class="logo" href="#intro">alisha<span>’s desk</span></a>
+  <nav class="tabs" aria-label="Jump to">
+    <a href="#intro">hello</a>
+    <a href="#work">work</a>
+    <a href="#projects">projects</a>
+    <a href="#blog">blog</a>
+    <a href="#reading">reading</a>
+    <a href="#studied">studied</a>
+    <a href="#whiteboard">whiteboard</a>
+    <a href="#photos">photos</a>
+    <a href="#voice">voice</a>
+    <a href="#video">video</a>
+    <a href="#hi">say hi</a>
+  </nav>
+  <div class="tools">
+    <button type="button" data-zoom="-1" aria-label="Zoom out">−</button>
+    <button type="button" data-zoom="0" aria-label="Fit whole board">fit</button>
+    <button type="button" data-zoom="1" aria-label="Zoom in">+</button>
+    <button type="button" data-tidy title="Put everything back where I left it">tidy up</button>
+  </div>
+</header>
+
+<p class="hint" aria-hidden="true">drag the mat to wander · drag anything to move it · ⌘/ctrl + scroll to zoom</p>
+
+<main class="viewport">
+<div class="board">
+
+  <!-- ============ INTRO ============ -->
+  <article class="item intro" id="intro" style="--x:1260px;--y:330px;--w:620px;--r:-1.2deg">
+    <span class="tape tl"></span><span class="tape br"></span>
+    <p class="hand hi">hi, I’m</p>
+    <h1>Alisha</h1>
+    <p class="typed lede">I design &amp; build small, careful things for the web — interfaces that feel a bit like paper and behave like software.</p>
+    <p class="typed">This is my desk. Everything I’d otherwise scatter across ten tabs is pinned here: my work, side projects, notes, a few photos, a whiteboard you can draw on. Wander around. Move things. Leave a sticky.</p>
+    <ul class="facts">
+      <li><b>based in</b> Bengaluru, IN</li>
+      <li><b>currently</b> design engineer @ Fieldnote</li>
+      <li><b>open to</b> interesting problems</li>
+    </ul>
+    <span class="stamp">open<br>for<br>work</span>
+  </article>
+  <p class="scrawl you-are-here" style="--x:1150px;--y:270px">you are here ↘</p>
+
+  <!-- ============ STICKIES ============ -->
+  <div class="item sticky lime" id="s1" style="--x:240px;--y:240px;--r:-4deg"><span class="pin"></span>ship it.<br>then make it nice.</div>
+  <div class="item sticky pink" id="s2" style="--x:470px;--y:210px;--r:3deg"><span class="pin"></span>currently obsessed with: <u>risograph</u> printing &amp; ugly fonts</div>
+  <div class="item sticky lilac" id="s3" style="--x:270px;--y:470px;--r:2deg"><span class="pin"></span>TODO<br>☐ learn to whistle<br>☑ finish this site<br>☐ reply to emails</div>
+  <div class="item sticky peach" id="s4" style="--x:500px;--y:450px;--r:-2.5deg"><span class="pin"></span>good design is mostly <s>talent</s> editing</div>
+
+  <form class="item notepad" id="notepad" style="--x:300px;--y:720px;--r:1deg" autocomplete="off">
+    <span class="tape tc"></span>
+    <label class="hand" for="note-text">leave me a sticky →</label>
+    <textarea id="note-text" maxlength="140" rows="3" placeholder="say something nice (or honest)" required></textarea>
+    <fieldset class="swatches" aria-label="Sticky colour">
+      <label><input type="radio" name="c" value="lime" checked><span class="sw lime"></span></label>
+      <label><input type="radio" name="c" value="pink"><span class="sw pink"></span></label>
+      <label><input type="radio" name="c" value="lilac"><span class="sw lilac"></span></label>
+      <label><input type="radio" name="c" value="peach"><span class="sw peach"></span></label>
+    </fieldset>
+    <button type="submit">stick it</button>
+    <small class="typed">notes live in your browser only — it’s your copy of my desk.</small>
+  </form>
+
+  <!-- ============ WORK (receipt) ============ -->
+  <article class="item receipt" id="work" style="--x:830px;--y:220px;--w:330px;--r:1.5deg">
+    <span class="pin"></span>
+    <header>
+      <p class="r-title">WORK HISTORY</p>
+      <p>ALISHA &amp; CO. · STORE #0427</p>
+      <p>TERMINAL 02 · CASHIER: ME</p>
+    </header>
+    <hr>
+    <ol class="lines">
+      <li>
+        <p class="row"><b>DESIGN ENGINEER</b><span>2024–NOW</span></p>
+        <p class="sub">Fieldnote · remote</p>
+        <p class="note">* built the design system (82 components, 1 very long doc)</p>
+        <p class="note">* cut onboarding drop-off by 31%</p>
+      </li>
+      <li>
+        <p class="row"><b>PRODUCT DESIGNER</b><span>2021–24</span></p>
+        <p class="sub">Kettle · Bengaluru</p>
+        <p class="note">* designed + shipped the mobile app, 0 → 400k users</p>
+        <p class="note">* ran 60+ user interviews, kept the tapes</p>
+      </li>
+      <li>
+        <p class="row"><b>FRONTEND DEV</b><span>2019–21</span></p>
+        <p class="sub">Studio Ombra · agency</p>
+        <p class="note">* 30-ish client sites, 2 awards, 1 all-nighter too many</p>
+      </li>
+      <li>
+        <p class="row"><b>DESIGN INTERN</b><span>2018</span></p>
+        <p class="sub">Paperplane Press</p>
+        <p class="note">* learned kerning the hard way</p>
+      </li>
+    </ol>
+    <hr>
+    <p class="row"><span>SUBTOTAL (YEARS)</span><span>7.0</span></p>
+    <p class="row"><span>CURIOSITY</span><span>BOTTOMLESS</span></p>
+    <p class="row"><span>COFFEE</span><span>TOO MUCH</span></p>
+    <p class="row total"><span>TOTAL</span><span>HIRE ME</span></p>
+    <hr>
+    <p class="center">THANK YOU FOR READING<br>PLEASE KEEP YOUR RECEIPT</p>
+    <div class="barcode" aria-hidden="true"></div>
+    <p class="center tiny">0427 2026 1110 AL15HA</p>
+  </article>
+
+  <!-- ============ SOCIALS (luggage tags) ============ -->
+  <section class="item tags" id="socials" style="--x:2000px;--y:220px;--w:400px;--r:0deg" aria-label="Elsewhere">
+    <p class="scrawl label">find me elsewhere</p>
+    <a class="tag" style="--t:-8deg;--c:var(--tomato)" href="https://github.com/alisha" target="_blank" rel="noopener">GitHub</a>
+    <a class="tag" style="--t:5deg;--c:var(--lilac)" href="https://www.linkedin.com/in/alisha" target="_blank" rel="noopener">LinkedIn</a>
+    <a class="tag" style="--t:-3deg;--c:var(--lime)" href="https://read.cv/alisha" target="_blank" rel="noopener">Read.cv</a>
+    <a class="tag" style="--t:9deg;--c:var(--pink)" href="https://instagram.com/alisha" target="_blank" rel="noopener">Instagram</a>
+    <a class="tag" style="--t:-6deg;--c:var(--peach)" href="https://are.na/alisha" target="_blank" rel="noopener">Are.na</a>
+    <a class="tag" style="--t:4deg;--c:var(--paper)" href="mailto:hello@alisha.design">Email</a>
+  </section>
+
+  <!-- ============ RESUME ============ -->
+  <article class="item resume-card" id="resume-card" style="--x:2050px;--y:600px;--w:300px;--r:-3deg">
+    <span class="clip" aria-hidden="true"></span>
+    <p class="typed small">FILE: resume_final_FINAL_v3.pdf</p>
+    <h2>Résumé</h2>
+    <div class="fake-lines" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div>
+    <div class="btns">
+      <button type="button" data-open="resume">read it</button>
+      <button type="button" data-print>print / save PDF</button>
+    </div>
+  </article>
+
+  <!-- ============ GITHUB PROJECTS ============ -->
+  <section class="item projects" id="projects" style="--x:800px;--y:1170px;--w:780px;--r:0.5deg" data-github="" aria-labelledby="projects-h">
+    <h2 id="projects-h" class="label-maker">~/github</h2>
+    <ul class="repo-list">
+      <li class="repo"><a href="https://github.com/alisha/paperweight" target="_blank" rel="noopener"><b>paperweight</b></a><p>A tiny CSS library that makes any div feel like paper. Shadows, curls, tape.</p><p class="meta"><span class="dot" style="--lc:#563d7c"></span>CSS · ★ 412</p></li>
+      <li class="repo"><a href="https://github.com/alisha/kern-me" target="_blank" rel="noopener"><b>kern-me</b></a><p>A browser game where you kern letters by eye and get roasted by a typographer.</p><p class="meta"><span class="dot" style="--lc:#3178c6"></span>TypeScript · ★ 1.2k</p></li>
+      <li class="repo"><a href="https://github.com/alisha/riso-sim" target="_blank" rel="noopener"><b>riso-sim</b></a><p>Fake risograph misregistration and grain in a WebGL shader.</p><p class="meta"><span class="dot" style="--lc:#5686a5"></span>GLSL · ★ 233</p></li>
+      <li class="repo"><a href="https://github.com/alisha/quiet-tabs" target="_blank" rel="noopener"><b>quiet-tabs</b></a><p>Browser extension that hides tab titles until you hover. Less noise, fewer rabbit holes.</p><p class="meta"><span class="dot" style="--lc:#f1e05a"></span>JavaScript · ★ 98</p></li>
+      <li class="repo"><a href="https://github.com/alisha/dotfiles" target="_blank" rel="noopener"><b>dotfiles</b></a><p>My terminal, overly themed. Fish, tmux, and a colour scheme named after a biscuit.</p><p class="meta"><span class="dot" style="--lc:#89e051"></span>Shell · ★ 41</p></li>
+      <li class="repo"><a href="https://github.com/alisha/this-desk" target="_blank" rel="noopener"><b>this-desk</b></a><p>The site you’re on. No framework, no build step, one mat.</p><p class="meta"><span class="dot" style="--lc:#e34c26"></span>HTML · ★ 7</p></li>
+    </ul>
+  </section>
+
+  <!-- ============ BLOG (notebook) ============ -->
+  <section class="item notebook" id="blog" style="--x:200px;--y:1130px;--w:480px;--r:-1.5deg" aria-labelledby="blog-h">
+    <div class="spiral" aria-hidden="true"></div>
+    <h2 id="blog-h" class="hand">notes, mostly unfinished</h2>
+    <ol class="posts">
+      <li><button type="button" data-open="post-1"><span>The case for ugly first drafts</span><time datetime="2026-10-02">oct 02</time></button></li>
+      <li><button type="button" data-open="post-2"><span>What a receipt taught me about hierarchy</span><time datetime="2026-08-19">aug 19</time></button></li>
+      <li><button type="button" data-open="post-3"><span>Design systems are gardens, not buildings</span><time datetime="2026-05-07">may 07</time></button></li>
+      <li><button type="button" data-open="post-4"><span>Notes from 60 user interviews</span><time datetime="2026-02-14">feb 14</time></button></li>
+    </ol>
+    <p class="scrawl margin">more soon (probably)</p>
+  </section>
+
+  <!-- ============ READING (library card) ============ -->
+  <section class="item library" id="reading" style="--x:2560px;--y:200px;--w:400px;--r:2deg" aria-labelledby="reading-h">
+    <span class="pocket" aria-hidden="true"></span>
+    <h2 id="reading-h">DATE DUE</h2>
+    <p class="typed small">BORROWER: ALISHA · CARD NO. 0007</p>
+    <table>
+      <thead><tr><th>title</th><th>author</th><th>status</th></tr></thead>
+      <tbody>
+        <tr class="now"><td>The Shape of Design</td><td>Frank Chimero</td><td><span class="ink-stamp">READING</span></td></tr>
+        <tr><td>Piranesi</td><td>Susanna Clarke</td><td class="hand">loved it</td></tr>
+        <tr><td>Thinking with Type</td><td>Ellen Lupton</td><td class="hand">re-read #3</td></tr>
+        <tr><td>The Overstory</td><td>Richard Powers</td><td class="hand">slowly…</td></tr>
+        <tr><td>A Pattern Language</td><td>C. Alexander</td><td class="hand">dipping in</td></tr>
+        <tr><td>Klara and the Sun</td><td>K. Ishiguro</td><td class="hand">cried</td></tr>
+      </tbody>
+    </table>
+    <p class="scrawl">recs welcome → leave a sticky</p>
+  </section>
+
+  <!-- ============ WHITEBOARD ============ -->
+  <section class="item whiteboard" id="whiteboard" style="--x:2480px;--y:830px;--w:660px;--r:0deg" aria-labelledby="wb-h">
+    <h2 id="wb-h" class="visually-hidden">Whiteboard</h2>
+    <div class="wb-surface">
+      <canvas width="1240" height="760" aria-label="Whiteboard — draw with your mouse or finger"></canvas>
+      <p class="wb-prompt hand" aria-hidden="true">draw something.<br><small>(it stays in your browser)</small></p>
+    </div>
+    <div class="tray" role="toolbar" aria-label="Markers">
+      <button type="button" class="marker" style="--c:#1d1b2f" data-color="#1d1b2f" aria-pressed="true" aria-label="Black marker"></button>
+      <button type="button" class="marker" style="--c:#ff5a36" data-color="#ff5a36" aria-pressed="false" aria-label="Red marker"></button>
+      <button type="button" class="marker" style="--c:#2a6ef2" data-color="#2a6ef2" aria-pressed="false" aria-label="Blue marker"></button>
+      <button type="button" class="marker" style="--c:#14905e" data-color="#14905e" aria-pressed="false" aria-label="Green marker"></button>
+      <button type="button" class="eraser" data-erase aria-label="Wipe the board">wipe</button>
+    </div>
+  </section>
+
+  <!-- ============ STUDIED (report card on graph paper) ============ -->
+  <section class="item graph" id="studied" style="--x:1950px;--y:1130px;--w:460px;--r:-1deg" aria-labelledby="studied-h">
+    <span class="tape tl"></span>
+    <h2 id="studied-h" class="hand">everything I’ve studied (so far)</h2>
+    <dl>
+      <dt>2014–18 · B.Des, Communication Design</dt>
+      <dd>National Institute of Design · thesis on wayfinding in hospitals <span class="grade">A</span></dd>
+      <dt>2019 · Interaction Design Specialization</dt>
+      <dd>UC San Diego (online) · finally understood affordances <span class="grade">✓</span></dd>
+      <dt>2020 · CS50</dt>
+      <dd>Harvard (online) · C, pointers, tears <span class="grade">✓</span></dd>
+      <dt>2022 · Type@Cooper (summer)</dt>
+      <dd>drew a whole lowercase by hand <span class="grade">a+</span></dd>
+      <dt>always · self-taught</dt>
+      <dd>JS, WebGL, letterpress, bad pottery, Kannada (in progress) <span class="grade">wip</span></dd>
+    </dl>
+  </section>
+
+  <!-- ============ PHOTOS (polaroids) ============ -->
+  <section class="item photos" id="photos" style="--x:2470px;--y:1420px;--w:640px;--r:0deg" aria-label="Photos">
+    <figure class="polaroid" style="--t:-6deg;--px:0px;--py:20px"><img src="https://picsum.photos/seed/alisha-hills/360/360" alt="Misty hills at sunrise" loading="lazy" width="180" height="180"><figcaption>coorg, 5am</figcaption></figure>
+    <figure class="polaroid" style="--t:4deg;--px:200px;--py:0px"><img src="https://picsum.photos/seed/alisha-desk2/360/360" alt="A cluttered work desk" loading="lazy" width="180" height="180"><figcaption>the real desk</figcaption></figure>
+    <figure class="polaroid" style="--t:-2deg;--px:410px;--py:40px"><img src="https://picsum.photos/seed/alisha-cafe/360/360" alt="Coffee on a cafe table" loading="lazy" width="180" height="180"><figcaption>office #2</figcaption></figure>
+    <figure class="polaroid" style="--t:7deg;--px:90px;--py:270px"><img src="https://picsum.photos/seed/alisha-sea9/360/360" alt="The sea at dusk" loading="lazy" width="180" height="180"><figcaption>gokarna ♡</figcaption></figure>
+    <figure class="polaroid" style="--t:-5deg;--px:320px;--py:290px"><img src="https://picsum.photos/seed/alisha-street/360/360" alt="A narrow city street" loading="lazy" width="180" height="180"><figcaption>lost, happily</figcaption></figure>
+  </section>
+
+  <!-- ============ VOICE NOTES (cassettes) ============ -->
+  <section class="item voice" id="voice" style="--x:180px;--y:1760px;--w:600px;--r:0deg" aria-labelledby="voice-h">
+    <h2 id="voice-h" class="scrawl label">voice notes (press play)</h2>
+    <div class="cassette" style="--c:var(--tomato);--t:-3deg" data-src="" data-say="Hi! It's Alisha. Thanks for wandering around my desk. Everything here is real, except the receipt. That one's a little bit made up.">
+      <p class="tape-label hand">01 · hello</p>
+      <div class="reels" aria-hidden="true"><i></i><i></i></div>
+      <button type="button" aria-label="Play voice note: hello">▶</button>
+    </div>
+    <div class="cassette" style="--c:var(--lilac);--t:2deg" data-src="" data-say="How I work: I sketch on paper first, then build the ugliest possible version in code, then I edit. Mostly I edit.">
+      <p class="tape-label hand">02 · how I work</p>
+      <div class="reels" aria-hidden="true"><i></i><i></i></div>
+      <button type="button" aria-label="Play voice note: how I work">▶</button>
+    </div>
+    <div class="cassette" style="--c:var(--lime);--t:-1deg" data-src="" data-say="A small thing I believe: every interface should have at least one detail that's there just because someone cared.">
+      <p class="tape-label hand">03 · a belief</p>
+      <div class="reels" aria-hidden="true"><i></i><i></i></div>
+      <button type="button" aria-label="Play voice note: a belief">▶</button>
+    </div>
+  </section>
+
+  <!-- ============ VIDEO (tv) ============ -->
+  <section class="item tv" id="video" style="--x:960px;--y:1760px;--w:460px;--r:1deg" data-youtube="" aria-labelledby="video-h">
+    <h2 id="video-h" class="visually-hidden">Video</h2>
+    <div class="tv-body">
+      <div class="screen">
+        <canvas width="160" height="120" aria-hidden="true"></canvas>
+        <p class="screen-text">CH 03<br><span>a talk I gave · press ▶</span></p>
+      </div>
+      <div class="panel">
+        <span class="knob" aria-hidden="true"></span>
+        <span class="knob small" aria-hidden="true"></span>
+        <button type="button" class="tv-play" aria-label="Play video">▶</button>
+        <span class="grille" aria-hidden="true"></span>
+      </div>
+    </div>
+    <p class="hand caption">“paper interfaces” — talk at a local meetup, 2025</p>
+  </section>
+
+  <!-- ============ SAY HI (postcard) ============ -->
+  <section class="item postcard" id="hi" style="--x:1500px;--y:1770px;--w:480px;--r:-2deg" aria-labelledby="hi-h">
+    <div class="pc-left">
+      <h2 id="hi-h" class="hand">say hi!</h2>
+      <p class="typed">Projects, collabs, a book rec, or just to tell me the receipt is weird — my inbox is open.</p>
+    </div>
+    <div class="pc-right">
+      <span class="postage" aria-hidden="true">₹5<br><small>AIR MAIL</small></span>
+      <a href="mailto:hello@alisha.design" class="addr">hello@alisha.design</a>
+      <p class="addr-line" aria-hidden="true"></p>
+      <p class="addr-line" aria-hidden="true"></p>
+    </div>
+  </section>
+
+  <!-- desk junk -->
+  <span class="stain" style="--x:1690px;--y:930px" aria-hidden="true"></span>
+  <span class="paperclip" style="--x:740px;--y:1060px" aria-hidden="true"></span>
+
+  <!-- ============ FOOTER (ruler) ============ -->
+  <footer class="ruler">
+    <p>© 2026 Alisha · made by hand on a green cutting mat · no templates were harmed · last tidied <time datetime="2026-11">Nov 2026</time></p>
+    <a href="#intro">back to the start ↑</a>
+  </footer>
+
+</div>
+</main>
+
+<!-- ============ DIALOGS ============ -->
+<dialog id="resume" class="sheet resume" aria-labelledby="resume-h">
+  <form method="dialog" class="close"><button aria-label="Close">×</button></form>
+  <header>
+    <h2 id="resume-h">Alisha</h2>
+    <p>Design engineer · Bengaluru, IN · hello@alisha.design · alisha.design</p>
+  </header>
+  <h3>Experience</h3>
+  <div class="job"><p><b>Design Engineer</b>, Fieldnote <span>2024 – present</span></p><ul><li>Built and maintain the design system: 82 components in React + tokens, used by 6 product teams.</li><li>Redesigned onboarding end-to-end; drop-off down 31%.</li></ul></div>
+  <div class="job"><p><b>Product Designer</b>, Kettle <span>2021 – 2024</span></p><ul><li>Led design of the mobile app from zero to 400k users.</li><li>Set up a continuous research practice; ran 60+ interviews.</li></ul></div>
+  <div class="job"><p><b>Frontend Developer</b>, Studio Ombra <span>2019 – 2021</span></p><ul><li>Designed and built ~30 client websites; two Awwwards honourable mentions.</li></ul></div>
+  <div class="job"><p><b>Design Intern</b>, Paperplane Press <span>2018</span></p><ul><li>Book layout, typesetting, and learning patience.</li></ul></div>
+  <h3>Education</h3>
+  <div class="job"><p><b>B.Des, Communication Design</b>, National Institute of Design <span>2014 – 2018</span></p></div>
+  <h3>Skills</h3>
+  <p>Product &amp; interaction design · design systems · prototyping · HTML/CSS/TypeScript · React · WebGL · user research · typography</p>
+  <p class="actions"><button type="button" data-print>print / save as PDF</button></p>
+</dialog>
+
+<dialog id="post-1" class="sheet post" aria-labelledby="post-1-h">
+  <form method="dialog" class="close"><button aria-label="Close">×</button></form>
+  <time datetime="2026-10-02">2 Oct 2026</time>
+  <h2 id="post-1-h">The case for ugly first drafts</h2>
+  <p>Every good thing I’ve made started as something I’d be embarrassed to show. The problem is that tools now make it too easy to start pretty — a polished component library, a nice default font — and pretty is expensive to throw away.</p>
+  <p>So I start in grey boxes and Comic Sans on purpose. If the idea still works when it looks like that, it’s a real idea. If it only works when it’s pretty, it’s a mood board.</p>
+  <p>Then I edit. Editing is where the design actually happens.</p>
+</dialog>
+
+<dialog id="post-2" class="sheet post" aria-labelledby="post-2-h">
+  <form method="dialog" class="close"><button aria-label="Close">×</button></form>
+  <time datetime="2026-08-19">19 Aug 2026</time>
+  <h2 id="post-2-h">What a receipt taught me about hierarchy</h2>
+  <p>A receipt has one font, one size, one colour, and yet you can find the total in under a second. Everything is done with position, rules, caps and whitespace.</p>
+  <p>I pinned one above my monitor as a reminder: before you reach for another font weight, try a line, a gap, or simply moving the thing.</p>
+</dialog>
+
+<dialog id="post-3" class="sheet post" aria-labelledby="post-3-h">
+  <form method="dialog" class="close"><button aria-label="Close">×</button></form>
+  <time datetime="2026-05-07">7 May 2026</time>
+  <h2 id="post-3-h">Design systems are gardens, not buildings</h2>
+  <p>You don’t finish a design system. You plant some things, see what the teams actually use, pull out what doesn’t grow, and accept that someone will always plant a weird button in the corner.</p>
+  <p>The best thing I did at Fieldnote was add a “compost” folder: deprecated components go there for one release before they’re deleted. People stopped being scared of removing things.</p>
+</dialog>
+
+<dialog id="post-4" class="sheet post" aria-labelledby="post-4-h">
+  <form method="dialog" class="close"><button aria-label="Close">×</button></form>
+  <time datetime="2026-02-14">14 Feb 2026</time>
+  <h2 id="post-4-h">Notes from 60 user interviews</h2>
+  <ul>
+    <li>People describe what they did, not what they want. Listen to the verbs.</li>
+    <li>The best question is “can you show me?”</li>
+    <li>Silence is a tool. Count to five before you fill it.</li>
+    <li>The workaround is the feature request.</li>
+  </ul>
+</dialog>
+
+<script src="board.js"></script>
+</body>
+</html>
