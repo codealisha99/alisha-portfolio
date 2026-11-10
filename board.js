@@ -1,4 +1,4 @@
-// Alisha's desk. No framework: pan/zoom the mat, drag things, draw, stick notes, play tapes.
+// Alisha's pegboard. No framework: pan/zoom the board, drag things, draw, stick notes, play tapes.
 const $ = (s, r = document) => r.querySelector(s);
 const $$ = (s, r = document) => [...r.querySelectorAll(s)];
 const store = {
@@ -299,29 +299,6 @@ $("#notepad").addEventListener("submit", (e) => {
     f.title = "Video";
     $(".screen", tv).replaceChildren(f);
   });
-})();
-
-/* ---------- github: live repos if a username is set, static cards otherwise ---------- */
-(() => {
-  const box = $("#projects"), user = box.dataset.github;
-  if (!user) return;
-  fetch(`https://api.github.com/users/${encodeURIComponent(user)}/repos?sort=pushed&per_page=12`)
-    .then((r) => (r.ok ? r.json() : Promise.reject(new Error("GitHub " + r.status))))
-    .then((repos) => {
-      const picks = repos.filter((r) => !r.fork).slice(0, 6);
-      if (!picks.length) return;
-      $(".repo-list", box).replaceChildren(...picks.map((r) => {
-        const li = document.createElement("li"); li.className = "repo";
-        const a = document.createElement("a"); a.href = r.html_url; a.target = "_blank"; a.rel = "noopener";
-        const b = document.createElement("b"); b.textContent = r.name; a.append(b);
-        const p = document.createElement("p"); p.textContent = r.description || "no description, just vibes";
-        const m = document.createElement("p"); m.className = "meta";
-        m.textContent = `${r.language || "misc"} · ★ ${r.stargazers_count}`;
-        li.append(a, p, m);
-        return li;
-      }));
-    })
-    .catch((e) => console.warn("kept the static project cards:", e.message));
 })();
 
 /* ---------- dialogs & print ---------- */

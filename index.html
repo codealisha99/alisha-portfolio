@@ -3,8 +3,8 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Alisha — the desk</title>
-  <meta name="description" content="Alisha's desk: work, projects, notes, doodles and everything else pinned to one board.">
+  <title>Alisha Karma — the pegboard</title>
+  <meta name="description" content="Alisha Karma — full-stack &amp; AI engineer. Projects, notes, skills and everything else hung on one pegboard.">
   <link rel="icon" href="assets/icon.svg">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -14,7 +14,7 @@
 <body>
 
 <header class="topbar">
-  <a class="logo" href="#intro">alisha<span>’s desk</span></a>
+  <a class="logo" href="#intro">alisha<span>’s board</span></a>
   <nav class="tabs" aria-label="Jump to">
     <a href="#intro">hello</a>
     <a href="#work">work</a>
@@ -36,7 +36,7 @@
   </div>
 </header>
 
-<p class="hint" aria-hidden="true">drag the mat to wander · drag anything to move it · ⌘/ctrl + scroll to zoom</p>
+<p class="hint" aria-hidden="true">drag the board to wander · drag anything to move it · ⌘/ctrl + scroll to zoom</p>
 
 <main class="viewport">
 <div class="board">
@@ -45,23 +45,28 @@
   <article class="item intro" id="intro" style="--x:1260px;--y:330px;--w:620px;--r:-1.2deg">
     <span class="tape tl"></span><span class="tape br"></span>
     <p class="hand hi">hi, I’m</p>
-    <h1>Alisha</h1>
-    <p class="typed lede">I design &amp; build small, careful things for the web — interfaces that feel a bit like paper and behave like software.</p>
-    <p class="typed">This is my desk. Everything I’d otherwise scatter across ten tabs is pinned here: my work, side projects, notes, a few photos, a whiteboard you can draw on. Wander around. Move things. Leave a sticky.</p>
+    <h1>Alisha <span>Karma</span></h1>
+    <p class="typed lede">I build across the stack — AI agents and inference infra, peer-to-peer video, trading simulators, and the occasional chess thing.</p>
+    <p class="typed">This is my pegboard. Everything I’d otherwise scatter across ten tabs hangs here: projects, notes, what I’ve learnt, a whiteboard you can draw on. Wander around. Move things. Leave a sticky.</p>
     <ul class="facts">
-      <li><b>based in</b> Bengaluru, IN</li>
-      <li><b>currently</b> design engineer @ Fieldnote</li>
-      <li><b>open to</b> interesting problems</li>
+      <li><b>based in</b> keeps changing</li>
+      <li><b>github bio</b> Nerd</li>
+      <li><b>shipping</b> 89 public repos</li>
     </ul>
-    <span class="stamp">open<br>for<br>work</span>
+    <span class="stamp">certified<br>nerd</span>
   </article>
+  <figure class="item polaroid me" id="me" style="--x:1770px;--y:230px;--r:6deg">
+    <span class="pin"></span>
+    <img src="assets/alisha.jpg" alt="Alisha in a pink scarf and black leather jacket, in front of palm leaves and fairy lights" width="200" height="200">
+    <figcaption>that’s me ✿</figcaption>
+  </figure>
   <p class="scrawl you-are-here" style="--x:1150px;--y:270px">you are here ↘</p>
 
   <!-- ============ STICKIES ============ -->
-  <div class="item sticky lime" id="s1" style="--x:240px;--y:240px;--r:-4deg"><span class="pin"></span>ship it.<br>then make it nice.</div>
-  <div class="item sticky pink" id="s2" style="--x:470px;--y:210px;--r:3deg"><span class="pin"></span>currently obsessed with: <u>risograph</u> printing &amp; ugly fonts</div>
-  <div class="item sticky lilac" id="s3" style="--x:270px;--y:470px;--r:2deg"><span class="pin"></span>TODO<br>☐ learn to whistle<br>☑ finish this site<br>☐ reply to emails</div>
-  <div class="item sticky peach" id="s4" style="--x:500px;--y:450px;--r:-2.5deg"><span class="pin"></span>good design is mostly <s>talent</s> editing</div>
+  <div class="item sticky lime" id="s1" style="--x:240px;--y:240px;--r:-4deg"><span class="pin"></span>be as you wish to seem.</div>
+  <div class="item sticky pink" id="s2" style="--x:470px;--y:210px;--r:3deg"><span class="pin"></span>location:<br>keeps changing ✈</div>
+  <div class="item sticky lilac" id="s3" style="--x:270px;--y:470px;--r:2deg"><span class="pin"></span>TODO<br>☐ READMEs for the other 80 repos<br>☑ hang up this board<br>☐ sleep</div>
+  <div class="item sticky peach" id="s4" style="--x:500px;--y:450px;--r:-2.5deg"><span class="pin"></span>make it work, then make it nice.</div>
 
   <form class="item notepad" id="notepad" style="--x:300px;--y:720px;--r:1deg" autocomplete="off">
     <span class="tape tc"></span>
@@ -74,62 +79,64 @@
       <label><input type="radio" name="c" value="peach"><span class="sw peach"></span></label>
     </fieldset>
     <button type="submit">stick it</button>
-    <small class="typed">notes live in your browser only — it’s your copy of my desk.</small>
+    <small class="typed">notes live in your browser only — it’s your copy of my board.</small>
   </form>
 
   <!-- ============ WORK (receipt) ============ -->
   <article class="item receipt" id="work" style="--x:830px;--y:220px;--w:330px;--r:1.5deg">
     <span class="pin"></span>
     <header>
-      <p class="r-title">WORK HISTORY</p>
-      <p>ALISHA &amp; CO. · STORE #0427</p>
-      <p>TERMINAL 02 · CASHIER: ME</p>
+      <p class="r-title">WORK LOG</p>
+      <p>ALISHA KARMA · STORE #0099</p>
+      <p>TERMINAL: GITHUB · CASHIER: ME</p>
     </header>
     <hr>
     <ol class="lines">
       <li>
-        <p class="row"><b>DESIGN ENGINEER</b><span>2024–NOW</span></p>
-        <p class="sub">Fieldnote · remote</p>
-        <p class="note">* built the design system (82 components, 1 very long doc)</p>
-        <p class="note">* cut onboarding drop-off by 31%</p>
+        <p class="row"><b>MAINTAINER</b><span>2026</span></p>
+        <p class="sub">AI Inference Layer · open source</p>
+        <p class="note">* model-serving layer, now maintained by me</p>
       </li>
       <li>
-        <p class="row"><b>PRODUCT DESIGNER</b><span>2021–24</span></p>
-        <p class="sub">Kettle · Bengaluru</p>
-        <p class="note">* designed + shipped the mobile app, 0 → 400k users</p>
-        <p class="note">* ran 60+ user interviews, kept the tapes</p>
+        <p class="row"><b>PROTOCOL WORK</b><span>2026</span></p>
+        <p class="sub">C4GT · DMP 2026 · libp2p</p>
+        <p class="note">* Gossipsub 1.4 large-message handling: RFC-style spec + Python prototype</p>
       </li>
       <li>
-        <p class="row"><b>FRONTEND DEV</b><span>2019–21</span></p>
-        <p class="sub">Studio Ombra · agency</p>
-        <p class="note">* 30-ish client sites, 2 awards, 1 all-nighter too many</p>
+        <p class="row"><b>AGENT SYSTEMS</b><span>2026</span></p>
+        <p class="sub">Sherlock · AgentRuntime · Meeseeks</p>
+        <p class="note">* local multi-agent codebase analysis</p>
+        <p class="note">* sandboxed, typed, policy-checked tool calls</p>
       </li>
       <li>
-        <p class="row"><b>DESIGN INTERN</b><span>2018</span></p>
-        <p class="sub">Paperplane Press</p>
-        <p class="note">* learned kerning the hard way</p>
+        <p class="row"><b>PRODUCT BUILDS</b><span>2026</span></p>
+        <p class="sub">OrbitLedger · Zentro · TalkSense</p>
+        <p class="note">* paper trading, P2P video, learn-out-loud</p>
+      </li>
+      <li>
+        <p class="row"><b>FIRST COMMITS</b><span>2024–25</span></p>
+        <p class="sub">smart-student · jsdiary · errika-todo</p>
+        <p class="note">* where it all started</p>
       </li>
     </ol>
     <hr>
-    <p class="row"><span>SUBTOTAL (YEARS)</span><span>7.0</span></p>
-    <p class="row"><span>CURIOSITY</span><span>BOTTOMLESS</span></p>
-    <p class="row"><span>COFFEE</span><span>TOO MUCH</span></p>
+    <p class="row"><span>PUBLIC REPOS</span><span>89</span></p>
+    <p class="row"><span>TYPESCRIPT</span><span>23</span></p>
+    <p class="row"><span>PYTHON</span><span>14</span></p>
     <p class="row total"><span>TOTAL</span><span>HIRE ME</span></p>
     <hr>
     <p class="center">THANK YOU FOR READING<br>PLEASE KEEP YOUR RECEIPT</p>
     <div class="barcode" aria-hidden="true"></div>
-    <p class="center tiny">0427 2026 1110 AL15HA</p>
+    <p class="center tiny">CODEALISHA99</p>
   </article>
 
   <!-- ============ SOCIALS (luggage tags) ============ -->
-  <section class="item tags" id="socials" style="--x:2000px;--y:220px;--w:400px;--r:0deg" aria-label="Elsewhere">
+  <section class="item tags" id="socials" style="--x:2030px;--y:240px;--w:290px;--r:0deg" aria-label="Elsewhere">
     <p class="scrawl label">find me elsewhere</p>
-    <a class="tag" style="--t:-8deg;--c:var(--tomato)" href="https://github.com/alisha" target="_blank" rel="noopener">GitHub</a>
-    <a class="tag" style="--t:5deg;--c:var(--lilac)" href="https://www.linkedin.com/in/alisha" target="_blank" rel="noopener">LinkedIn</a>
-    <a class="tag" style="--t:-3deg;--c:var(--lime)" href="https://read.cv/alisha" target="_blank" rel="noopener">Read.cv</a>
-    <a class="tag" style="--t:9deg;--c:var(--pink)" href="https://instagram.com/alisha" target="_blank" rel="noopener">Instagram</a>
-    <a class="tag" style="--t:-6deg;--c:var(--peach)" href="https://are.na/alisha" target="_blank" rel="noopener">Are.na</a>
-    <a class="tag" style="--t:4deg;--c:var(--paper)" href="mailto:hello@alisha.design">Email</a>
+    <a class="tag" style="--t:-8deg;--c:var(--tomato)" href="https://github.com/codealisha99" target="_blank" rel="noopener">GitHub</a>
+    <a class="tag" style="--t:5deg;--c:var(--lilac)" href="https://www.linkedin.com/in/alisha-karma-4b94b1298/" target="_blank" rel="noopener">LinkedIn</a>
+    <a class="tag" style="--t:-3deg;--c:var(--lime)" href="https://x.com/KarmaAlisha" target="_blank" rel="noopener">X</a>
+    <a class="tag" style="--t:6deg;--c:var(--peach)" href="mailto:codealisha99@gmail.com">Email</a>
   </section>
 
   <!-- ============ RESUME ============ -->
@@ -145,27 +152,28 @@
   </article>
 
   <!-- ============ GITHUB PROJECTS ============ -->
-  <section class="item projects" id="projects" style="--x:800px;--y:1170px;--w:780px;--r:0.5deg" data-github="" aria-labelledby="projects-h">
+  <section class="item projects" id="projects" style="--x:800px;--y:1170px;--w:780px;--r:0.5deg" aria-labelledby="projects-h">
     <h2 id="projects-h" class="label-maker">~/github</h2>
+    <a class="more-repos typed" href="https://github.com/codealisha99?tab=repositories" target="_blank" rel="noopener">+83 more repos →</a>
     <ul class="repo-list">
-      <li class="repo"><a href="https://github.com/alisha/paperweight" target="_blank" rel="noopener"><b>paperweight</b></a><p>A tiny CSS library that makes any div feel like paper. Shadows, curls, tape.</p><p class="meta"><span class="dot" style="--lc:#563d7c"></span>CSS · ★ 412</p></li>
-      <li class="repo"><a href="https://github.com/alisha/kern-me" target="_blank" rel="noopener"><b>kern-me</b></a><p>A browser game where you kern letters by eye and get roasted by a typographer.</p><p class="meta"><span class="dot" style="--lc:#3178c6"></span>TypeScript · ★ 1.2k</p></li>
-      <li class="repo"><a href="https://github.com/alisha/riso-sim" target="_blank" rel="noopener"><b>riso-sim</b></a><p>Fake risograph misregistration and grain in a WebGL shader.</p><p class="meta"><span class="dot" style="--lc:#5686a5"></span>GLSL · ★ 233</p></li>
-      <li class="repo"><a href="https://github.com/alisha/quiet-tabs" target="_blank" rel="noopener"><b>quiet-tabs</b></a><p>Browser extension that hides tab titles until you hover. Less noise, fewer rabbit holes.</p><p class="meta"><span class="dot" style="--lc:#f1e05a"></span>JavaScript · ★ 98</p></li>
-      <li class="repo"><a href="https://github.com/alisha/dotfiles" target="_blank" rel="noopener"><b>dotfiles</b></a><p>My terminal, overly themed. Fish, tmux, and a colour scheme named after a biscuit.</p><p class="meta"><span class="dot" style="--lc:#89e051"></span>Shell · ★ 41</p></li>
-      <li class="repo"><a href="https://github.com/alisha/this-desk" target="_blank" rel="noopener"><b>this-desk</b></a><p>The site you’re on. No framework, no build step, one mat.</p><p class="meta"><span class="dot" style="--lc:#e34c26"></span>HTML · ★ 7</p></li>
+      <li class="repo"><a href="https://github.com/codealisha99/orbit-ledger" target="_blank" rel="noopener"><b>orbit-ledger</b></a><p>Crypto paper-trading workspace for BTC, ETH &amp; SOL — virtual collateral, simulated perps, quotes from live Binance trades.</p><p class="meta"><span class="dot" style="--lc:#3178c6"></span>TypeScript</p></li>
+      <li class="repo"><a href="https://github.com/codealisha99/zentro" target="_blank" rel="noopener"><b>zentro</b></a><p>Peer-to-peer video calls in the browser. Share a link, no accounts — media never touches a server.</p><p class="meta"><span class="dot" style="--lc:#3178c6"></span>TypeScript · WebRTC</p></li>
+      <li class="repo"><a href="https://github.com/codealisha99/sherlock" target="_blank" rel="noopener"><b>sherlock</b></a><p>Local multi-agent system that builds a structured mental model of an unfamiliar codebase.</p><p class="meta"><span class="dot" style="--lc:#3572a5"></span>Python</p></li>
+      <li class="repo"><a href="https://github.com/codealisha99/talksense" target="_blank" rel="noopener"><b>talksense</b></a><p>Learn anything in 20 minutes, then explain it out loud and get graded against a rubric.</p><p class="meta"><span class="dot" style="--lc:#3178c6"></span>TypeScript</p></li>
+      <li class="repo"><a href="https://github.com/codealisha99/ai-inference-layer" target="_blank" rel="noopener"><b>ai-inference-layer</b></a><p>An inference serving layer I maintain — the boring, important part between apps and models.</p><p class="meta"><span class="dot" style="--lc:#3572a5"></span>Python</p></li>
+      <li class="repo"><a href="https://github.com/codealisha99/Gossipsub" target="_blank" rel="noopener"><b>Gossipsub</b></a><p>Gossipsub 1.4 large-message handling for libp2p — a spec and a working prototype.</p><p class="meta"><span class="dot" style="--lc:#3572a5"></span>Python · libp2p</p></li>
     </ul>
   </section>
 
   <!-- ============ BLOG (notebook) ============ -->
   <section class="item notebook" id="blog" style="--x:200px;--y:1130px;--w:480px;--r:-1.5deg" aria-labelledby="blog-h">
     <div class="spiral" aria-hidden="true"></div>
-    <h2 id="blog-h" class="hand">notes, mostly unfinished</h2>
+    <h2 id="blog-h" class="hand">build notes</h2>
     <ol class="posts">
-      <li><button type="button" data-open="post-1"><span>The case for ugly first drafts</span><time datetime="2026-10-02">oct 02</time></button></li>
-      <li><button type="button" data-open="post-2"><span>What a receipt taught me about hierarchy</span><time datetime="2026-08-19">aug 19</time></button></li>
-      <li><button type="button" data-open="post-3"><span>Design systems are gardens, not buildings</span><time datetime="2026-05-07">may 07</time></button></li>
-      <li><button type="button" data-open="post-4"><span>Notes from 60 user interviews</span><time datetime="2026-02-14">feb 14</time></button></li>
+      <li><button type="button" data-open="post-1"><span>Video calls where nothing touches a server</span><time datetime="2026-10">oct</time></button></li>
+      <li><button type="button" data-open="post-2"><span>Paper trading, real market data</span><time datetime="2026-10">oct</time></button></li>
+      <li><button type="button" data-open="post-3"><span>Teaching agents to read a codebase</span><time datetime="2026-11">nov</time></button></li>
+      <li><button type="button" data-open="post-4"><span>Big messages in a gossip network</span><time datetime="2026-05">may</time></button></li>
     </ol>
     <p class="scrawl margin">more soon (probably)</p>
   </section>
@@ -205,50 +213,47 @@
     </div>
   </section>
 
-  <!-- ============ STUDIED (report card on graph paper) ============ -->
+  <!-- ============ STUDIED (graph paper) ============ -->
   <section class="item graph" id="studied" style="--x:1950px;--y:1130px;--w:460px;--r:-1deg" aria-labelledby="studied-h">
     <span class="tape tl"></span>
-    <h2 id="studied-h" class="hand">everything I’ve studied (so far)</h2>
+    <h2 id="studied-h" class="hand">everything I’ve learnt (so far)</h2>
     <dl>
-      <dt>2014–18 · B.Des, Communication Design</dt>
-      <dd>National Institute of Design · thesis on wayfinding in hospitals <span class="grade">A</span></dd>
-      <dt>2019 · Interaction Design Specialization</dt>
-      <dd>UC San Diego (online) · finally understood affordances <span class="grade">✓</span></dd>
-      <dt>2020 · CS50</dt>
-      <dd>Harvard (online) · C, pointers, tears <span class="grade">✓</span></dd>
-      <dt>2022 · Type@Cooper (summer)</dt>
-      <dd>drew a whole lowercase by hand <span class="grade">a+</span></dd>
-      <dt>always · self-taught</dt>
-      <dd>JS, WebGL, letterpress, bad pottery, Kannada (in progress) <span class="grade">wip</span></dd>
+      <dt>frontend</dt><dd>HTML · React · Next.js · TypeScript · JavaScript · Tailwind CSS <span class="grade">✓</span></dd>
+      <dt>backend</dt><dd>Node.js · Express · REST APIs · auth · middlewares · FastAPI <span class="grade">✓</span></dd>
+      <dt>databases</dt><dd>Postgres · SQL · Redis · MongoDB <span class="grade">✓</span></dd>
+      <dt>languages</dt><dd>Java · Python · TypeScript · JavaScript · a little Go <span class="grade">✓</span></dd>
+      <dt>tools</dt><dd>Git · GitHub · Docker · Postman <span class="grade">✓</span></dd>
+      <dt>AI</dt><dd>machine learning · RAG · agents · neural nets from scratch <span class="grade">a+</span></dd>
+      <dt>design</dt><dd>Adobe Illustrator <span class="grade">wip</span></dd>
     </dl>
   </section>
 
   <!-- ============ PHOTOS (polaroids) ============ -->
   <section class="item photos" id="photos" style="--x:2470px;--y:1420px;--w:640px;--r:0deg" aria-label="Photos">
-    <figure class="polaroid" style="--t:-6deg;--px:0px;--py:20px"><img src="https://picsum.photos/seed/alisha-hills/360/360" alt="Misty hills at sunrise" loading="lazy" width="180" height="180"><figcaption>coorg, 5am</figcaption></figure>
+    <figure class="polaroid" style="--t:-6deg;--px:0px;--py:20px"><img src="https://picsum.photos/seed/alisha-hills/360/360" alt="Misty hills at sunrise" loading="lazy" width="180" height="180"><figcaption>somewhere, 5am</figcaption></figure>
     <figure class="polaroid" style="--t:4deg;--px:200px;--py:0px"><img src="https://picsum.photos/seed/alisha-desk2/360/360" alt="A cluttered work desk" loading="lazy" width="180" height="180"><figcaption>the real desk</figcaption></figure>
     <figure class="polaroid" style="--t:-2deg;--px:410px;--py:40px"><img src="https://picsum.photos/seed/alisha-cafe/360/360" alt="Coffee on a cafe table" loading="lazy" width="180" height="180"><figcaption>office #2</figcaption></figure>
-    <figure class="polaroid" style="--t:7deg;--px:90px;--py:270px"><img src="https://picsum.photos/seed/alisha-sea9/360/360" alt="The sea at dusk" loading="lazy" width="180" height="180"><figcaption>gokarna ♡</figcaption></figure>
+    <figure class="polaroid" style="--t:7deg;--px:90px;--py:270px"><img src="https://picsum.photos/seed/alisha-sea9/360/360" alt="The sea at dusk" loading="lazy" width="180" height="180"><figcaption>the sea ♡</figcaption></figure>
     <figure class="polaroid" style="--t:-5deg;--px:320px;--py:290px"><img src="https://picsum.photos/seed/alisha-street/360/360" alt="A narrow city street" loading="lazy" width="180" height="180"><figcaption>lost, happily</figcaption></figure>
   </section>
 
   <!-- ============ VOICE NOTES (cassettes) ============ -->
   <section class="item voice" id="voice" style="--x:180px;--y:1760px;--w:600px;--r:0deg" aria-labelledby="voice-h">
     <h2 id="voice-h" class="scrawl label">voice notes (press play)</h2>
-    <div class="cassette" style="--c:var(--tomato);--t:-3deg" data-src="" data-say="Hi! It's Alisha. Thanks for wandering around my desk. Everything here is real, except the receipt. That one's a little bit made up.">
+    <div class="cassette" style="--c:var(--tomato);--t:-3deg" data-src="" data-say="Hi! It's Alisha. Thanks for wandering around my board. Move anything you like, it's yours now.">
       <p class="tape-label hand">01 · hello</p>
       <div class="reels" aria-hidden="true"><i></i><i></i></div>
       <button type="button" aria-label="Play voice note: hello">▶</button>
     </div>
-    <div class="cassette" style="--c:var(--lilac);--t:2deg" data-src="" data-say="How I work: I sketch on paper first, then build the ugliest possible version in code, then I edit. Mostly I edit.">
-      <p class="tape-label hand">02 · how I work</p>
+    <div class="cassette" style="--c:var(--lilac);--t:2deg" data-src="" data-say="Right now I'm building agents, inference infrastructure, and things that run peer to peer. Ask me about any of them.">
+      <p class="tape-label hand">02 · building now</p>
       <div class="reels" aria-hidden="true"><i></i><i></i></div>
-      <button type="button" aria-label="Play voice note: how I work">▶</button>
+      <button type="button" aria-label="Play voice note: building now">▶</button>
     </div>
-    <div class="cassette" style="--c:var(--lime);--t:-1deg" data-src="" data-say="A small thing I believe: every interface should have at least one detail that's there just because someone cared.">
-      <p class="tape-label hand">03 · a belief</p>
+    <div class="cassette" style="--c:var(--lime);--t:-1deg" data-src="" data-say="Be as you wish to seem.">
+      <p class="tape-label hand">03 · motto</p>
       <div class="reels" aria-hidden="true"><i></i><i></i></div>
-      <button type="button" aria-label="Play voice note: a belief">▶</button>
+      <button type="button" aria-label="Play voice note: motto">▶</button>
     </div>
   </section>
 
@@ -258,7 +263,7 @@
     <div class="tv-body">
       <div class="screen">
         <canvas width="160" height="120" aria-hidden="true"></canvas>
-        <p class="screen-text">CH 03<br><span>a talk I gave · press ▶</span></p>
+        <p class="screen-text">CH 03<br><span>demo reel · press ▶</span></p>
       </div>
       <div class="panel">
         <span class="knob" aria-hidden="true"></span>
@@ -267,18 +272,18 @@
         <span class="grille" aria-hidden="true"></span>
       </div>
     </div>
-    <p class="hand caption">“paper interfaces” — talk at a local meetup, 2025</p>
+    <p class="hand caption">project demos — tape coming soon</p>
   </section>
 
   <!-- ============ SAY HI (postcard) ============ -->
   <section class="item postcard" id="hi" style="--x:1500px;--y:1770px;--w:480px;--r:-2deg" aria-labelledby="hi-h">
     <div class="pc-left">
       <h2 id="hi-h" class="hand">say hi!</h2>
-      <p class="typed">Projects, collabs, a book rec, or just to tell me the receipt is weird — my inbox is open.</p>
+      <p class="typed">Projects, collabs, open-source, or just to say you liked the pegboard — my inbox is open.</p>
     </div>
     <div class="pc-right">
       <span class="postage" aria-hidden="true">₹5<br><small>AIR MAIL</small></span>
-      <a href="mailto:hello@alisha.design" class="addr">hello@alisha.design</a>
+      <a href="mailto:codealisha99@gmail.com" class="addr">codealisha99@gmail.com</a>
       <p class="addr-line" aria-hidden="true"></p>
       <p class="addr-line" aria-hidden="true"></p>
     </div>
@@ -290,7 +295,7 @@
 
   <!-- ============ FOOTER (ruler) ============ -->
   <footer class="ruler">
-    <p>© 2026 Alisha · made by hand on a green cutting mat · no templates were harmed · last tidied <time datetime="2026-11">Nov 2026</time></p>
+    <p>© 2026 Alisha Karma · hung by hand on a pegboard · no templates were harmed · last tidied <time datetime="2026-11">Nov 2026</time></p>
     <a href="#intro">back to the start ↑</a>
   </footer>
 
@@ -301,56 +306,55 @@
 <dialog id="resume" class="sheet resume" aria-labelledby="resume-h">
   <form method="dialog" class="close"><button aria-label="Close">×</button></form>
   <header>
-    <h2 id="resume-h">Alisha</h2>
-    <p>Design engineer · Bengaluru, IN · hello@alisha.design · alisha.design</p>
+    <h2 id="resume-h">Alisha Karma</h2>
+    <p>Full-stack &amp; AI engineer · codealisha99@gmail.com · github.com/codealisha99 · linkedin.com/in/alisha-karma-4b94b1298</p>
   </header>
-  <h3>Experience</h3>
-  <div class="job"><p><b>Design Engineer</b>, Fieldnote <span>2024 – present</span></p><ul><li>Built and maintain the design system: 82 components in React + tokens, used by 6 product teams.</li><li>Redesigned onboarding end-to-end; drop-off down 31%.</li></ul></div>
-  <div class="job"><p><b>Product Designer</b>, Kettle <span>2021 – 2024</span></p><ul><li>Led design of the mobile app from zero to 400k users.</li><li>Set up a continuous research practice; ran 60+ interviews.</li></ul></div>
-  <div class="job"><p><b>Frontend Developer</b>, Studio Ombra <span>2019 – 2021</span></p><ul><li>Designed and built ~30 client websites; two Awwwards honourable mentions.</li></ul></div>
-  <div class="job"><p><b>Design Intern</b>, Paperplane Press <span>2018</span></p><ul><li>Book layout, typesetting, and learning patience.</li></ul></div>
-  <h3>Education</h3>
-  <div class="job"><p><b>B.Des, Communication Design</b>, National Institute of Design <span>2014 – 2018</span></p></div>
+  <h3>Open source</h3>
+  <div class="job"><p><b>Maintainer</b>, AI Inference Layer <span>2026</span></p><ul><li>Maintain an open-source inference serving layer between applications and models.</li></ul></div>
+  <div class="job"><p><b>Gossipsub 1.4</b>, C4GT · DMP 2026 <span>2026</span></p><ul><li>RFC-style specification and Python prototype for large-message propagation in libp2p gossip meshes.</li></ul></div>
+  <h3>Selected projects</h3>
+  <div class="job"><p><b>OrbitLedger</b> — crypto paper-trading platform <span>TypeScript · Bun · Postgres · Redis</span></p><ul><li>Simulated perpetuals with virtual collateral and execution quotes from live Binance trades.</li></ul></div>
+  <div class="job"><p><b>Zentro</b> — peer-to-peer video calls <span>Next.js · WebRTC · WebSockets</span></p><ul><li>Browser-to-browser calls with a stateless signaling server and optional Whisper transcripts.</li></ul></div>
+  <div class="job"><p><b>Sherlock</b> — multi-agent codebase understanding <span>Python</span></p><ul><li>Local pipeline of agents that produces a structured mental model of an unfamiliar repo.</li></ul></div>
+  <div class="job"><p><b>AgentRuntime</b> — sandboxed agent tool calls <span>Python</span></p><ul><li>Typed, granted, sandboxed tools with PII, injection and policy checks on every hop.</li></ul></div>
+  <div class="job"><p><b>TalkSense</b> — learn it, then say it out loud <span>TypeScript</span></p><ul><li>Timed study briefs, voice transcription and rubric-based grading.</li></ul></div>
   <h3>Skills</h3>
-  <p>Product &amp; interaction design · design systems · prototyping · HTML/CSS/TypeScript · React · WebGL · user research · typography</p>
+  <p>TypeScript · JavaScript · Python · Java · React · Next.js · Tailwind · Node.js · Express · FastAPI · Postgres · Redis · MongoDB · Docker · Git · machine learning · RAG · agents</p>
   <p class="actions"><button type="button" data-print>print / save as PDF</button></p>
 </dialog>
 
 <dialog id="post-1" class="sheet post" aria-labelledby="post-1-h">
   <form method="dialog" class="close"><button aria-label="Close">×</button></form>
-  <time datetime="2026-10-02">2 Oct 2026</time>
-  <h2 id="post-1-h">The case for ugly first drafts</h2>
-  <p>Every good thing I’ve made started as something I’d be embarrassed to show. The problem is that tools now make it too easy to start pretty — a polished component library, a nice default font — and pretty is expensive to throw away.</p>
-  <p>So I start in grey boxes and Comic Sans on purpose. If the idea still works when it looks like that, it’s a real idea. If it only works when it’s pretty, it’s a mood board.</p>
-  <p>Then I edit. Editing is where the design actually happens.</p>
+  <time>Oct 2026</time>
+  <h2 id="post-1-h">Video calls where nothing touches a server</h2>
+  <p><a href="https://github.com/codealisha99/zentro" target="_blank" rel="noopener">Zentro</a> is peer-to-peer video in the browser. You share a link, your contact joins — no accounts, no downloads.</p>
+  <p>Video and audio go directly between the two people over WebRTC. The only server is a small WebSocket signaling service that pairs two clients per room and relays the offer/answer and ICE candidates. It keeps no history; once the call connects, it is out of the loop.</p>
+  <p>There is an optional transcript, generated with Whisper, for when you want notes from the call.</p>
 </dialog>
 
 <dialog id="post-2" class="sheet post" aria-labelledby="post-2-h">
   <form method="dialog" class="close"><button aria-label="Close">×</button></form>
-  <time datetime="2026-08-19">19 Aug 2026</time>
-  <h2 id="post-2-h">What a receipt taught me about hierarchy</h2>
-  <p>A receipt has one font, one size, one colour, and yet you can find the total in under a second. Everything is done with position, rules, caps and whitespace.</p>
-  <p>I pinned one above my monitor as a reminder: before you reach for another font weight, try a line, a gap, or simply moving the thing.</p>
+  <time>Oct 2026</time>
+  <h2 id="post-2-h">Paper trading, real market data</h2>
+  <p><a href="https://github.com/codealisha99/orbit-ledger" target="_blank" rel="noopener">OrbitLedger</a> is a paper-trading workspace for BTC, ETH and SOL. Collateral is virtual USD; execution quotes are simulated from Binance public trades, so prices feel real while nothing real is bought or sold.</p>
+  <p>Leveraged positions are simulated linear perpetuals with a fixed, educational funding rule — 1 basis point every 8 hours. The dashboard reconciles cash, margin and P&amp;L so you can see exactly where the numbers come from.</p>
 </dialog>
 
 <dialog id="post-3" class="sheet post" aria-labelledby="post-3-h">
   <form method="dialog" class="close"><button aria-label="Close">×</button></form>
-  <time datetime="2026-05-07">7 May 2026</time>
-  <h2 id="post-3-h">Design systems are gardens, not buildings</h2>
-  <p>You don’t finish a design system. You plant some things, see what the teams actually use, pull out what doesn’t grow, and accept that someone will always plant a weird button in the corner.</p>
-  <p>The best thing I did at Fieldnote was add a “compost” folder: deprecated components go there for one release before they’re deleted. People stopped being scared of removing things.</p>
+  <time>Nov 2026</time>
+  <h2 id="post-3-h">Teaching agents to read a codebase</h2>
+  <p><a href="https://github.com/codealisha99/sherlock" target="_blank" rel="noopener">Sherlock</a> started from one sentence: “give me a deep, structured, understandable mental model of an unfamiliar codebase.”</p>
+  <p>Instead of a chat bot that guesses, it runs locally as a pipeline of agents that each own a part of the job, and hands back a map you can actually reason with.</p>
+  <p>Its sibling, <a href="https://github.com/codealisha99/agent-runtime" target="_blank" rel="noopener">AgentRuntime</a>, is about the other half: agents can only call typed, granted, sandboxed tools, and every hop is checked for PII, injection and policy.</p>
 </dialog>
 
 <dialog id="post-4" class="sheet post" aria-labelledby="post-4-h">
   <form method="dialog" class="close"><button aria-label="Close">×</button></form>
-  <time datetime="2026-02-14">14 Feb 2026</time>
-  <h2 id="post-4-h">Notes from 60 user interviews</h2>
-  <ul>
-    <li>People describe what they did, not what they want. Listen to the verbs.</li>
-    <li>The best question is “can you show me?”</li>
-    <li>Silence is a tool. Count to five before you fill it.</li>
-    <li>The workaround is the feature request.</li>
-  </ul>
+  <time>May 2026</time>
+  <h2 id="post-4-h">Big messages in a gossip network</h2>
+  <p>Gossip protocols are great at spreading small messages fast. Large ones are another story — every peer forwarding a full copy wastes a lot of bandwidth.</p>
+  <p>For C4GT’s DMP 2026 I worked on <a href="https://github.com/codealisha99/Gossipsub" target="_blank" rel="noopener">Gossipsub 1.4 large-message handling</a>: an RFC-style specification and a Python prototype of the libp2p pubsub extension.</p>
 </dialog>
 
 <script src="board.js"></script>
