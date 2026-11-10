@@ -8,9 +8,10 @@
   <link rel="icon" href="assets/icon.svg">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400..800&family=Courier+Prime:ital,wght@0,400;0,700;1,400&family=Gloock&family=JetBrains+Mono:wght@400;600;800&family=Shantell+Sans:ital,wght,BNCE,INFM@0,300..800,-100..100,0..100;1,300..800,-100..100,0..100&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400..800&family=Gloock&family=JetBrains+Mono:wght@400..800&family=Shantell+Sans:ital,wght,BNCE,INFM@0,300..800,-100..100,0..100;1,300..800,-100..100,0..100&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="styles.css">
   <link rel="stylesheet" href="coder.css">
+  <noscript><style>.viewport { overflow: auto; touch-action: auto; cursor: auto; }</style></noscript>
   <script>
     // set theme + mode before first paint so there's no flash
     (() => {
@@ -27,15 +28,11 @@
   <a class="logo" href="#intro">alisha<span>’s board</span></a>
   <nav class="tabs" aria-label="Jump to">
     <a href="#intro">hello</a>
-    <a href="#work">work</a>
     <a href="#projects">projects</a>
-    <a href="#blog">blog</a>
-    <a href="#reading">reading</a>
-    <a href="#studied">studied</a>
-    <a href="#whiteboard">whiteboard</a>
-    <a href="#photos">photos</a>
-    <a href="#voice">voice</a>
-    <a href="#video">video</a>
+    <a href="#photos">live demos</a>
+    <a href="#work">work</a>
+    <a href="#blog">notes</a>
+    <a href="#studied">learnt</a>
     <a href="#hi">say hi</a>
   </nav>
   <div class="tools">
@@ -67,6 +64,11 @@
       <li><b>github bio</b> Nerd</li>
       <li><b>shipping</b> 89 public repos</li>
     </ul>
+    <div class="cta">
+      <a class="btn primary" href="#projects" data-jump>See what I’ve built <span aria-hidden="true">→</span></a>
+      <button type="button" class="btn" data-open="resume">Résumé</button>
+      <button type="button" class="btn ghost" data-switch="mode" title="A plain, scrollable version of this page">Plain view</button>
+    </div>
     <span class="stamp">certified<br>nerd</span>
   </article>
   <figure class="item polaroid me" id="me" style="--x:1770px;--y:230px;--r:6deg">
@@ -87,10 +89,10 @@
     <label class="hand" for="note-text">leave me a sticky →</label>
     <textarea id="note-text" maxlength="140" rows="3" placeholder="say something nice (or honest)" required></textarea>
     <fieldset class="swatches" aria-label="Sticky colour">
-      <label><input type="radio" name="c" value="lime" checked><span class="sw lime"></span></label>
-      <label><input type="radio" name="c" value="pink"><span class="sw pink"></span></label>
-      <label><input type="radio" name="c" value="lilac"><span class="sw lilac"></span></label>
-      <label><input type="radio" name="c" value="peach"><span class="sw peach"></span></label>
+      <label><input type="radio" name="c" value="lime" aria-label="Lime sticky" checked><span class="sw lime"></span></label>
+      <label><input type="radio" name="c" value="pink" aria-label="Pink sticky"><span class="sw pink"></span></label>
+      <label><input type="radio" name="c" value="lilac" aria-label="Lilac sticky"><span class="sw lilac"></span></label>
+      <label><input type="radio" name="c" value="peach" aria-label="Peach sticky"><span class="sw peach"></span></label>
     </fieldset>
     <button type="submit">stick it</button>
     <small class="typed">notes live in your browser only — it’s your copy of my board.</small>
@@ -170,11 +172,11 @@
     <h2 id="projects-h" class="label-maker">~/github</h2>
     <a class="more-repos typed" href="https://github.com/codealisha99?tab=repositories" target="_blank" rel="noopener">+83 more repos →</a>
     <ul class="repo-list">
-      <li class="repo"><a href="https://github.com/codealisha99/orbit-ledger" target="_blank" rel="noopener"><b>orbit-ledger</b></a><p>Crypto paper-trading workspace for BTC, ETH &amp; SOL — virtual collateral, simulated perps, quotes from live Binance trades.</p><p class="meta"><span class="dot" style="--lc:#3178c6"></span>TypeScript</p></li>
+      <li class="repo"><a href="https://github.com/codealisha99/orbit-ledger" target="_blank" rel="noopener"><b>orbit-ledger</b></a><p>Crypto paper-trading workspace for BTC, ETH &amp; SOL — virtual collateral, simulated perps, quotes from live Binance trades.</p><p class="meta"><span class="dot" style="--lc:#3178c6"></span>TypeScript <a class="live" href="https://orbit-ledger-web.vercel.app" target="_blank" rel="noopener">live ↗</a></p></li>
       <li class="repo"><a href="https://github.com/codealisha99/zentro" target="_blank" rel="noopener"><b>zentro</b></a><p>Peer-to-peer video calls in the browser. Share a link, no accounts — media never touches a server.</p><p class="meta"><span class="dot" style="--lc:#3178c6"></span>TypeScript · WebRTC</p></li>
       <li class="repo"><a href="https://github.com/codealisha99/sherlock" target="_blank" rel="noopener"><b>sherlock</b></a><p>Local multi-agent system that builds a structured mental model of an unfamiliar codebase.</p><p class="meta"><span class="dot" style="--lc:#3572a5"></span>Python</p></li>
       <li class="repo"><a href="https://github.com/codealisha99/talksense" target="_blank" rel="noopener"><b>talksense</b></a><p>Learn anything in 20 minutes, then explain it out loud and get graded against a rubric.</p><p class="meta"><span class="dot" style="--lc:#3178c6"></span>TypeScript</p></li>
-      <li class="repo"><a href="https://github.com/codealisha99/ai-inference-layer" target="_blank" rel="noopener"><b>ai-inference-layer</b></a><p>An inference serving layer I maintain — the boring, important part between apps and models.</p><p class="meta"><span class="dot" style="--lc:#3572a5"></span>Python</p></li>
+      <li class="repo"><a href="https://github.com/codealisha99/ai-inference-layer" target="_blank" rel="noopener"><b>ai-inference-layer</b></a><p>An inference serving layer I maintain — the boring, important part between apps and models.</p><p class="meta"><span class="dot" style="--lc:#3572a5"></span>Python <a class="live" href="https://ai-inference-layer.vercel.app" target="_blank" rel="noopener">live ↗</a></p></li>
       <li class="repo"><a href="https://github.com/codealisha99/Gossipsub" target="_blank" rel="noopener"><b>Gossipsub</b></a><p>Gossipsub 1.4 large-message handling for libp2p — a spec and a working prototype.</p><p class="meta"><span class="dot" style="--lc:#3572a5"></span>Python · libp2p</p></li>
     </ul>
   </section>
@@ -198,17 +200,16 @@
     <h2 id="reading-h">DATE DUE</h2>
     <p class="typed small">BORROWER: ALISHA · CARD NO. 0007</p>
     <table>
-      <thead><tr><th>title</th><th>author</th><th>status</th></tr></thead>
+      <thead><tr><th>title</th><th>from</th><th>status</th></tr></thead>
       <tbody>
-        <tr class="now"><td>The Shape of Design</td><td>Frank Chimero</td><td><span class="ink-stamp">READING</span></td></tr>
-        <tr><td>Piranesi</td><td>Susanna Clarke</td><td class="hand">loved it</td></tr>
-        <tr><td>Thinking with Type</td><td>Ellen Lupton</td><td class="hand">re-read #3</td></tr>
-        <tr><td>The Overstory</td><td>Richard Powers</td><td class="hand">slowly…</td></tr>
-        <tr><td>A Pattern Language</td><td>C. Alexander</td><td class="hand">dipping in</td></tr>
-        <tr><td>Klara and the Sun</td><td>K. Ishiguro</td><td class="hand">cried</td></tr>
+        <tr class="now"><td>How To Appear Wise</td><td>The Journal, MR PORTER</td><td><span class="ink-stamp">PINNED</span></td></tr>
+        <tr><td><a href="https://github.com/morluto/rea" target="_blank" rel="noopener">rea</a> — reverse engineer anything with agents</td><td>GitHub</td><td class="hand">starred</td></tr>
+        <tr class="empty"><td colspan="3">your rec here</td></tr>
+        <tr class="empty"><td colspan="3">your rec here</td></tr>
+        <tr class="empty"><td colspan="3">your rec here</td></tr>
       </tbody>
     </table>
-    <p class="scrawl">recs welcome → leave a sticky</p>
+    <p class="scrawl">got a rec? <a href="#notepad" data-jump>leave a sticky →</a></p>
   </section>
 
   <!-- ============ WHITEBOARD ============ -->
@@ -242,18 +243,18 @@
     </dl>
   </section>
 
-  <!-- ============ PHOTOS (polaroids) ============ -->
-  <section class="item photos" id="photos" style="--x:2470px;--y:1420px;--w:640px;--r:0deg" aria-label="Photos">
-    <figure class="polaroid" style="--t:-6deg;--px:0px;--py:20px"><img src="https://picsum.photos/seed/alisha-hills/360/360" alt="Misty hills at sunrise" loading="lazy" width="180" height="180"><figcaption>somewhere, 5am</figcaption></figure>
-    <figure class="polaroid" style="--t:4deg;--px:200px;--py:0px"><img src="https://picsum.photos/seed/alisha-desk2/360/360" alt="A cluttered work desk" loading="lazy" width="180" height="180"><figcaption>the real desk</figcaption></figure>
-    <figure class="polaroid" style="--t:-2deg;--px:410px;--py:40px"><img src="https://picsum.photos/seed/alisha-cafe/360/360" alt="Coffee on a cafe table" loading="lazy" width="180" height="180"><figcaption>office #2</figcaption></figure>
-    <figure class="polaroid" style="--t:7deg;--px:90px;--py:270px"><img src="https://picsum.photos/seed/alisha-sea9/360/360" alt="The sea at dusk" loading="lazy" width="180" height="180"><figcaption>the sea ♡</figcaption></figure>
-    <figure class="polaroid" style="--t:-5deg;--px:320px;--py:290px"><img src="https://picsum.photos/seed/alisha-street/360/360" alt="A narrow city street" loading="lazy" width="180" height="180"><figcaption>lost, happily</figcaption></figure>
+  <!-- ============ LIVE DEMOS (polaroids of real, deployed projects) ============ -->
+  <section class="item photos" id="photos" style="--x:2470px;--y:1420px;--w:640px;--r:0deg" aria-labelledby="photos-h">
+    <h2 id="photos-h" class="scrawl label">snapshots of things that are live right now</h2>
+    <figure class="polaroid shot" style="--t:-3deg;--px:0px;--py:10px"><a href="https://orbit-ledger-web.vercel.app" target="_blank" rel="noopener"><img src="assets/shots/orbit-ledger.jpg" alt="OrbitLedger landing page: “Make your next move a better one”, with a BTC/USDT paper-trading chart" loading="lazy" width="272" height="170"><figcaption>orbit-ledger <span>live ↗</span></figcaption></a></figure>
+    <figure class="polaroid shot" style="--t:2.5deg;--px:320px;--py:0px"><a href="https://ai-inference-layer.vercel.app" target="_blank" rel="noopener"><img src="assets/shots/ai-inference-layer.jpg" alt="Inference landing page: “One registry. Three ways to infer.” with an inference playground" loading="lazy" width="272" height="170"><figcaption>ai-inference-layer <span>live ↗</span></figcaption></a></figure>
+    <figure class="polaroid shot" style="--t:2deg;--px:10px;--py:250px"><a href="https://schemaguard-theta.vercel.app" target="_blank" rel="noopener"><img src="assets/shots/schemaguard.jpg" alt="SchemaGuard landing page: “Turn messy LLM output into validated JSON”, showing a repaired JSON example" loading="lazy" width="272" height="170"><figcaption>schemaguard <span>live ↗</span></figcaption></a></figure>
+    <figure class="polaroid shot" style="--t:-2deg;--px:330px;--py:240px"><a href="https://modellab-nine.vercel.app" target="_blank" rel="noopener"><img src="assets/shots/modellab.jpg" alt="ModelLab landing page: “A small lab for the whole experiment”, with a stream replay diagram" loading="lazy" width="272" height="170"><figcaption>modellab <span>live ↗</span></figcaption></a></figure>
   </section>
 
   <!-- ============ VOICE NOTES (cassettes) ============ -->
   <section class="item voice" id="voice" style="--x:180px;--y:1760px;--w:600px;--r:0deg" aria-labelledby="voice-h">
-    <h2 id="voice-h" class="scrawl label">voice notes (press play)</h2>
+    <h2 id="voice-h" class="scrawl label">voice notes <small>(read aloud by your browser)</small></h2>
     <div class="cassette" style="--c:var(--tomato);--t:-3deg" data-src="" data-say="Hi! It's Alisha. Thanks for wandering around my board. Move anything you like, it's yours now.">
       <p class="tape-label hand">01 · hello</p>
       <div class="reels" aria-hidden="true"><i></i><i></i></div>
@@ -271,22 +272,25 @@
     </div>
   </section>
 
-  <!-- ============ VIDEO (tv) ============ -->
-  <section class="item tv" id="video" style="--x:960px;--y:1760px;--w:460px;--r:1deg" data-youtube="" aria-labelledby="video-h">
-    <h2 id="video-h" class="visually-hidden">Video</h2>
+  <!-- ============ DEMO TAPE (tv): a real screen recording of the live OrbitLedger site ============ -->
+  <section class="item tv" id="video" style="--x:960px;--y:1760px;--w:460px;--r:1deg" data-live="https://orbit-ledger-web.vercel.app" aria-labelledby="video-h">
+    <h2 id="video-h" class="visually-hidden">Demo tape: OrbitLedger</h2>
     <div class="tv-body">
       <div class="screen">
+        <video preload="none" muted playsinline loop poster="assets/shots/orbit-ledger.jpg" aria-label="Screen recording of the OrbitLedger live site">
+          <source src="assets/orbit-ledger-demo.webm" type='video/webm; codecs="vp8"'>
+        </video>
         <canvas width="160" height="120" aria-hidden="true"></canvas>
-        <p class="screen-text">CH 03<br><span>demo reel · press ▶</span></p>
+        <p class="screen-text">CH 03<br><span>orbit-ledger · press ▶</span></p>
       </div>
       <div class="panel">
         <span class="knob" aria-hidden="true"></span>
         <span class="knob small" aria-hidden="true"></span>
-        <button type="button" class="tv-play" aria-label="Play video">▶</button>
+        <button type="button" class="tv-play" aria-label="Play demo tape">▶</button>
         <span class="grille" aria-hidden="true"></span>
       </div>
     </div>
-    <p class="hand caption">project demos — tape coming soon</p>
+    <p class="hand caption">screen recording of <a href="https://orbit-ledger-web.vercel.app" target="_blank" rel="noopener">orbit-ledger, live ↗</a></p>
   </section>
 
   <!-- ============ SAY HI (postcard) ============ -->
@@ -307,7 +311,7 @@
   <section class="item contrib-card" id="contrib" style="--x:1240px;--y:960px;--r:-0.8deg" aria-labelledby="contrib-h">
     <span class="tape tc"></span>
     <h2 id="contrib-h" class="hand">one square a day, a year of commits</h2>
-    <div class="contrib" data-contrib><p class="contrib-msg typed">loading from github…</p></div>
+    <div class="contrib" data-contrib tabindex="0" role="region" aria-label="GitHub contributions over the last year"><p class="contrib-msg typed">loading from github…</p></div>
   </section>
 
   <!-- desk junk -->
@@ -341,7 +345,7 @@
 
   <section class="c-sec" aria-labelledby="c-about">
     <h2 class="c-h" id="c-about"><span>01</span> about.ts</h2>
-    <pre class="c-code"><code><span class="k">const</span> alisha = {
+    <pre class="c-code" tabindex="0" aria-label="about.ts"><code><span class="k">const</span> alisha = {
   role: <span class="s">"full-stack &amp; AI engineer"</span>,
   location: <span class="s">"keeps changing ✈"</span>,
   focus: [<span class="s">"agents"</span>, <span class="s">"inference infra"</span>, <span class="s">"p2p"</span>, <span class="s">"trading sims"</span>],
@@ -353,17 +357,17 @@
 
   <section class="c-sec" aria-labelledby="c-contrib">
     <h2 class="c-h" id="c-contrib"><span>02</span> git log --since="1 year ago"</h2>
-    <div class="contrib" data-contrib><p class="contrib-msg">loading from github…</p></div>
+    <div class="contrib" data-contrib tabindex="0" role="region" aria-label="GitHub contributions over the last year"><p class="contrib-msg">loading from github…</p></div>
   </section>
 
   <section class="c-sec" aria-labelledby="c-projects">
     <h2 class="c-h" id="c-projects"><span>03</span> ls ~/projects</h2>
     <ul class="c-grid">
-      <li class="c-card"><a href="https://github.com/codealisha99/orbit-ledger" target="_blank" rel="noopener">orbit-ledger</a><p>Crypto paper-trading workspace for BTC, ETH &amp; SOL — virtual collateral, simulated perps, quotes from live Binance trades.</p><p class="c-meta"><span class="dot" style="--lc:#3178c6"></span>TypeScript · Bun · Postgres · Redis</p></li>
+      <li class="c-card"><a href="https://github.com/codealisha99/orbit-ledger" target="_blank" rel="noopener">orbit-ledger</a><p>Crypto paper-trading workspace for BTC, ETH &amp; SOL — virtual collateral, simulated perps, quotes from live Binance trades.</p><p class="c-meta"><span class="dot" style="--lc:#3178c6"></span>TypeScript · Bun · Postgres · Redis <a class="live" href="https://orbit-ledger-web.vercel.app" target="_blank" rel="noopener">live ↗</a></p></li>
       <li class="c-card"><a href="https://github.com/codealisha99/zentro" target="_blank" rel="noopener">zentro</a><p>Peer-to-peer video calls in the browser. Share a link, no accounts — media never touches a server.</p><p class="c-meta"><span class="dot" style="--lc:#3178c6"></span>TypeScript · WebRTC</p></li>
       <li class="c-card"><a href="https://github.com/codealisha99/sherlock" target="_blank" rel="noopener">sherlock</a><p>Local multi-agent system that builds a structured mental model of an unfamiliar codebase.</p><p class="c-meta"><span class="dot" style="--lc:#3572a5"></span>Python</p></li>
       <li class="c-card"><a href="https://github.com/codealisha99/talksense" target="_blank" rel="noopener">talksense</a><p>Learn anything in 20 minutes, then explain it out loud and get graded against a rubric.</p><p class="c-meta"><span class="dot" style="--lc:#3178c6"></span>TypeScript</p></li>
-      <li class="c-card"><a href="https://github.com/codealisha99/ai-inference-layer" target="_blank" rel="noopener">ai-inference-layer</a><p>An inference serving layer I maintain — the boring, important part between apps and models.</p><p class="c-meta"><span class="dot" style="--lc:#3572a5"></span>Python</p></li>
+      <li class="c-card"><a href="https://github.com/codealisha99/ai-inference-layer" target="_blank" rel="noopener">ai-inference-layer</a><p>An inference serving layer I maintain — the boring, important part between apps and models.</p><p class="c-meta"><span class="dot" style="--lc:#3572a5"></span>Python <a class="live" href="https://ai-inference-layer.vercel.app" target="_blank" rel="noopener">live ↗</a></p></li>
       <li class="c-card"><a href="https://github.com/codealisha99/Gossipsub" target="_blank" rel="noopener">Gossipsub</a><p>Gossipsub 1.4 large-message handling for libp2p — a spec and a working prototype.</p><p class="c-meta"><span class="dot" style="--lc:#3572a5"></span>Python · libp2p</p></li>
     </ul>
     <a class="c-more" href="https://github.com/codealisha99?tab=repositories" target="_blank" rel="noopener">+83 more repos →</a>

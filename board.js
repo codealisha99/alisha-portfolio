@@ -9,6 +9,7 @@ const vp = $(".viewport"), board = $(".board");
 const desk = matchMedia("(min-width: 821px)");
 const root = document.documentElement;
 const coder = () => root.dataset.mode === "coder";
+const reduceMotion = matchMedia("(prefers-reduced-motion: reduce)");
 const INTERACTIVE = "a, button, input, textarea, label, select, canvas, iframe, dialog";
 
 /* ---------- view (pan + zoom) ---------- */
@@ -24,9 +25,12 @@ function zoomAt(factor, cx = innerWidth / 2, cy = innerHeight / 2) {
   apply();
 }
 function centerOn(el, glide = true, s = view.s) {
+  // measure in board space from the rendered rects, so it works for any descendant and mid-glide
+  const r = el.getBoundingClientRect(), br = board.getBoundingClientRect(), k = br.width / board.offsetWidth;
+  const cx = (r.left + r.width / 2 - br.left) / k, cy = (r.top + r.height / 2 - br.top) / k;
   view.s = s;
-  view.x = innerWidth / 2 - (el.offsetLeft + el.offsetWidth / 2) * s;
-  view.y = (innerHeight + 60) / 2 - (el.offsetTop + el.offsetHeight / 2) * s;
+  view.x = innerWidth / 2 - cx * s;
+  view.y = (innerHeight + 60) / 2 - cy * s;
   board.classList.toggle("glide", glide);
   apply();
 }
@@ -42,11 +46,14 @@ const stopGlide = () => board.classList.remove("glide");
 
 /* ---------- positions (dragged items remember where you left them) ---------- */
 const POS = "desk:pos";
+const isNum = Number.isFinite;
+const isPos = (p) => p && isNum(p.x) && isNum(p.y);
 let positions = store.get(POS, {});
+if (typeof positions !== "object" || Array.isArray(positions)) positions = {};
 let z = 10;
 function place(el) {
   const p = positions[el.id];
-  if (p) { el.style.setProperty("--x", p.x + "px"); el.style.setProperty("--y", p.y + "px"); }
+  if (isPos(p)) { el.style.setProperty("--x", p.x + "px"); el.style.setProperty("--y", p.y + "px"); }
 }
 
 /* ---------- pointer: pan the mat or drag an item ---------- */
@@ -107,18 +114,21 @@ addEventListener("keydown", (e) => {
 // keyboard users tabbing onto something off-screen get carried to it
 board.addEventListener("focusin", (e) => {
   if (!desk.matches) return;
-  const item = e.target.closest(".item");
+  const item = e.target.closest(".item, .ruler");
   if (!item) return;
-  const r = item.getBoundingClientRect();
-  if (r.left < 0 || r.top < 70 || r.right > innerWidth || r.bottom > innerHeight) centerOn(item);
+  vp.scrollLeft = vp.scrollTop = 0; // the browser may already have scrolled the clipped viewport to reveal focus; undo it before measuring
+  const r = e.target.getBoundingClientRect();
+  if (r.left >= 0 && r.top >= 70 && r.right <= innerWidth && r.bottom <= innerHeight) return;
+  const ir = item.getBoundingClientRect(); // show the whole card if it fits, else just the focused control
+  centerOn(ir.width < innerWidth && ir.height < innerHeight - 70 ? item : e.target);
 });
 vp.addEventListener("scroll", () => { vp.scrollLeft = vp.scrollTop = 0; }); // focus can scroll overflow:hidden; undo it
 
 /* ---------- top bar ---------- */
-$$(".tabs a, .ruler a, .logo").forEach((a) => a.addEventListener("click", (e) => {
+$$(".tabs a, .ruler a, .logo, [data-jump]").forEach((a) => a.addEventListener("click", (e) => {
   if (coder()) { e.preventDefault(); scrollTo({ top: 0, behavior: "smooth" }); return; }
   if (!desk.matches) return; // mobile: normal anchor scroll
-  const el = $(a.getAttribute("href"));
+  const el = document.getElementById(a.getAttribute("href").slice(1));
   if (!el) return;
   e.preventDefault();
   centerOn(el, true, Math.max(view.s, 0.8));
@@ -145,13 +155,17 @@ $$("[data-toggle]").forEach((b) => {
   const key = b.dataset.toggle, [off, on] = SWITCHES[key];
   const sync = () => b.setAttribute("aria-checked", root.dataset[key] === on);
   sync();
-  b.addEventListener("click", () => {
+  const flip = () => {
     root.dataset[key] = root.dataset[key] === on ? off : on;
     store.set("desk:" + key, root.dataset[key]);
     sync();
     if (key === "mode") { scrollTo(0, 0); if (!coder()) start(); } // board was display:none, re-centre it
-  });
+  };
+  // crossfade says "same content, different view"; browsers without View Transitions switch instantly
+  b.addEventListener("click", () => (document.startViewTransition && !reduceMotion.matches ? document.startViewTransition(flip) : flip()));
 });
+
+$$("[data-switch]").forEach((b) => b.addEventListener("click", () => $(`[data-toggle="${b.dataset.switch}"]`).click()));
 
 /* ---------- github contribution graph (fills every [data-contrib]) ---------- */
 (() => {
@@ -163,7 +177,9 @@ $$("[data-toggle]").forEach((b) => {
     p.innerHTML = `couldn’t load the graph — <a href="https://github.com/${USER}" target="_blank" rel="noopener">see it on GitHub →</a>`;
     b.replaceChildren(p);
   });
-  fetch(`https://github-contributions-api.jogruber.de/v4/${USER}?y=last`)
+  // third-party API: give up after 8s and show the GitHub link instead of "loading…" forever.
+  // AbortSignal.timeout is missing on Safari < 16; there we just fetch without a timeout.
+  fetch(`https://github-contributions-api.jogruber.de/v4/${USER}?y=last`, { signal: AbortSignal.timeout?.(8000) })
     .then((r) => (r.ok ? r.json() : Promise.reject(new Error("HTTP " + r.status))))
     .then(({ contributions: days }) => {
       if (!Array.isArray(days) || !days.length) throw new Error("unexpected response shape");
@@ -194,8 +210,11 @@ $$("[data-toggle]").forEach((b) => {
 
 /* ---------- visitor stickies ---------- */
 const NOTES = "desk:notes";
-let notes = store.get(NOTES, []);
 const COLORS = ["lime", "pink", "lilac", "peach"];
+const isNote = (n) => n && typeof n.id === "string" && /^note-[a-z0-9]+$/.test(n.id)
+  && typeof n.text === "string" && isPos(n) && isNum(n.r) && isNum(n.t);
+const loaded = store.get(NOTES, []);
+let notes = Array.isArray(loaded) ? loaded.filter(isNote) : [];
 
 function renderNote(n) {
   const el = document.createElement("div");
@@ -250,8 +269,9 @@ $("#notepad").addEventListener("submit", (e) => {
   let color = "#1d1b2f", erasing = false, last = null;
   ctx.lineCap = ctx.lineJoin = "round";
 
-  const saved = localStorage.getItem(KEY);
-  if (saved) {
+  let saved = null;
+  try { saved = localStorage.getItem(KEY); } catch { /* storage blocked: start with a blank board */ }
+  if (saved?.startsWith("data:image/png")) {
     const img = new Image();
     img.onload = () => { ctx.drawImage(img, 0, 0); wb.classList.add("drawn"); };
     img.src = saved;
@@ -289,7 +309,7 @@ $("#notepad").addEventListener("submit", (e) => {
   }));
   $("[data-erase]", wb).addEventListener("click", () => {
     ctx.clearRect(0, 0, cv.width, cv.height);
-    localStorage.removeItem(KEY);
+    try { localStorage.removeItem(KEY); } catch { /* storage blocked: nothing to remove */ }
     wb.classList.remove("drawn");
   });
 })();
@@ -325,11 +345,12 @@ $("#notepad").addEventListener("submit", (e) => {
   });
 })();
 
-/* ---------- tv: static until a video is set ---------- */
+/* ---------- tv: static until you press play, then a real screen recording of the live site ---------- */
 (() => {
   const tv = $("#video"), cv = $(".screen canvas", tv), ctx = cv.getContext("2d");
+  const video = $("video", tv), btn = $(".tv-play", tv), text = $(".screen-text", tv);
   const img = ctx.createImageData(cv.width, cv.height);
-  let on = false, timer = 0;
+  let timer = 0;
   const frame = () => {
     const d = img.data;
     for (let i = 0; i < d.length; i += 4) { const v = Math.random() * 255; d[i] = d[i + 1] = d[i + 2] = v; d[i + 3] = 255; }
@@ -338,22 +359,30 @@ $("#notepad").addEventListener("submit", (e) => {
   frame();
   if (!matchMedia("(prefers-reduced-motion: reduce)").matches) {
     new IntersectionObserver(([e]) => {
-      on = e.isIntersecting;
       clearInterval(timer);
-      if (on) timer = setInterval(frame, 70);
+      if (e.isIntersecting && !tv.classList.contains("on")) timer = setInterval(frame, 70);
     }).observe(cv);
   }
-  $(".tv-play", tv).addEventListener("click", () => {
-    const id = tv.dataset.youtube;
-    const text = $(".screen-text", tv);
-    if (!id) { text.innerHTML = "NO SIGNAL<br><span>tape coming soon — come back later</span>"; return; }
-    clearInterval(timer);
-    const f = document.createElement("iframe");
-    f.src = `https://www.youtube-nocookie.com/embed/${encodeURIComponent(id)}?autoplay=1`;
-    f.allow = "autoplay; encrypted-media; picture-in-picture";
-    f.allowFullscreen = true;
-    f.title = "Video";
-    $(".screen", tv).replaceChildren(f);
+  const setPlaying = (on) => {
+    tv.classList.toggle("on", on);
+    btn.textContent = on ? "❚❚" : "▶";
+    btn.setAttribute("aria-label", on ? "Pause demo tape" : "Play demo tape");
+    if (on) clearInterval(timer);
+  };
+  video.addEventListener("play", () => setPlaying(true));
+  video.addEventListener("pause", () => setPlaying(false));
+  // the tape is WebM; browsers that can't play it get a link to the live site instead of a dead button
+  const cannotPlay = !video.canPlayType('video/webm; codecs="vp8"');
+  const offerLive = () => {
+    text.replaceChildren("can’t play this tape here", document.createElement("br"));
+    const a = document.createElement("a");
+    a.href = tv.dataset.live; a.target = "_blank"; a.rel = "noopener"; a.textContent = "watch it live ↗";
+    text.append(a);
+  };
+  btn.addEventListener("click", () => {
+    if (cannotPlay) return offerLive();
+    if (!video.paused) return video.pause();
+    video.play().catch((e) => { console.warn("demo tape failed", e); offerLive(); });
   });
 })();
 
@@ -371,9 +400,24 @@ notes.forEach(renderNote);
 function start() {
   if (coder()) return;
   if (!desk.matches) { board.style.transform = ""; return; }
-  const target = location.hash && $(location.hash);
+  const target = location.hash && document.getElementById(location.hash.slice(1));
   centerOn(target || $("#intro"), false, innerWidth < 1200 ? 0.75 : 0.9);
 }
+// first load: things settle onto the pegboard in a ripple outward from the intro (≤ ~1.1s, never blocks input)
+function settle() {
+  if (coder() || !desk.matches || reduceMotion.matches) return;
+  const o = $("#intro"), ox = o.offsetLeft + o.offsetWidth / 2, oy = o.offsetTop + o.offsetHeight / 2;
+  $$(".board > .item").forEach((el) => {
+    const d = Math.hypot(el.offsetLeft + el.offsetWidth / 2 - ox, el.offsetTop + el.offsetHeight / 2 - oy);
+    el.style.setProperty("--d", Math.round(Math.min(600, d * 0.3)) + "ms");
+  });
+  board.classList.add("settle");
+  setTimeout(() => board.classList.remove("settle"), 1200);
+}
 start();
+settle();
 desk.addEventListener("change", start);
-setTimeout(() => $(".hint")?.classList.add("gone"), 7000);
+const hideHint = () => $(".hint")?.classList.add("gone");
+vp.addEventListener("pointerdown", hideHint, { once: true });
+vp.addEventListener("wheel", hideHint, { once: true, passive: true });
+setTimeout(hideHint, 12000);
